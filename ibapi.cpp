@@ -1,4 +1,7 @@
 #include "ibapi.h"
+#include "_obj/_cgo_export.h"
+
+#include "EClientSocket.h"
 
 // *** Contract ***
 
@@ -42,4 +45,26 @@ const char *contract_month(Contract *contract)
 const char *contract_currency(Contract *contract)
 {
     return contract->currency.c_str();
+}
+
+// *** EClientSocket ***
+
+ClientSock *new_client_sock(long wrapper_id)
+{
+    return new ClientSock(wrapper_id);
+}
+
+void delete_client_sock(ClientSock *sock)
+{
+    delete sock;
+}
+
+void sock_econnect(ClientSock *sock, const char *host, int port, int clientId)
+{
+    sock->sock.eConnect(host, port, clientId);
+}
+
+void sock_edisconnect(ClientSock *sock)
+{
+    sock->sock.eDisconnect();
 }
