@@ -112,42 +112,53 @@ func nextValidIDCallback(id C.long, orderID C.OrderId) {
 
 // *** EClientSocket ***
 
-// EClientSocket represents an IB client socket
-type EClientSocket struct {
-	sock *C.ClientSock
-	id   C.long
+const timeoutMs = 2000
+
+// IBClient represents an IB client socket
+type IBClient struct {
+	client *C.IBClient
+	id     C.long
 }
 
-// NewEClientSocket returns a new client socket with the given EWrapper callbacks
-func NewEClientSocket(wrapper EWrapper) *EClientSocket {
+// NewIBClient returns a new client socket with the given EWrapper callbacks
+func NewIBClient(wrapper EWrapper) *IBClient {
 	w.lock.Lock()
 	next := w.next
 	w.m[next] = wrapper
 	w.next++
 	w.lock.Unlock()
 
-	sock := &EClientSocket{sock: C.new_client_sock(next), id: next}
-	return sock
+	return &IBClient{client: C.new_client(next, timeoutMs), id: next}
 }
 
-// EConnect attempts to connect to TWS/IBGateway on the given host/port and client ID
-func (s *EClientSocket) EConnect(host string, port, clientID int) {
+// Connect attempts to connect to TWS/IBGateway on the given host/port and client ID
+func (c *IBClient) Connect(host string, port, clientID int) bool {
 	cHost := C.CString(host)
 	defer C.free(unsafe.Pointer(cHost))
-	C.sock_econnect(s.sock, cHost, C.int(port), C.int(clientID))
+	return bool(C.client_connect(c.client, cHost, C.int(port), C.int(clientID)))
 }
 
-// EDisconnect attempts to disconnect from TWS/IBGateway
-func (s *EClientSocket) EDisconnect() {
-	C.sock_edisconnect(s.sock)
+// Disconnect attempts to disconnect from TWS/IBGateway
+func (c *IBClient) Disconnect() {
+	C.client_disconnect(c.client)
+}
+
+// IsConnected returns the connection state of the client
+func (c *IBClient) IsConnected() bool {
+	return bool(C.client_is_connected(c.client))
+}
+
+// ProcessMsg processes the next msg waiting on the client
+func (c *IBClient) ProcessMsg() {
+	C.client_process_msg(c.client)
 }
 
 // Delete frees the underlying CPP resources and removes the wrapper from the map
-func (s *EClientSocket) Delete() {
+func (c *IBClient) Delete() {
 	// First, get rid of the underlying socket to prevent callbacks
-	C.delete_client_sock(s.sock)
+	C.delete_client(c.client)
 	// Now remove the reference to the ewrapper from the map
 	w.lock.Lock()
-	delete(w.m, s.id)
+	delete(w.m, c.id)
 	w.lock.Unlock()
 }

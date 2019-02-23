@@ -30,11 +30,16 @@ func (w *wrapper) NextValidId(id ibapi.OrderID) {
 }
 
 func TestEClientSocket(t *testing.T) {
-	wrapper := &wrapper{}
-	sock := ibapi.NewEClientSocket(wrapper)
-	sock.EConnect("locahost", 7496, 1)
+	wrapper := &wrapper{nextId: -1}
+	client := ibapi.NewIBClient(wrapper)
+	assert.True(t, client.Connect("127.0.0.1", 7497, 0))
+	go func() {
+		for client.IsConnected() {
+			client.ProcessMsg()
+		}
+	}()
 	time.Sleep(1000 * time.Millisecond)
-	assert.True(t, wrapper.nextId > 0)
-	sock.EDisconnect()
-	sock.Delete()
+	assert.True(t, wrapper.nextId > -1)
+	client.Disconnect()
+	client.Delete()
 }

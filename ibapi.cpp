@@ -47,24 +47,85 @@ const char *contract_currency(Contract *contract)
     return contract->currency.c_str();
 }
 
-// *** EClientSocket ***
+// *** IBClient ***
 
-ClientSock *new_client_sock(long wrapper_id)
+IBClient::IBClient(long wrapper_id, unsigned long timeout)
+    : wrapper_id(wrapper_id), signal(timeout), sock(this, &signal), reader(0) {}
+
+IBClient::~IBClient()
 {
-    return new ClientSock(wrapper_id);
+    if (reader)
+    {
+        delete reader;
+    }
 }
 
-void delete_client_sock(ClientSock *sock)
+bool IBClient::connect(const char *host, int port, int clientId)
 {
-    delete sock;
+    auto connected = sock.eConnect(host, port, clientId);
+    if (connected)
+    {
+        reader = new EReader(&sock, &signal);
+        reader->start();
+    }
+    return connected;
 }
 
-void sock_econnect(ClientSock *sock, const char *host, int port, int clientId)
+void IBClient::processMsg()
 {
-    sock->sock.eConnect(host, port, clientId);
+    if (reader)
+    {
+        signal.waitForSignal();
+        reader->processMsgs();
+    }
 }
 
-void sock_edisconnect(ClientSock *sock)
+void IBClient::updateAccountTime(const std::string &timeStamp)
 {
-    sock->sock.eDisconnect();
+    // printf("***time***\n");
+    // fflush(stdout);
+}
+
+void IBClient::connectionClosed()
+{
+    // printf("***connectionClosed****\n");
+    // fflush(stdout);
+}
+
+void IBClient::error(int id, int errorCode, const std::string &errorString)
+{
+    printf("*** Error: %d %d %s ***\n", id, errorCode, errorString.c_str());
+    fflush(stdout);
+}
+
+// *** C API ***
+
+IBClient *new_client(long wrapper_id, unsigned long timeout)
+{
+    return new IBClient(wrapper_id, timeout);
+}
+
+void delete_client(IBClient *client)
+{
+    delete client;
+}
+
+bool client_connect(IBClient *client, const char *host, int port, int clientId)
+{
+    return client->connect(host, port, clientId);
+}
+
+void client_disconnect(IBClient *client)
+{
+    client->disconnect();
+}
+
+bool client_is_connected(IBClient *client)
+{
+    return client->isConnected();
+}
+
+void client_process_msg(IBClient *client)
+{
+    client->processMsg();
 }
