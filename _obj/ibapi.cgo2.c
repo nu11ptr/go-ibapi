@@ -64,7 +64,72 @@ extern char* _cgo_topofstack(void);
 
 CGO_NO_SANITIZE_THREAD
 void
-_cgo_45b1e13b81bf_Cfunc_contract_currency(void *v)
+_cgo_e05ae29df3db_Cfunc_client_connect(void *v)
+{
+	struct {
+		IBClient* p0;
+		char const* p1;
+		int p2;
+		int p3;
+		_Bool r;
+		char __pad25[7];
+	} __attribute__((__packed__, __gcc_struct__)) *_cgo_a = v;
+	char *_cgo_stktop = _cgo_topofstack();
+	__typeof__(_cgo_a->r) _cgo_r;
+	_cgo_tsan_acquire();
+	_cgo_r = client_connect(_cgo_a->p0, _cgo_a->p1, _cgo_a->p2, _cgo_a->p3);
+	_cgo_tsan_release();
+	_cgo_a = (void*)((char*)_cgo_a + (_cgo_topofstack() - _cgo_stktop));
+	_cgo_a->r = _cgo_r;
+	_cgo_msan_write(&_cgo_a->r, sizeof(_cgo_a->r));
+}
+
+CGO_NO_SANITIZE_THREAD
+void
+_cgo_e05ae29df3db_Cfunc_client_disconnect(void *v)
+{
+	struct {
+		IBClient* p0;
+	} __attribute__((__packed__, __gcc_struct__)) *_cgo_a = v;
+	_cgo_tsan_acquire();
+	client_disconnect(_cgo_a->p0);
+	_cgo_tsan_release();
+}
+
+CGO_NO_SANITIZE_THREAD
+void
+_cgo_e05ae29df3db_Cfunc_client_is_connected(void *v)
+{
+	struct {
+		IBClient* p0;
+		_Bool r;
+		char __pad9[7];
+	} __attribute__((__packed__, __gcc_struct__)) *_cgo_a = v;
+	char *_cgo_stktop = _cgo_topofstack();
+	__typeof__(_cgo_a->r) _cgo_r;
+	_cgo_tsan_acquire();
+	_cgo_r = client_is_connected(_cgo_a->p0);
+	_cgo_tsan_release();
+	_cgo_a = (void*)((char*)_cgo_a + (_cgo_topofstack() - _cgo_stktop));
+	_cgo_a->r = _cgo_r;
+	_cgo_msan_write(&_cgo_a->r, sizeof(_cgo_a->r));
+}
+
+CGO_NO_SANITIZE_THREAD
+void
+_cgo_e05ae29df3db_Cfunc_client_process_msg(void *v)
+{
+	struct {
+		IBClient* p0;
+	} __attribute__((__packed__, __gcc_struct__)) *_cgo_a = v;
+	_cgo_tsan_acquire();
+	client_process_msg(_cgo_a->p0);
+	_cgo_tsan_release();
+}
+
+CGO_NO_SANITIZE_THREAD
+void
+_cgo_e05ae29df3db_Cfunc_contract_currency(void *v)
 {
 	struct {
 		Contract* p0;
@@ -82,7 +147,7 @@ _cgo_45b1e13b81bf_Cfunc_contract_currency(void *v)
 
 CGO_NO_SANITIZE_THREAD
 void
-_cgo_45b1e13b81bf_Cfunc_contract_exchange(void *v)
+_cgo_e05ae29df3db_Cfunc_contract_exchange(void *v)
 {
 	struct {
 		Contract* p0;
@@ -100,7 +165,7 @@ _cgo_45b1e13b81bf_Cfunc_contract_exchange(void *v)
 
 CGO_NO_SANITIZE_THREAD
 void
-_cgo_45b1e13b81bf_Cfunc_contract_month(void *v)
+_cgo_e05ae29df3db_Cfunc_contract_month(void *v)
 {
 	struct {
 		Contract* p0;
@@ -118,7 +183,7 @@ _cgo_45b1e13b81bf_Cfunc_contract_month(void *v)
 
 CGO_NO_SANITIZE_THREAD
 void
-_cgo_45b1e13b81bf_Cfunc_contract_sec_type(void *v)
+_cgo_e05ae29df3db_Cfunc_contract_sec_type(void *v)
 {
 	struct {
 		Contract* p0;
@@ -136,7 +201,7 @@ _cgo_45b1e13b81bf_Cfunc_contract_sec_type(void *v)
 
 CGO_NO_SANITIZE_THREAD
 void
-_cgo_45b1e13b81bf_Cfunc_contract_symbol(void *v)
+_cgo_e05ae29df3db_Cfunc_contract_symbol(void *v)
 {
 	struct {
 		Contract* p0;
@@ -154,19 +219,19 @@ _cgo_45b1e13b81bf_Cfunc_contract_symbol(void *v)
 
 CGO_NO_SANITIZE_THREAD
 void
-_cgo_45b1e13b81bf_Cfunc_delete_client_sock(void *v)
+_cgo_e05ae29df3db_Cfunc_delete_client(void *v)
 {
 	struct {
-		ClientSock* p0;
+		IBClient* p0;
 	} __attribute__((__packed__, __gcc_struct__)) *_cgo_a = v;
 	_cgo_tsan_acquire();
-	delete_client_sock(_cgo_a->p0);
+	delete_client(_cgo_a->p0);
 	_cgo_tsan_release();
 }
 
 CGO_NO_SANITIZE_THREAD
 void
-_cgo_45b1e13b81bf_Cfunc_delete_contract(void *v)
+_cgo_e05ae29df3db_Cfunc_delete_contract(void *v)
 {
 	struct {
 		Contract* p0;
@@ -178,7 +243,7 @@ _cgo_45b1e13b81bf_Cfunc_delete_contract(void *v)
 
 CGO_NO_SANITIZE_THREAD
 void
-_cgo_45b1e13b81bf_Cfunc_free(void *v)
+_cgo_e05ae29df3db_Cfunc_free(void *v)
 {
 	struct {
 		void* p0;
@@ -190,16 +255,17 @@ _cgo_45b1e13b81bf_Cfunc_free(void *v)
 
 CGO_NO_SANITIZE_THREAD
 void
-_cgo_45b1e13b81bf_Cfunc_new_client_sock(void *v)
+_cgo_e05ae29df3db_Cfunc_new_client(void *v)
 {
 	struct {
 		long int p0;
-		ClientSock* r;
+		long unsigned int p1;
+		IBClient* r;
 	} __attribute__((__packed__, __gcc_struct__)) *_cgo_a = v;
 	char *_cgo_stktop = _cgo_topofstack();
 	__typeof__(_cgo_a->r) _cgo_r;
 	_cgo_tsan_acquire();
-	_cgo_r = (__typeof__(_cgo_a->r)) new_client_sock(_cgo_a->p0);
+	_cgo_r = (__typeof__(_cgo_a->r)) new_client(_cgo_a->p0, _cgo_a->p1);
 	_cgo_tsan_release();
 	_cgo_a = (void*)((char*)_cgo_a + (_cgo_topofstack() - _cgo_stktop));
 	_cgo_a->r = _cgo_r;
@@ -208,7 +274,7 @@ _cgo_45b1e13b81bf_Cfunc_new_client_sock(void *v)
 
 CGO_NO_SANITIZE_THREAD
 void
-_cgo_45b1e13b81bf_Cfunc_new_contract(void *v)
+_cgo_e05ae29df3db_Cfunc_new_contract(void *v)
 {
 	struct {
 		char const* p0;
@@ -226,32 +292,5 @@ _cgo_45b1e13b81bf_Cfunc_new_contract(void *v)
 	_cgo_a = (void*)((char*)_cgo_a + (_cgo_topofstack() - _cgo_stktop));
 	_cgo_a->r = _cgo_r;
 	_cgo_msan_write(&_cgo_a->r, sizeof(_cgo_a->r));
-}
-
-CGO_NO_SANITIZE_THREAD
-void
-_cgo_45b1e13b81bf_Cfunc_sock_econnect(void *v)
-{
-	struct {
-		ClientSock* p0;
-		char const* p1;
-		int p2;
-		int p3;
-	} __attribute__((__packed__, __gcc_struct__)) *_cgo_a = v;
-	_cgo_tsan_acquire();
-	sock_econnect(_cgo_a->p0, _cgo_a->p1, _cgo_a->p2, _cgo_a->p3);
-	_cgo_tsan_release();
-}
-
-CGO_NO_SANITIZE_THREAD
-void
-_cgo_45b1e13b81bf_Cfunc_sock_edisconnect(void *v)
-{
-	struct {
-		ClientSock* p0;
-	} __attribute__((__packed__, __gcc_struct__)) *_cgo_a = v;
-	_cgo_tsan_acquire();
-	sock_edisconnect(_cgo_a->p0);
-	_cgo_tsan_release();
 }
 

@@ -115,42 +115,53 @@ func nextValidIDCallback(id _Ctype_long, orderID _Ctype_OrderId) {
 
 // *** EClientSocket ***
 
-// EClientSocket represents an IB client socket
-type EClientSocket struct {
-	sock *_Ctype_struct_ClientSock
-	id   _Ctype_long
+const timeoutMs = 2000
+
+// IBClient represents an IB client socket
+type IBClient struct {
+	client *_Ctype_struct_IBClient
+	id     _Ctype_long
 }
 
-// NewEClientSocket returns a new client socket with the given EWrapper callbacks
-func NewEClientSocket(wrapper EWrapper) *EClientSocket {
+// NewIBClient returns a new client socket with the given EWrapper callbacks
+func NewIBClient(wrapper EWrapper) *IBClient {
 	w.lock.Lock()
 	next := w.next
 	w.m[next] = wrapper
 	w.next++
 	w.lock.Unlock()
 
-	sock := &EClientSocket{sock: (_Cfunc_new_client_sock)(next), id: next}
-	return sock
+	return &IBClient{client: (_Cfunc_new_client)(next, timeoutMs), id: next}
 }
 
-// EConnect attempts to connect to TWS/IBGateway on the given host/port and client ID
-func (s *EClientSocket) EConnect(host string, port, clientID int) {
+// Connect attempts to connect to TWS/IBGateway on the given host/port and client ID
+func (c *IBClient) Connect(host string, port, clientID int) bool {
 	cHost := (_Cfunc_CString)(host)
 	defer func(_cgo0 _cgo_unsafe.Pointer) {;	_cgoCheckPointer(_cgo0);	(_Cfunc_free)(_cgo0);}(unsafe.Pointer(cHost))
-	func(_cgo0 *_Ctype_struct_ClientSock, _cgo1 *_Ctype_char, _cgo2 _Ctype_int, _cgo3 _Ctype_int) {;	_cgoCheckPointer(_cgo0);	(_Cfunc_sock_econnect)(_cgo0, _cgo1, _cgo2, _cgo3);}(s.sock, cHost, _Ctype_int(port), _Ctype_int(clientID))
+	return bool(func(_cgo0 *_Ctype_struct_IBClient, _cgo1 *_Ctype_char, _cgo2 _Ctype_int, _cgo3 _Ctype_int) _Ctype__Bool {;	_cgoCheckPointer(_cgo0);	return (_Cfunc_client_connect)(_cgo0, _cgo1, _cgo2, _cgo3);}(c.client, cHost, _Ctype_int(port), _Ctype_int(clientID)))
 }
 
-// EDisconnect attempts to disconnect from TWS/IBGateway
-func (s *EClientSocket) EDisconnect() {
-	func(_cgo0 *_Ctype_struct_ClientSock) {;	_cgoCheckPointer(_cgo0);	(_Cfunc_sock_edisconnect)(_cgo0);}(s.sock)
+// Disconnect attempts to disconnect from TWS/IBGateway
+func (c *IBClient) Disconnect() {
+	func(_cgo0 *_Ctype_struct_IBClient) {;	_cgoCheckPointer(_cgo0);	(_Cfunc_client_disconnect)(_cgo0);}(c.client)
+}
+
+// IsConnected returns the connection state of the client
+func (c *IBClient) IsConnected() bool {
+	return bool(func(_cgo0 *_Ctype_struct_IBClient) _Ctype__Bool {;	_cgoCheckPointer(_cgo0);	return (_Cfunc_client_is_connected)(_cgo0);}(c.client))
+}
+
+// ProcessMsg processes the next msg waiting on the client
+func (c *IBClient) ProcessMsg() {
+	func(_cgo0 *_Ctype_struct_IBClient) {;	_cgoCheckPointer(_cgo0);	(_Cfunc_client_process_msg)(_cgo0);}(c.client)
 }
 
 // Delete frees the underlying CPP resources and removes the wrapper from the map
-func (s *EClientSocket) Delete() {
+func (c *IBClient) Delete() {
 	// First, get rid of the underlying socket to prevent callbacks
-	func(_cgo0 *_Ctype_struct_ClientSock) {;	_cgoCheckPointer(_cgo0);	(_Cfunc_delete_client_sock)(_cgo0);}(s.sock)
+	func(_cgo0 *_Ctype_struct_IBClient) {;	_cgoCheckPointer(_cgo0);	(_Cfunc_delete_client)(_cgo0);}(c.client)
 	// Now remove the reference to the ewrapper from the map
 	w.lock.Lock()
-	delete(w.m, s.id)
+	delete(w.m, c.id)
 	w.lock.Unlock()
 }
