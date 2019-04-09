@@ -92,6 +92,10 @@ type OrderID = C.OrderId
 // EWrapper represesnts an interface of IB callbacks
 type EWrapper interface {
 	NextValidId(orderID OrderID)
+
+	AccountSummary(reqID int, account, tag, value string)
+
+	AccountSummaryEnd(reqID int)
 }
 
 func findEWrapper(id C.long) EWrapper {
@@ -109,6 +113,20 @@ func findEWrapper(id C.long) EWrapper {
 func nextValidIDCallback(id C.long, orderID C.OrderId) {
 	if wrapper := findEWrapper(id); wrapper != nil {
 		wrapper.NextValidId(orderID)
+	}
+}
+
+//export accountSummaryCallback
+func accountSummaryCallback(id C.long, reqID C.int, account, tag, value, currency *C.char) {
+	if wrapper := findEWrapper(id); wrapper != nil {
+		wrapper.AccountSummary(int(reqID), C.GoString(account), C.GoString(tag), C.GoString(currency))
+	}
+}
+
+//export accountSummaryEndCallback
+func accountSummaryEndCallback(id C.long, reqID C.int) {
+	if wrapper := findEWrapper(id); wrapper != nil {
+		wrapper.AccountSummaryEnd(int(reqID))
 	}
 }
 
@@ -163,4 +181,8 @@ func (c *IBClient) Delete() {
 	w.lock.Lock()
 	delete(w.m, c.id)
 	w.lock.Unlock()
+}
+
+func (c *IBClient) ReqAccountSummary() {
+
 }

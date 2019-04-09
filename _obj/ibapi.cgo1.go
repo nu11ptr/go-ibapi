@@ -95,9 +95,13 @@ type OrderID =  /*line :90:16*/_Ctype_OrderId /*line :90:25*/
 // EWrapper represesnts an interface of IB callbacks
 type EWrapper interface {
 	NextValidId(orderID OrderID)
+
+	AccountSummary(reqID int, account, tag, value string)
+
+	AccountSummaryEnd(reqID int)
 }
 
-func findEWrapper(id  /*line :97:22*/_Ctype_long /*line :97:28*/) EWrapper {
+func findEWrapper(id  /*line :101:22*/_Ctype_long /*line :101:28*/) EWrapper {
 	w.lock.Lock()
 	defer w.lock.Unlock()
 	wrapper, ok := w.m[id]
@@ -109,9 +113,23 @@ func findEWrapper(id  /*line :97:22*/_Ctype_long /*line :97:28*/) EWrapper {
 }
 
 //export nextValidIDCallback
-func nextValidIDCallback(id  /*line :109:29*/_Ctype_long /*line :109:35*/, orderID  /*line :109:45*/_Ctype_OrderId /*line :109:54*/) {
+func nextValidIDCallback(id  /*line :113:29*/_Ctype_long /*line :113:35*/, orderID  /*line :113:45*/_Ctype_OrderId /*line :113:54*/) {
 	if wrapper := findEWrapper(id); wrapper != nil {
 		wrapper.NextValidId(orderID)
+	}
+}
+
+//export accountSummaryCallback
+func accountSummaryCallback(id  /*line :120:32*/_Ctype_long /*line :120:38*/, reqID  /*line :120:46*/_Ctype_int /*line :120:51*/, account, tag, value, currency * /*line :120:84*/_Ctype_char /*line :120:90*/) {
+	if wrapper := findEWrapper(id); wrapper != nil {
+		wrapper.AccountSummary(int(reqID), ( /*line :122:38*/_Cfunc_GoString /*line :122:47*/)(account), ( /*line :122:59*/_Cfunc_GoString /*line :122:68*/)(tag), ( /*line :122:76*/_Cfunc_GoString /*line :122:85*/)(currency))
+	}
+}
+
+//export accountSummaryEndCallback
+func accountSummaryEndCallback(id  /*line :127:35*/_Ctype_long /*line :127:41*/, reqID  /*line :127:49*/_Ctype_int /*line :127:54*/) {
+	if wrapper := findEWrapper(id); wrapper != nil {
+		wrapper.AccountSummaryEnd(int(reqID))
 	}
 }
 
@@ -121,8 +139,8 @@ const timeoutMs = 2000
 
 // IBClient represents an IB client socket
 type IBClient struct {
-	client * /*line :121:10*/_Ctype_struct_IBClient /*line :121:20*/
-	id      /*line :122:9*/_Ctype_long /*line :122:15*/
+	client * /*line :139:10*/_Ctype_struct_IBClient /*line :139:20*/
+	id      /*line :140:9*/_Ctype_long /*line :140:15*/
 }
 
 // NewIBClient returns a new client socket with the given EWrapper callbacks
@@ -133,37 +151,41 @@ func NewIBClient(wrapper EWrapper) *IBClient {
 	w.next++
 	w.lock.Unlock()
 
-	return &IBClient{client: ( /*line :133:27*/_Cfunc_new_client /*line :133:38*/)(next, timeoutMs), id: next}
+	return &IBClient{client: ( /*line :151:27*/_Cfunc_new_client /*line :151:38*/)(next, timeoutMs), id: next}
 }
 
 // Connect attempts to connect to TWS/IBGateway on the given host/port and client ID
 func (c *IBClient) Connect(host string, port, clientID int) bool {
-	cHost := ( /*line :138:11*/_Cfunc_CString /*line :138:19*/)(host)
-	defer func() func() { _cgo0 := /*line :139:15*/unsafe.Pointer(cHost); return func() { _cgoCheckPointer(_cgo0); _Cfunc_free(_cgo0); }}()()
-	return bool(func() _Ctype__Bool{ _cgo0 := /*line :140:31*/c.client; var _cgo1 *_Ctype_char = /*line :140:41*/cHost; var _cgo2 _Ctype_int = _Ctype_int(port); var _cgo3 _Ctype_int = _Ctype_int(clientID); _cgoCheckPointer(_cgo0); return _Cfunc_client_connect(_cgo0, _cgo1, _cgo2, _cgo3); }())
+	cHost := ( /*line :156:11*/_Cfunc_CString /*line :156:19*/)(host)
+	defer func() func() { _cgo0 := /*line :157:15*/unsafe.Pointer(cHost); return func() { _cgoCheckPointer(_cgo0); _Cfunc_free(_cgo0); }}()()
+	return bool(func() _Ctype__Bool{ _cgo0 := /*line :158:31*/c.client; var _cgo1 *_Ctype_char = /*line :158:41*/cHost; var _cgo2 _Ctype_int = _Ctype_int(port); var _cgo3 _Ctype_int = _Ctype_int(clientID); _cgoCheckPointer(_cgo0); return _Cfunc_client_connect(_cgo0, _cgo1, _cgo2, _cgo3); }())
 }
 
 // Disconnect attempts to disconnect from TWS/IBGateway
 func (c *IBClient) Disconnect() {
-	func() { _cgo0 := /*line :145:22*/c.client; _cgoCheckPointer(_cgo0); _Cfunc_client_disconnect(_cgo0); }()
+	func() { _cgo0 := /*line :163:22*/c.client; _cgoCheckPointer(_cgo0); _Cfunc_client_disconnect(_cgo0); }()
 }
 
 // IsConnected returns the connection state of the client
 func (c *IBClient) IsConnected() bool {
-	return bool(func() _Ctype__Bool{ _cgo0 := /*line :150:36*/c.client; _cgoCheckPointer(_cgo0); return _Cfunc_client_is_connected(_cgo0); }())
+	return bool(func() _Ctype__Bool{ _cgo0 := /*line :168:36*/c.client; _cgoCheckPointer(_cgo0); return _Cfunc_client_is_connected(_cgo0); }())
 }
 
 // ProcessMsg processes the next msg waiting on the client
 func (c *IBClient) ProcessMsg() {
-	func() { _cgo0 := /*line :155:23*/c.client; _cgoCheckPointer(_cgo0); _Cfunc_client_process_msg(_cgo0); }()
+	func() { _cgo0 := /*line :173:23*/c.client; _cgoCheckPointer(_cgo0); _Cfunc_client_process_msg(_cgo0); }()
 }
 
 // Delete frees the underlying CPP resources and removes the wrapper from the map
 func (c *IBClient) Delete() {
 	// First, get rid of the underlying socket to prevent callbacks
-	func() { _cgo0 := /*line :161:18*/c.client; _cgoCheckPointer(_cgo0); _Cfunc_delete_client(_cgo0); }()
+	func() { _cgo0 := /*line :179:18*/c.client; _cgoCheckPointer(_cgo0); _Cfunc_delete_client(_cgo0); }()
 	// Now remove the reference to the ewrapper from the map
 	w.lock.Lock()
 	delete(w.m, c.id)
 	w.lock.Unlock()
+}
+
+func (c *IBClient) ReqAccountSummary() {
+
 }

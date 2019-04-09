@@ -81,6 +81,10 @@ extern "C" {
 
 extern void nextValidIDCallback(long int p0, OrderId p1);
 
+extern void accountSummaryCallback(long int p0, int p1, char* p2, char* p3, char* p4, char* p5);
+
+extern void accountSummaryEndCallback(long int p0, int p1);
+
 #ifdef __cplusplus
 }
 #endif

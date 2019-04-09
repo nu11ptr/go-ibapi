@@ -80,6 +80,18 @@ void IBClient::processMsg()
     }
 }
 
+void IBClient::reqAccountSummary(int reqId)
+{
+    sock.reqAccountSummary(reqId, "All", "");
+}
+
+void IBClient::cancelAccountSummary(int reqId)
+{
+    sock.cancelAccountSummary(reqId);
+}
+
+// *** EWrapper ***
+
 void IBClient::updateAccountTime(const std::string &timeStamp)
 {
     // printf("***time***\n");
@@ -128,4 +140,14 @@ bool client_is_connected(IBClient *client)
 void client_process_msg(IBClient *client)
 {
     client->processMsg();
+}
+
+void client_req_account_summ(IBClient *client, int req_id)
+{
+    client->reqAccountSummary(req_id);
+}
+
+void client_cancel_account_summ(IBClient *client, int req_id)
+{
+    client->cancelAccountSummary(req_id);
 }

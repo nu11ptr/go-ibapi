@@ -18,7 +18,7 @@ extern char* _cgo_topofstack(void);
 
 #define _cgo_msan_write(addr, sz)
 
-extern void _cgoexp_70a992acafc5_nextValidIDCallback(void *, int, __SIZE_TYPE__);
+extern void _cgoexp_83f707f27aed_nextValidIDCallback(void *, int, __SIZE_TYPE__);
 
 CGO_NO_SANITIZE_THREAD
 void nextValidIDCallback(long int p0, OrderId p1)
@@ -31,13 +31,57 @@ void nextValidIDCallback(long int p0, OrderId p1)
 	a.p0 = p0;
 	a.p1 = p1;
 	_cgo_tsan_release();
-	crosscall2(_cgoexp_70a992acafc5_nextValidIDCallback, &a, 16, _cgo_ctxt);
+	crosscall2(_cgoexp_83f707f27aed_nextValidIDCallback, &a, 16, _cgo_ctxt);
+	_cgo_tsan_acquire();
+	_cgo_release_context(_cgo_ctxt);
+}
+extern void _cgoexp_83f707f27aed_accountSummaryCallback(void *, int, __SIZE_TYPE__);
+
+CGO_NO_SANITIZE_THREAD
+void accountSummaryCallback(long int p0, int p1, char* p2, char* p3, char* p4, char* p5)
+{
+	__SIZE_TYPE__ _cgo_ctxt = _cgo_wait_runtime_init_done();
+	struct {
+		long int p0;
+		int p1;
+		char __pad0[4];
+		char* p2;
+		char* p3;
+		char* p4;
+		char* p5;
+	} __attribute__((__packed__, __gcc_struct__)) a;
+	a.p0 = p0;
+	a.p1 = p1;
+	a.p2 = p2;
+	a.p3 = p3;
+	a.p4 = p4;
+	a.p5 = p5;
+	_cgo_tsan_release();
+	crosscall2(_cgoexp_83f707f27aed_accountSummaryCallback, &a, 48, _cgo_ctxt);
+	_cgo_tsan_acquire();
+	_cgo_release_context(_cgo_ctxt);
+}
+extern void _cgoexp_83f707f27aed_accountSummaryEndCallback(void *, int, __SIZE_TYPE__);
+
+CGO_NO_SANITIZE_THREAD
+void accountSummaryEndCallback(long int p0, int p1)
+{
+	__SIZE_TYPE__ _cgo_ctxt = _cgo_wait_runtime_init_done();
+	struct {
+		long int p0;
+		int p1;
+		char __pad0[4];
+	} __attribute__((__packed__, __gcc_struct__)) a;
+	a.p0 = p0;
+	a.p1 = p1;
+	_cgo_tsan_release();
+	crosscall2(_cgoexp_83f707f27aed_accountSummaryEndCallback, &a, 16, _cgo_ctxt);
 	_cgo_tsan_acquire();
 	_cgo_release_context(_cgo_ctxt);
 }
 
 CGO_NO_SANITIZE_THREAD
-void _cgo_70a992acafc5_Cfunc__Cmalloc(void *v) {
+void _cgo_83f707f27aed_Cfunc__Cmalloc(void *v) {
 	struct {
 		unsigned long long p0;
 		void *r1;

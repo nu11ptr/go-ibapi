@@ -38,6 +38,10 @@ class IBClient : public DefaultEWrapper
 
     void processMsg();
 
+    void reqAccountSummary(int reqId);
+
+    void cancelAccountSummary(int reqId);
+
     // *** EWrapper ****
 
     void nextValidId(OrderId orderId)
@@ -55,6 +59,18 @@ class IBClient : public DefaultEWrapper
     }
 
     void connectionClosed();
+
+    void accountSummary(int reqId, const std::string &account, const std::string &tag,
+                        const std::string &value, const std::string &currency)
+    {
+        accountSummaryCallback(wrapper_id, reqId, (char *)account.c_str(), (char *)tag.c_str(),
+                               (char *)value.c_str(), (char *)currency.c_str());
+    }
+
+    void accountSummaryEnd(int reqId)
+    {
+        accountSummaryEndCallback(wrapper_id, reqId);
+    }
 };
 
 extern "C"
@@ -98,6 +114,10 @@ typedef struct IBClient IBClient;
     bool client_is_connected(IBClient *client);
 
     void client_process_msg(IBClient *client);
+
+    void client_req_account_summ(IBClient *client, int req_id);
+
+    void client_cancel_account_summ(IBClient *client, int req_id);
 
 #ifdef __cplusplus
 }
