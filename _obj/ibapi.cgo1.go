@@ -209,6 +209,14 @@ func (c *IBClient) Delete() {
 	w.lock.Unlock()
 }
 
-func (c *IBClient) ReqAccountSummary() {
+func (c *IBClient) ReqAccountSummary(reqID int, group, tags string) {
+	cGroup, cTags := ( /*line :210:19*/_Cfunc_CString /*line :210:27*/)(group), ( /*line :210:37*/_Cfunc_CString /*line :210:45*/)(tags)
+	func() { _cgo0 := /*line :211:28*/c.client; var _cgo1 _Ctype_int = _Ctype_int(reqID); var _cgo2 *_Ctype_char = /*line :211:52*/cGroup; var _cgo3 *_Ctype_char = /*line :211:60*/cTags; _cgoCheckPointer(_cgo0); _Cfunc_client_req_account_summ(_cgo0, _cgo1, _cgo2, _cgo3); }()
+	// NOTE: Are we done with these? Hopefully...
+	func() { _cgo0 := /*line :213:9*/unsafe.Pointer(cGroup); _cgoCheckPointer(_cgo0); _Cfunc_free(_cgo0); }()
+	func() { _cgo0 := /*line :214:9*/unsafe.Pointer(cTags); _cgoCheckPointer(_cgo0); _Cfunc_free(_cgo0); }()
+}
 
+func (c *IBClient) CancelAccountSummary(reqID int) {
+	func() { _cgo0 := /*line :218:31*/c.client; var _cgo1 _Ctype_int = _Ctype_int(reqID); _cgoCheckPointer(_cgo0); _Cfunc_client_cancel_account_summ(_cgo0, _cgo1); }()
 }

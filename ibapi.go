@@ -206,6 +206,14 @@ func (c *IBClient) Delete() {
 	w.lock.Unlock()
 }
 
-func (c *IBClient) ReqAccountSummary() {
+func (c *IBClient) ReqAccountSummary(reqID int, group, tags string) {
+	cGroup, cTags := C.CString(group), C.CString(tags)
+	C.client_req_account_summ(c.client, C.int(reqID), cGroup, cTags)
+	// NOTE: Are we done with these? Hopefully...
+	C.free(unsafe.Pointer(cGroup))
+	C.free(unsafe.Pointer(cTags))
+}
 
+func (c *IBClient) CancelAccountSummary(reqID int) {
+	C.client_cancel_account_summ(c.client, C.int(reqID))
 }

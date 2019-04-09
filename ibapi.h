@@ -38,7 +38,7 @@ class IBClient : public DefaultEWrapper
 
     void processMsg();
 
-    void reqAccountSummary(int reqId);
+    void reqAccountSummary(int reqId, const std::string groupName, const std::string tags);
 
     void cancelAccountSummary(int reqId);
 
@@ -124,7 +124,7 @@ typedef struct IBClient IBClient;
 
     void client_process_msg(IBClient *client);
 
-    void client_req_account_summ(IBClient *client, int req_id);
+    void client_req_account_summ(IBClient *client, int req_id, const char *group, const char *tags);
 
     void client_cancel_account_summ(IBClient *client, int req_id);
 

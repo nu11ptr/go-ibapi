@@ -75,7 +75,21 @@ extern char* _cgo_topofstack(void);
 
 CGO_NO_SANITIZE_THREAD
 void
-_cgo_e2f74581221c_Cfunc_client_connect(void *v)
+_cgo_b43a3ff11f6e_Cfunc_client_cancel_account_summ(void *v)
+{
+	struct {
+		IBClient* p0;
+		int p1;
+		char __pad12[4];
+	} __attribute__((__packed__, __gcc_struct__)) *_cgo_a = v;
+	_cgo_tsan_acquire();
+	client_cancel_account_summ(_cgo_a->p0, _cgo_a->p1);
+	_cgo_tsan_release();
+}
+
+CGO_NO_SANITIZE_THREAD
+void
+_cgo_b43a3ff11f6e_Cfunc_client_connect(void *v)
 {
 	struct {
 		IBClient* p0;
@@ -97,7 +111,7 @@ _cgo_e2f74581221c_Cfunc_client_connect(void *v)
 
 CGO_NO_SANITIZE_THREAD
 void
-_cgo_e2f74581221c_Cfunc_client_disconnect(void *v)
+_cgo_b43a3ff11f6e_Cfunc_client_disconnect(void *v)
 {
 	struct {
 		IBClient* p0;
@@ -109,7 +123,7 @@ _cgo_e2f74581221c_Cfunc_client_disconnect(void *v)
 
 CGO_NO_SANITIZE_THREAD
 void
-_cgo_e2f74581221c_Cfunc_client_is_connected(void *v)
+_cgo_b43a3ff11f6e_Cfunc_client_is_connected(void *v)
 {
 	struct {
 		IBClient* p0;
@@ -128,7 +142,7 @@ _cgo_e2f74581221c_Cfunc_client_is_connected(void *v)
 
 CGO_NO_SANITIZE_THREAD
 void
-_cgo_e2f74581221c_Cfunc_client_process_msg(void *v)
+_cgo_b43a3ff11f6e_Cfunc_client_process_msg(void *v)
 {
 	struct {
 		IBClient* p0;
@@ -140,7 +154,23 @@ _cgo_e2f74581221c_Cfunc_client_process_msg(void *v)
 
 CGO_NO_SANITIZE_THREAD
 void
-_cgo_e2f74581221c_Cfunc_contract_currency(void *v)
+_cgo_b43a3ff11f6e_Cfunc_client_req_account_summ(void *v)
+{
+	struct {
+		IBClient* p0;
+		int p1;
+		char __pad12[4];
+		char const* p2;
+		char const* p3;
+	} __attribute__((__packed__, __gcc_struct__)) *_cgo_a = v;
+	_cgo_tsan_acquire();
+	client_req_account_summ(_cgo_a->p0, _cgo_a->p1, _cgo_a->p2, _cgo_a->p3);
+	_cgo_tsan_release();
+}
+
+CGO_NO_SANITIZE_THREAD
+void
+_cgo_b43a3ff11f6e_Cfunc_contract_currency(void *v)
 {
 	struct {
 		Contract* p0;
@@ -158,7 +188,7 @@ _cgo_e2f74581221c_Cfunc_contract_currency(void *v)
 
 CGO_NO_SANITIZE_THREAD
 void
-_cgo_e2f74581221c_Cfunc_contract_exchange(void *v)
+_cgo_b43a3ff11f6e_Cfunc_contract_exchange(void *v)
 {
 	struct {
 		Contract* p0;
@@ -176,7 +206,7 @@ _cgo_e2f74581221c_Cfunc_contract_exchange(void *v)
 
 CGO_NO_SANITIZE_THREAD
 void
-_cgo_e2f74581221c_Cfunc_contract_month(void *v)
+_cgo_b43a3ff11f6e_Cfunc_contract_month(void *v)
 {
 	struct {
 		Contract* p0;
@@ -194,7 +224,7 @@ _cgo_e2f74581221c_Cfunc_contract_month(void *v)
 
 CGO_NO_SANITIZE_THREAD
 void
-_cgo_e2f74581221c_Cfunc_contract_sec_type(void *v)
+_cgo_b43a3ff11f6e_Cfunc_contract_sec_type(void *v)
 {
 	struct {
 		Contract* p0;
@@ -212,7 +242,7 @@ _cgo_e2f74581221c_Cfunc_contract_sec_type(void *v)
 
 CGO_NO_SANITIZE_THREAD
 void
-_cgo_e2f74581221c_Cfunc_contract_symbol(void *v)
+_cgo_b43a3ff11f6e_Cfunc_contract_symbol(void *v)
 {
 	struct {
 		Contract* p0;
@@ -230,7 +260,7 @@ _cgo_e2f74581221c_Cfunc_contract_symbol(void *v)
 
 CGO_NO_SANITIZE_THREAD
 void
-_cgo_e2f74581221c_Cfunc_delete_client(void *v)
+_cgo_b43a3ff11f6e_Cfunc_delete_client(void *v)
 {
 	struct {
 		IBClient* p0;
@@ -242,7 +272,7 @@ _cgo_e2f74581221c_Cfunc_delete_client(void *v)
 
 CGO_NO_SANITIZE_THREAD
 void
-_cgo_e2f74581221c_Cfunc_delete_contract(void *v)
+_cgo_b43a3ff11f6e_Cfunc_delete_contract(void *v)
 {
 	struct {
 		Contract* p0;
@@ -254,7 +284,7 @@ _cgo_e2f74581221c_Cfunc_delete_contract(void *v)
 
 CGO_NO_SANITIZE_THREAD
 void
-_cgo_e2f74581221c_Cfunc_free(void *v)
+_cgo_b43a3ff11f6e_Cfunc_free(void *v)
 {
 	struct {
 		void* p0;
@@ -266,7 +296,7 @@ _cgo_e2f74581221c_Cfunc_free(void *v)
 
 CGO_NO_SANITIZE_THREAD
 void
-_cgo_e2f74581221c_Cfunc_new_client(void *v)
+_cgo_b43a3ff11f6e_Cfunc_new_client(void *v)
 {
 	struct {
 		long int p0;
@@ -285,7 +315,7 @@ _cgo_e2f74581221c_Cfunc_new_client(void *v)
 
 CGO_NO_SANITIZE_THREAD
 void
-_cgo_e2f74581221c_Cfunc_new_contract(void *v)
+_cgo_b43a3ff11f6e_Cfunc_new_contract(void *v)
 {
 	struct {
 		char const* p0;

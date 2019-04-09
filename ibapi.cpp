@@ -80,9 +80,9 @@ void IBClient::processMsg()
     }
 }
 
-void IBClient::reqAccountSummary(int reqId)
+void IBClient::reqAccountSummary(int reqId, const std::string groupName, const std::string tags)
 {
-    sock.reqAccountSummary(reqId, "All", "");
+    sock.reqAccountSummary(reqId, groupName, tags);
 }
 
 void IBClient::cancelAccountSummary(int reqId)
@@ -124,9 +124,9 @@ void client_process_msg(IBClient *client)
     client->processMsg();
 }
 
-void client_req_account_summ(IBClient *client, int req_id)
+void client_req_account_summ(IBClient *client, int req_id, const char *group, const char *tags)
 {
-    client->reqAccountSummary(req_id);
+    client->reqAccountSummary(req_id, group, tags);
 }
 
 void client_cancel_account_summ(IBClient *client, int req_id)
