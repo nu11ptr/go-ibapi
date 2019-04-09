@@ -5,8 +5,8 @@ import (
 	"testing"
 	"time"
 
+	ibapi "github.com/nu11ptr/go-ibapi"
 	"github.com/stretchr/testify/assert"
-	ibapi "gitlab.com/apisw/go-ibapi"
 )
 
 func TestContract(t *testing.T) {
