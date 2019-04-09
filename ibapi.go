@@ -2,10 +2,6 @@ package ibapi
 
 //go:generate go tool cgo ibapi.go
 
-// NOTE: Before building, ensure you've exported these variables:
-// CGO_LDFLAGS=<path_to_ib_cpp_api>/libTwsSocketClient.so
-// CGO_CPP_FLAGS=-I<path_to_ib_cpp_api>
-
 /*
 #cgo CXXFLAGS: -std=c++11
 #cgo CPPFLAGS: -Itws-api
@@ -93,6 +89,12 @@ type OrderID = C.OrderId
 type EWrapper interface {
 	NextValidId(orderID OrderID)
 
+	UpdateAccountTime(timeStamp string)
+
+	Error(id, errorCode int, errorStr string)
+
+	ConnectionClosed()
+
 	AccountSummary(reqID int, account, tag, value string)
 
 	AccountSummaryEnd(reqID int)
@@ -107,6 +109,27 @@ func findEWrapper(id C.long) EWrapper {
 		return nil
 	}
 	return wrapper
+}
+
+//export updateAccountTimeCallback
+func updateAccountTimeCallback(id C.long, timeStamp *C.char) {
+	if wrapper := findEWrapper(id); wrapper != nil {
+		wrapper.UpdateAccountTime(C.GoString(timeStamp))
+	}
+}
+
+//export errorCallback
+func errorCallback(id C.long, errID, errCode C.int, errStr *C.char) {
+	if wrapper := findEWrapper(id); wrapper != nil {
+		wrapper.Error(int(errID), int(errCode), C.GoString(errStr))
+	}
+}
+
+//export connectionClosedCallback
+func connectionClosedCallback(id C.long) {
+	if wrapper := findEWrapper(id); wrapper != nil {
+		wrapper.ConnectionClosed()
+	}
 }
 
 //export nextValidIDCallback

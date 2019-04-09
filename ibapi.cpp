@@ -92,24 +92,6 @@ void IBClient::cancelAccountSummary(int reqId)
 
 // *** EWrapper ***
 
-void IBClient::updateAccountTime(const std::string &timeStamp)
-{
-    // printf("***time***\n");
-    // fflush(stdout);
-}
-
-void IBClient::connectionClosed()
-{
-    // printf("***connectionClosed****\n");
-    // fflush(stdout);
-}
-
-void IBClient::error(int id, int errorCode, const std::string &errorString)
-{
-    printf("*** Error: %d %d %s ***\n", id, errorCode, errorString.c_str());
-    fflush(stdout);
-}
-
 // *** C API ***
 
 IBClient *new_client(long wrapper_id, unsigned long timeout)

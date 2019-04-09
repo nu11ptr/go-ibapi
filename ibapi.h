@@ -49,16 +49,25 @@ class IBClient : public DefaultEWrapper
         nextValidIDCallback(wrapper_id, orderId);
     }
 
-    void updateAccountTime(const std::string &timeStamp);
+    void updateAccountTime(const std::string &timeStamp)
+    {
+        updateAccountTimeCallback(wrapper_id, (char *)timeStamp.c_str());
+    }
 
-    void error(int id, int errorCode, const std::string &errorString);
+    void error(int id, int errorCode, const std::string &errorString)
+    {
+        errorCallback(wrapper_id, id, errorCode, (char *)errorString.c_str());
+    }
 
     void connectAck()
     {
         sock.startApi();
     }
 
-    void connectionClosed();
+    void connectionClosed()
+    {
+        connectionClosedCallback(wrapper_id);
+    }
 
     void accountSummary(int reqId, const std::string &account, const std::string &tag,
                         const std::string &value, const std::string &currency)

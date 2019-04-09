@@ -19,7 +19,7 @@ typedef struct { const char *p; ptrdiff_t n; } _GoString_;
 /* Start of preamble from import "C" comments.  */
 
 
-#line 9 "ibapi.go"
+#line 5 "ibapi.go"
 
 
 
@@ -78,6 +78,12 @@ typedef struct { void *data; GoInt len; GoInt cap; } GoSlice;
 extern "C" {
 #endif
 
+
+extern void updateAccountTimeCallback(long int p0, char* p1);
+
+extern void errorCallback(long int p0, int p1, int p2, char* p3);
+
+extern void connectionClosedCallback(long int p0);
 
 extern void nextValidIDCallback(long int p0, OrderId p1);
 
