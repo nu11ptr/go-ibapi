@@ -1,2 +1,1 @@
 _CGO_CFLAGS=
-_CGO_LDFLAGS=tws-api/libTwsSocketClient.so

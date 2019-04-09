@@ -8,6 +8,8 @@ package ibapi
 
 /*
 #cgo CXXFLAGS: -std=c++11
+#cgo CPPFLAGS: -Itws-api
+#cgo LDFLAGS: tws-api/libTwsSocketClient.so
 
 #include <stdlib.h>
 #include "ibapi.h"

@@ -11,6 +11,8 @@ package ibapi
 
 /*
 #cgo CXXFLAGS: -std=c++11
+#cgo CPPFLAGS: -Itws-api
+#cgo LDFLAGS: tws-api/libTwsSocketClient.so
 
 #include <stdlib.h>
 #include "ibapi.h"
@@ -27,75 +29,75 @@ import (
 
 // Contract represents a contract
 type Contract struct {
-	contract * /*line :27:12*/_Ctype_struct_Contract /*line :27:22*/
+	contract * /*line :29:12*/_Ctype_struct_Contract /*line :29:22*/
 }
 
 // NewContract creates a new contract
 func NewContract(sym, secType, exch, contractMonth, currency string) *Contract {
-	cSym, cSecType, cExch, cContractMonth, cCurrency := ( /*line :32:54*/_Cfunc_CString /*line :32:62*/)(sym), ( /*line :32:70*/_Cfunc_CString /*line :32:78*/)(secType),
-		( /*line :33:3*/_Cfunc_CString /*line :33:11*/)(exch), ( /*line :33:20*/_Cfunc_CString /*line :33:28*/)(contractMonth), ( /*line :33:46*/_Cfunc_CString /*line :33:54*/)(currency)
+	cSym, cSecType, cExch, cContractMonth, cCurrency := ( /*line :34:54*/_Cfunc_CString /*line :34:62*/)(sym), ( /*line :34:70*/_Cfunc_CString /*line :34:78*/)(secType),
+		( /*line :35:3*/_Cfunc_CString /*line :35:11*/)(exch), ( /*line :35:20*/_Cfunc_CString /*line :35:28*/)(contractMonth), ( /*line :35:46*/_Cfunc_CString /*line :35:54*/)(currency)
 	defer func() {
-		func() { _cgo0 := /*line :35:10*/unsafe.Pointer(cSym); _cgoCheckPointer(_cgo0); _Cfunc_free(_cgo0); }()
-		func() { _cgo0 := /*line :36:10*/unsafe.Pointer(cSecType); _cgoCheckPointer(_cgo0); _Cfunc_free(_cgo0); }()
-		func() { _cgo0 := /*line :37:10*/unsafe.Pointer(cExch); _cgoCheckPointer(_cgo0); _Cfunc_free(_cgo0); }()
-		func() { _cgo0 := /*line :38:10*/unsafe.Pointer(cContractMonth); _cgoCheckPointer(_cgo0); _Cfunc_free(_cgo0); }()
-		func() { _cgo0 := /*line :39:10*/unsafe.Pointer(cCurrency); _cgoCheckPointer(_cgo0); _Cfunc_free(_cgo0); }()
+		func() { _cgo0 := /*line :37:10*/unsafe.Pointer(cSym); _cgoCheckPointer(_cgo0); _Cfunc_free(_cgo0); }()
+		func() { _cgo0 := /*line :38:10*/unsafe.Pointer(cSecType); _cgoCheckPointer(_cgo0); _Cfunc_free(_cgo0); }()
+		func() { _cgo0 := /*line :39:10*/unsafe.Pointer(cExch); _cgoCheckPointer(_cgo0); _Cfunc_free(_cgo0); }()
+		func() { _cgo0 := /*line :40:10*/unsafe.Pointer(cContractMonth); _cgoCheckPointer(_cgo0); _Cfunc_free(_cgo0); }()
+		func() { _cgo0 := /*line :41:10*/unsafe.Pointer(cCurrency); _cgoCheckPointer(_cgo0); _Cfunc_free(_cgo0); }()
 	}()
-	c := &Contract{contract: ( /*line :41:27*/_Cfunc_new_contract /*line :41:40*/)(cSym, cSecType, cExch, cContractMonth, cCurrency)}
+	c := &Contract{contract: ( /*line :43:27*/_Cfunc_new_contract /*line :43:40*/)(cSym, cSecType, cExch, cContractMonth, cCurrency)}
 	runtime.SetFinalizer(c, deleteContract)
 	return c
 }
 
 func deleteContract(c *Contract) {
-	func() { _cgo0 := /*line :47:20*/c.contract; _cgoCheckPointer(_cgo0); _Cfunc_delete_contract(_cgo0); }()
+	func() { _cgo0 := /*line :49:20*/c.contract; _cgoCheckPointer(_cgo0); _Cfunc_delete_contract(_cgo0); }()
 }
 
 // Symbol returns the symbol from the contract
 func (c *Contract) Symbol() string {
-	return ( /*line :52:9*/_Cfunc_GoString /*line :52:18*/)(func() *_Ctype_char{ _cgo0 := /*line :52:38*/c.contract; _cgoCheckPointer(_cgo0); return _Cfunc_contract_symbol(_cgo0); }())
+	return ( /*line :54:9*/_Cfunc_GoString /*line :54:18*/)(func() *_Ctype_char{ _cgo0 := /*line :54:38*/c.contract; _cgoCheckPointer(_cgo0); return _Cfunc_contract_symbol(_cgo0); }())
 }
 
 // SecType returns the security type of the contract
 func (c *Contract) SecType() string {
-	return ( /*line :57:9*/_Cfunc_GoString /*line :57:18*/)(func() *_Ctype_char{ _cgo0 := /*line :57:40*/c.contract; _cgoCheckPointer(_cgo0); return _Cfunc_contract_sec_type(_cgo0); }())
+	return ( /*line :59:9*/_Cfunc_GoString /*line :59:18*/)(func() *_Ctype_char{ _cgo0 := /*line :59:40*/c.contract; _cgoCheckPointer(_cgo0); return _Cfunc_contract_sec_type(_cgo0); }())
 }
 
 // Exchange returns the exchange of the contract
 func (c *Contract) Exchange() string {
-	return ( /*line :62:9*/_Cfunc_GoString /*line :62:18*/)(func() *_Ctype_char{ _cgo0 := /*line :62:40*/c.contract; _cgoCheckPointer(_cgo0); return _Cfunc_contract_exchange(_cgo0); }())
+	return ( /*line :64:9*/_Cfunc_GoString /*line :64:18*/)(func() *_Ctype_char{ _cgo0 := /*line :64:40*/c.contract; _cgoCheckPointer(_cgo0); return _Cfunc_contract_exchange(_cgo0); }())
 }
 
 // ContractMonth returns the contract month of the futures contract
 func (c *Contract) ContractMonth() string {
-	return ( /*line :67:9*/_Cfunc_GoString /*line :67:18*/)(func() *_Ctype_char{ _cgo0 := /*line :67:37*/c.contract; _cgoCheckPointer(_cgo0); return _Cfunc_contract_month(_cgo0); }())
+	return ( /*line :69:9*/_Cfunc_GoString /*line :69:18*/)(func() *_Ctype_char{ _cgo0 := /*line :69:37*/c.contract; _cgoCheckPointer(_cgo0); return _Cfunc_contract_month(_cgo0); }())
 }
 
 // Currency returns the currency used for the contract
 func (c *Contract) Currency() string {
-	return ( /*line :72:9*/_Cfunc_GoString /*line :72:18*/)(func() *_Ctype_char{ _cgo0 := /*line :72:40*/c.contract; _cgoCheckPointer(_cgo0); return _Cfunc_contract_currency(_cgo0); }())
+	return ( /*line :74:9*/_Cfunc_GoString /*line :74:18*/)(func() *_Ctype_char{ _cgo0 := /*line :74:40*/c.contract; _cgoCheckPointer(_cgo0); return _Cfunc_contract_currency(_cgo0); }())
 }
 
 // *** EWrapper ***
 
 type wrappers struct {
-	m    map[ /*line :78:11*/_Ctype_long /*line :78:17*/]EWrapper
-	next  /*line :79:7*/_Ctype_long /*line :79:13*/
+	m    map[ /*line :80:11*/_Ctype_long /*line :80:17*/]EWrapper
+	next  /*line :81:7*/_Ctype_long /*line :81:13*/
 	lock sync.Mutex
 }
 
 var (
-	w = wrappers{m: make(map[ /*line :84:27*/_Ctype_long /*line :84:33*/]EWrapper, 64)}
+	w = wrappers{m: make(map[ /*line :86:27*/_Ctype_long /*line :86:33*/]EWrapper, 64)}
 )
 
 // OrderID represents an IB order ID
-type OrderID =  /*line :88:16*/_Ctype_OrderId /*line :88:25*/
+type OrderID =  /*line :90:16*/_Ctype_OrderId /*line :90:25*/
 
 // EWrapper represesnts an interface of IB callbacks
 type EWrapper interface {
 	NextValidId(orderID OrderID)
 }
 
-func findEWrapper(id  /*line :95:22*/_Ctype_long /*line :95:28*/) EWrapper {
+func findEWrapper(id  /*line :97:22*/_Ctype_long /*line :97:28*/) EWrapper {
 	w.lock.Lock()
 	defer w.lock.Unlock()
 	wrapper, ok := w.m[id]
@@ -107,7 +109,7 @@ func findEWrapper(id  /*line :95:22*/_Ctype_long /*line :95:28*/) EWrapper {
 }
 
 //export nextValidIDCallback
-func nextValidIDCallback(id  /*line :107:29*/_Ctype_long /*line :107:35*/, orderID  /*line :107:45*/_Ctype_OrderId /*line :107:54*/) {
+func nextValidIDCallback(id  /*line :109:29*/_Ctype_long /*line :109:35*/, orderID  /*line :109:45*/_Ctype_OrderId /*line :109:54*/) {
 	if wrapper := findEWrapper(id); wrapper != nil {
 		wrapper.NextValidId(orderID)
 	}
@@ -119,8 +121,8 @@ const timeoutMs = 2000
 
 // IBClient represents an IB client socket
 type IBClient struct {
-	client * /*line :119:10*/_Ctype_struct_IBClient /*line :119:20*/
-	id      /*line :120:9*/_Ctype_long /*line :120:15*/
+	client * /*line :121:10*/_Ctype_struct_IBClient /*line :121:20*/
+	id      /*line :122:9*/_Ctype_long /*line :122:15*/
 }
 
 // NewIBClient returns a new client socket with the given EWrapper callbacks
@@ -131,35 +133,35 @@ func NewIBClient(wrapper EWrapper) *IBClient {
 	w.next++
 	w.lock.Unlock()
 
-	return &IBClient{client: ( /*line :131:27*/_Cfunc_new_client /*line :131:38*/)(next, timeoutMs), id: next}
+	return &IBClient{client: ( /*line :133:27*/_Cfunc_new_client /*line :133:38*/)(next, timeoutMs), id: next}
 }
 
 // Connect attempts to connect to TWS/IBGateway on the given host/port and client ID
 func (c *IBClient) Connect(host string, port, clientID int) bool {
-	cHost := ( /*line :136:11*/_Cfunc_CString /*line :136:19*/)(host)
-	defer func() func() { _cgo0 := /*line :137:15*/unsafe.Pointer(cHost); return func() { _cgoCheckPointer(_cgo0); _Cfunc_free(_cgo0); }}()()
-	return bool(func() _Ctype__Bool{ _cgo0 := /*line :138:31*/c.client; var _cgo1 *_Ctype_char = /*line :138:41*/cHost; var _cgo2 _Ctype_int = _Ctype_int(port); var _cgo3 _Ctype_int = _Ctype_int(clientID); _cgoCheckPointer(_cgo0); return _Cfunc_client_connect(_cgo0, _cgo1, _cgo2, _cgo3); }())
+	cHost := ( /*line :138:11*/_Cfunc_CString /*line :138:19*/)(host)
+	defer func() func() { _cgo0 := /*line :139:15*/unsafe.Pointer(cHost); return func() { _cgoCheckPointer(_cgo0); _Cfunc_free(_cgo0); }}()()
+	return bool(func() _Ctype__Bool{ _cgo0 := /*line :140:31*/c.client; var _cgo1 *_Ctype_char = /*line :140:41*/cHost; var _cgo2 _Ctype_int = _Ctype_int(port); var _cgo3 _Ctype_int = _Ctype_int(clientID); _cgoCheckPointer(_cgo0); return _Cfunc_client_connect(_cgo0, _cgo1, _cgo2, _cgo3); }())
 }
 
 // Disconnect attempts to disconnect from TWS/IBGateway
 func (c *IBClient) Disconnect() {
-	func() { _cgo0 := /*line :143:22*/c.client; _cgoCheckPointer(_cgo0); _Cfunc_client_disconnect(_cgo0); }()
+	func() { _cgo0 := /*line :145:22*/c.client; _cgoCheckPointer(_cgo0); _Cfunc_client_disconnect(_cgo0); }()
 }
 
 // IsConnected returns the connection state of the client
 func (c *IBClient) IsConnected() bool {
-	return bool(func() _Ctype__Bool{ _cgo0 := /*line :148:36*/c.client; _cgoCheckPointer(_cgo0); return _Cfunc_client_is_connected(_cgo0); }())
+	return bool(func() _Ctype__Bool{ _cgo0 := /*line :150:36*/c.client; _cgoCheckPointer(_cgo0); return _Cfunc_client_is_connected(_cgo0); }())
 }
 
 // ProcessMsg processes the next msg waiting on the client
 func (c *IBClient) ProcessMsg() {
-	func() { _cgo0 := /*line :153:23*/c.client; _cgoCheckPointer(_cgo0); _Cfunc_client_process_msg(_cgo0); }()
+	func() { _cgo0 := /*line :155:23*/c.client; _cgoCheckPointer(_cgo0); _Cfunc_client_process_msg(_cgo0); }()
 }
 
 // Delete frees the underlying CPP resources and removes the wrapper from the map
 func (c *IBClient) Delete() {
 	// First, get rid of the underlying socket to prevent callbacks
-	func() { _cgo0 := /*line :159:18*/c.client; _cgoCheckPointer(_cgo0); _Cfunc_delete_client(_cgo0); }()
+	func() { _cgo0 := /*line :161:18*/c.client; _cgoCheckPointer(_cgo0); _Cfunc_delete_client(_cgo0); }()
 	// Now remove the reference to the ewrapper from the map
 	w.lock.Lock()
 	delete(w.m, c.id)

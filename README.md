@@ -24,8 +24,6 @@ NOTE: Ensure `Build TWS Shared Library` step is done before trying this
 NOTE 2: The `_obj` folder contains generated CGo code for Go 1.12.1. If you are using a different version, you may need to clone and regenerate before using.
 
 ```bash
-export CGO_LDFLAGS=tws-api/libTwsSocketClient.so
-export CGO_CPPFLAGS=-Itws-api
 go get -u github.com/nu11ptr/go-ibapi
 ```
 
@@ -34,7 +32,5 @@ go get -u github.com/nu11ptr/go-ibapi
 This is only required if you are using a Go version other than 1.12.x
 
 ```bash
-export CGO_LDFLAGS=tws-api/libTwsSocketClient.so
-export CGO_CPPFLAGS=-Itws-api
 go generate ./...
 ```
