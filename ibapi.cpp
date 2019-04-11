@@ -1,7 +1,5 @@
 #include "ibapi.h"
-#include "_obj/_cgo_export.h"
-
-#include "EClientSocket.h"
+#include <cstring>
 
 // *** Contract ***
 
@@ -47,10 +45,78 @@ const char *contract_currency(Contract *contract)
     return contract->currency.c_str();
 }
 
+// *** Order ***
+
+Order *new_order(int order_id, const char *action, const char *type, double qty, double price, const char *tif)
+{
+    Order *order = new Order();
+    order->orderId = order_id;
+    order->action = action;
+    order->orderType = type;
+    order->totalQuantity = qty;
+    if (strcmp(type, "LMT") == 0 || strcmp(type, "lmt") == 0)
+    {
+        order->lmtPrice = price;
+    }
+    else if (strcmp(type, "STP") == 0 || strcmp(type, "stp") == 0)
+    {
+        order->auxPrice = price;
+    }
+    order->tif = tif;
+    order->transmit = true;
+    return order;
+}
+
+void delete_order(Order *order)
+{
+    delete order;
+}
+
+int order_id(Order *order)
+{
+    return order->orderId;
+}
+
+const char *order_action(Order *order)
+{
+    return order->action.c_str();
+}
+
+const char *order_type(Order *order)
+{
+    return order->orderType.c_str();
+}
+
+double order_qty(Order *order)
+{
+    return order->totalQuantity;
+}
+
+double order_price(Order *order)
+{
+    const char *type = order->orderType.c_str();
+    if (strcmp(type, "LMT") == 0 || strcmp(type, "lmt") == 0)
+    {
+        return order->lmtPrice;
+    }
+    else if (strcmp(type, "STP") == 0 || strcmp(type, "stp") == 0)
+    {
+        return order->auxPrice;
+    }
+    return 0.0;
+}
+
+const char *order_tif(Order *order)
+{
+    return order->tif.c_str();
+}
+
 // *** IBClient ***
 
 IBClient::IBClient(long wrapper_id, unsigned long timeout)
-    : wrapper_id(wrapper_id), signal(timeout), sock(this, &signal), reader(0) {}
+    : wrapper_id(wrapper_id), signal(timeout), sock(this, &signal), reader(0)
+{
+}
 
 IBClient::~IBClient()
 {

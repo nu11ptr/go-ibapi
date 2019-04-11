@@ -4,6 +4,7 @@
 #ifdef __cplusplus
 #include "Contract.h"
 #include "StdAfx.h"
+#include "Order.h"
 #include "EReaderOSSignal.h"
 #include "EClientSocket.h"
 #include "DefaultEWrapper.h"
@@ -86,6 +87,7 @@ extern "C"
 {
 #else
 typedef struct Contract Contract;
+typedef struct Order Order;
 typedef long OrderId;
 
 typedef struct IBClient IBClient;
@@ -109,6 +111,24 @@ typedef struct IBClient IBClient;
     const char *contract_month(Contract *contract);
 
     const char *contract_currency(Contract *contract);
+
+    // *** Order ***
+
+    Order *new_order(int order_id, const char *action, const char *type, double qty, double price, const char *tif);
+
+    void delete_order(Order *order);
+
+    int order_id(Order *order);
+
+    const char *order_action(Order *order);
+
+    const char *order_type(Order *order);
+
+    double order_qty(Order *order);
+
+    double order_price(Order *order);
+
+    const char *order_tif(Order *order);
 
     // *** EClientSocket ***
 

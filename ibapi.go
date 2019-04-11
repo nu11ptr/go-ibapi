@@ -70,6 +70,60 @@ func (c *Contract) Currency() string {
 	return C.GoString(C.contract_currency(c.contract))
 }
 
+// *** Order ***
+
+// Order represents a broker order ticket
+type Order struct {
+	order *C.Order
+}
+
+// NewOrder creates a new broker order ticket
+func NewOrder(orderID int, action, orderType string, qty, price float64, tif string) *Order {
+	cAction, cType, cTIF := C.CString(action), C.CString(orderType), C.CString(tif)
+	defer func() {
+		C.free(unsafe.Pointer(cAction))
+		C.free(unsafe.Pointer(cType))
+		C.free(unsafe.Pointer(cTIF))
+	}()
+	o := &Order{order: C.new_order(C.int(orderID), cAction, cType, C.double(qty), C.double(price), cTIF)}
+	runtime.SetFinalizer(o, deleteOrder)
+	return o
+}
+
+func deleteOrder(o *Order) {
+	C.delete_order(o.order)
+}
+
+// ID returns the order ID
+func (o *Order) ID() int {
+	return int(C.order_id(o.order))
+}
+
+// Action returns the order action (buy, sell, etc.)
+func (o *Order) Action() string {
+	return C.GoString(C.order_action(o.order))
+}
+
+// Type returns the order type (LMT, MkT, STP, etc.)
+func (o *Order) Type() string {
+	return C.GoString(C.order_type(o.order))
+}
+
+// Qty returns the order quantity
+func (o *Order) Qty() float64 {
+	return float64(C.order_qty(o.order))
+}
+
+// Price returns the order price
+func (o *Order) Price() float64 {
+	return float64(C.order_price(o.order))
+}
+
+// TIF returns the order time in force (DAY, GTC, etc.)
+func (o *Order) TIF() string {
+	return C.GoString(C.order_tif(o.order))
+}
+
 // *** EWrapper ***
 
 type wrappers struct {
@@ -206,6 +260,7 @@ func (c *IBClient) Delete() {
 	w.lock.Unlock()
 }
 
+// ReqAccountSummary requests the summaries for all accounts
 func (c *IBClient) ReqAccountSummary(reqID int, group, tags string) {
 	cGroup, cTags := C.CString(group), C.CString(tags)
 	C.client_req_account_summ(c.client, C.int(reqID), cGroup, cTags)
@@ -214,6 +269,7 @@ func (c *IBClient) ReqAccountSummary(reqID int, group, tags string) {
 	C.free(unsafe.Pointer(cTags))
 }
 
+// CancelAccountSummary cancels the account summary info
 func (c *IBClient) CancelAccountSummary(reqID int) {
 	C.client_cancel_account_summ(c.client, C.int(reqID))
 }
