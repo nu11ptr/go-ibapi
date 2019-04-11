@@ -7,11 +7,11 @@ Contract *new_contract(const char *sym, const char *sec_type, const char *exch,
                        const char *contract_month, const char *curr)
 {
     Contract *contract = new Contract();
-    contract->symbol = std::string(sym);
-    contract->secType = std::string(sec_type);
-    contract->exchange = std::string(exch);
-    contract->lastTradeDateOrContractMonth = std::string(contract_month);
-    contract->currency = std::string(curr);
+    contract->symbol = sym;
+    contract->secType = sec_type;
+    contract->exchange = exch;
+    contract->lastTradeDateOrContractMonth = contract_month;
+    contract->currency = curr;
     return contract;
 }
 

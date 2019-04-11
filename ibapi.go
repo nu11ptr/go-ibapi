@@ -29,6 +29,8 @@ type Contract struct {
 func NewContract(sym, secType, exch, contractMonth, currency string) *Contract {
 	cSym, cSecType, cExch, cContractMonth, cCurrency := C.CString(sym), C.CString(secType),
 		C.CString(exch), C.CString(contractMonth), C.CString(currency)
+	// NOTE: Since the underlying class uses C++ std::string, we know these will be copied by the
+	// constructor and can therefore be safely deallocated when this function exits
 	defer func() {
 		C.free(unsafe.Pointer(cSym))
 		C.free(unsafe.Pointer(cSecType))
@@ -80,6 +82,8 @@ type Order struct {
 // NewOrder creates a new broker order ticket
 func NewOrder(orderID int, action, orderType string, qty, price float64, tif string) *Order {
 	cAction, cType, cTIF := C.CString(action), C.CString(orderType), C.CString(tif)
+	// NOTE: Since the underlying class uses C++ std::string, we know these will be copied by the
+	// constructor and can therefore be safely deallocated when this function exits
 	defer func() {
 		C.free(unsafe.Pointer(cAction))
 		C.free(unsafe.Pointer(cType))
@@ -231,6 +235,8 @@ func NewIBClient(wrapper EWrapper) *IBClient {
 // Connect attempts to connect to TWS/IBGateway on the given host/port and client ID
 func (c *IBClient) Connect(host string, port, clientID int) bool {
 	cHost := C.CString(host)
+	// This does NOT use std::string in underlying code, but should be not needed
+	// when this call returns
 	defer C.free(unsafe.Pointer(cHost))
 	return bool(C.client_connect(c.client, cHost, C.int(port), C.int(clientID)))
 }
@@ -263,10 +269,13 @@ func (c *IBClient) Delete() {
 // ReqAccountSummary requests the summaries for all accounts
 func (c *IBClient) ReqAccountSummary(reqID int, group, tags string) {
 	cGroup, cTags := C.CString(group), C.CString(tags)
+	// NOTE: Since the underlying code uses C++ std::string, we know these will be copied by the
+	// constructor and can therefore be safely deallocated when this function exits
+	defer func() {
+		C.free(unsafe.Pointer(cGroup))
+		C.free(unsafe.Pointer(cTags))
+	}()
 	C.client_req_account_summ(c.client, C.int(reqID), cGroup, cTags)
-	// NOTE: Are we done with these? Hopefully...
-	C.free(unsafe.Pointer(cGroup))
-	C.free(unsafe.Pointer(cTags))
 }
 
 // CancelAccountSummary cancels the account summary info

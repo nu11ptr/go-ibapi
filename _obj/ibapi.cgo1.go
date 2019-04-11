@@ -32,6 +32,8 @@ type Contract struct {
 func NewContract(sym, secType, exch, contractMonth, currency string) *Contract {
 	cSym, cSecType, cExch, cContractMonth, cCurrency := (_Cfunc_CString)(sym), (_Cfunc_CString)(secType),
 		(_Cfunc_CString)(exch), (_Cfunc_CString)(contractMonth), (_Cfunc_CString)(currency)
+	// NOTE: Since the underlying class uses C++ std::string, we know these will be copied by the
+	// constructor and can therefore be safely deallocated when this function exits
 	defer func() {
 		func(_cgo0 _cgo_unsafe.Pointer) {;	_cgoCheckPointer(_cgo0);	(_Cfunc_free)(_cgo0);}(unsafe.Pointer(cSym))
 		func(_cgo0 _cgo_unsafe.Pointer) {;	_cgoCheckPointer(_cgo0);	(_Cfunc_free)(_cgo0);}(unsafe.Pointer(cSecType))
@@ -83,6 +85,8 @@ type Order struct {
 // NewOrder creates a new broker order ticket
 func NewOrder(orderID int, action, orderType string, qty, price float64, tif string) *Order {
 	cAction, cType, cTIF := (_Cfunc_CString)(action), (_Cfunc_CString)(orderType), (_Cfunc_CString)(tif)
+	// NOTE: Since the underlying class uses C++ std::string, we know these will be copied by the
+	// constructor and can therefore be safely deallocated when this function exits
 	defer func() {
 		func(_cgo0 _cgo_unsafe.Pointer) {;	_cgoCheckPointer(_cgo0);	(_Cfunc_free)(_cgo0);}(unsafe.Pointer(cAction))
 		func(_cgo0 _cgo_unsafe.Pointer) {;	_cgoCheckPointer(_cgo0);	(_Cfunc_free)(_cgo0);}(unsafe.Pointer(cType))
@@ -234,6 +238,8 @@ func NewIBClient(wrapper EWrapper) *IBClient {
 // Connect attempts to connect to TWS/IBGateway on the given host/port and client ID
 func (c *IBClient) Connect(host string, port, clientID int) bool {
 	cHost := (_Cfunc_CString)(host)
+	// This does NOT use std::string in underlying code, but should be not needed
+	// when this call returns
 	defer func(_cgo0 _cgo_unsafe.Pointer) {;	_cgoCheckPointer(_cgo0);	(_Cfunc_free)(_cgo0);}(unsafe.Pointer(cHost))
 	return bool(func(_cgo0 *_Ctype_struct_IBClient, _cgo1 *_Ctype_char, _cgo2 _Ctype_int, _cgo3 _Ctype_int) _Ctype__Bool {;	_cgoCheckPointer(_cgo0);	return (_Cfunc_client_connect)(_cgo0, _cgo1, _cgo2, _cgo3);}(c.client, cHost, _Ctype_int(port), _Ctype_int(clientID)))
 }
@@ -266,10 +272,13 @@ func (c *IBClient) Delete() {
 // ReqAccountSummary requests the summaries for all accounts
 func (c *IBClient) ReqAccountSummary(reqID int, group, tags string) {
 	cGroup, cTags := (_Cfunc_CString)(group), (_Cfunc_CString)(tags)
+	// NOTE: Since the underlying code uses C++ std::string, we know these will be copied by the
+	// constructor and can therefore be safely deallocated when this function exits
+	defer func() {
+		func(_cgo0 _cgo_unsafe.Pointer) {;	_cgoCheckPointer(_cgo0);	(_Cfunc_free)(_cgo0);}(unsafe.Pointer(cGroup))
+		func(_cgo0 _cgo_unsafe.Pointer) {;	_cgoCheckPointer(_cgo0);	(_Cfunc_free)(_cgo0);}(unsafe.Pointer(cTags))
+	}()
 	func(_cgo0 *_Ctype_struct_IBClient, _cgo1 _Ctype_int, _cgo2 *_Ctype_char, _cgo3 *_Ctype_char) {;	_cgoCheckPointer(_cgo0);	(_Cfunc_client_req_account_summ)(_cgo0, _cgo1, _cgo2, _cgo3);}(c.client, _Ctype_int(reqID), cGroup, cTags)
-	// NOTE: Are we done with these? Hopefully...
-	func(_cgo0 _cgo_unsafe.Pointer) {;	_cgoCheckPointer(_cgo0);	(_Cfunc_free)(_cgo0);}(unsafe.Pointer(cGroup))
-	func(_cgo0 _cgo_unsafe.Pointer) {;	_cgoCheckPointer(_cgo0);	(_Cfunc_free)(_cgo0);}(unsafe.Pointer(cTags))
 }
 
 // CancelAccountSummary cancels the account summary info
