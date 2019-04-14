@@ -1,6 +1,7 @@
 package ibapi_test
 
 import (
+	"fmt"
 	"os"
 	"sync"
 	"testing"
@@ -49,9 +50,20 @@ func TestMarketOrder(t *testing.T) {
 	assert.Equal(t, "DAY", o.TIF())
 }
 
+type account struct {
+	account string
+	keyVal  map[string]string
+}
+
+func (a *account) AddKeyVal(key, val string) {
+	a.keyVal[key] = val
+}
+
 type wrapper struct {
-	nextId ibapi.OrderID
-	lock   sync.Mutex
+	nextId   ibapi.OrderID
+	lock     sync.Mutex
+	accounts map[string]*account
+	acctDone bool
 }
 
 func (w *wrapper) NextValidId(id ibapi.OrderID) {
@@ -60,30 +72,66 @@ func (w *wrapper) NextValidId(id ibapi.OrderID) {
 	w.nextId = id
 }
 
-func (w *wrapper) UpdateAccountTime(timeStamp string) {}
+func (w *wrapper) UpdateAccountTime(timeStamp string) {
+	fmt.Printf("Account time: %s\n", timeStamp)
+}
 
-func (w *wrapper) Error(id, errorCode int, errorStr string) {}
+func (w *wrapper) Error(id, errorCode int, errorStr string) {
+	fmt.Printf("Error ID:%d Code:%d Msg:%s\n", id, errorCode, errorStr)
+}
 
-func (w *wrapper) ConnectionClosed() {}
+func (w *wrapper) ConnectionClosed() {
+	fmt.Println("Closed")
+}
 
-func (w *wrapper) AccountSummary(reqID int, account, tag, value string) {}
+func (w *wrapper) AccountSummary(reqID int, acctID, tag, value string) {
+	w.lock.Lock()
+	defer w.lock.Unlock()
 
-func (w *wrapper) AccountSummaryEnd(reqID int) {}
+	acct, ok := w.accounts[acctID]
+	if !ok {
+		acct = &account{account: acctID, keyVal: make(map[string]string, 20)}
+		w.accounts[acctID] = acct
+	}
+	acct.AddKeyVal(tag, value)
+}
+
+func (w *wrapper) AccountSummaryEnd(reqID int) {
+	w.lock.Lock()
+	defer w.lock.Unlock()
+
+	w.acctDone = true
+}
 
 func TestEClientSocket(t *testing.T) {
 	if _, ok := os.LookupEnv("IB_INTEGRATION"); !ok {
 		t.Skip("'IB_INTEGRATION' not set - skipping")
 	}
-	wrapper := &wrapper{nextId: -1}
+	wrapper := &wrapper{nextId: -1, accounts: make(map[string]*account, 5)}
 	client := ibapi.NewIBClient(wrapper)
-	assert.True(t, client.Connect("127.0.0.1", 7497, 0))
-	go func() {
-		for client.IsConnected() {
-			client.ProcessMsg()
+
+	t.Run("Connect", func(t *testing.T) {
+		assert.True(t, client.Connect("127.0.0.1", 7497, 0))
+		go func() {
+			for client.IsConnected() {
+				client.ProcessMsg()
+			}
+		}()
+		time.Sleep(1000 * time.Millisecond)
+		assert.True(t, wrapper.nextId > -1)
+	})
+	t.Run("AccountSummary", func(t *testing.T) {
+		client.ReqAccountSummary(1, "All", "AccountType,NetLiquidation")
+		time.Sleep(1000 * time.Millisecond)
+		assert.NotEmpty(t, wrapper.accounts)
+		for _, acct := range wrapper.accounts {
+			assert.NotEmpty(t, acct.account)
+			assert.Len(t, acct.keyVal, 2)
 		}
-	}()
-	time.Sleep(1000 * time.Millisecond)
-	assert.True(t, wrapper.nextId > -1)
+		assert.True(t, wrapper.acctDone)
+	})
+
 	client.Disconnect()
+	time.Sleep(1000 * time.Millisecond)
 	client.Delete()
 }
