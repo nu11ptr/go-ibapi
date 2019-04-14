@@ -43,6 +43,10 @@ class IBClient : public DefaultEWrapper
 
     void cancelAccountSummary(int reqId);
 
+    void placeOrder(OrderId orderId, Contract &contract, Order &order);
+
+    void cancelOrder(OrderId orderId);
+
     // *** EWrapper ****
 
     void nextValidId(OrderId orderId)
@@ -147,6 +151,10 @@ typedef struct IBClient IBClient;
     void client_req_account_summ(IBClient *client, int req_id, const char *group, const char *tags);
 
     void client_cancel_account_summ(IBClient *client, int req_id);
+
+    void client_place_order(IBClient *client, OrderId orderId, Contract *contract, Order *order);
+
+    void client_cancel_order(IBClient *client, OrderId orderId);
 
 #ifdef __cplusplus
 }

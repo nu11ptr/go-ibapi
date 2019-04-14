@@ -7,9 +7,9 @@ void _cgo_allocate(void *a, int c) { }
 void _cgo_panic(void *a, int c) { }
 void _cgo_reginit(void) { }
 #line 1 "cgo-generated-wrappers"
-int _cgoexp_15813bb8b485_updateAccountTimeCallback;
-int _cgoexp_15813bb8b485_errorCallback;
-int _cgoexp_15813bb8b485_connectionClosedCallback;
-int _cgoexp_15813bb8b485_nextValidIDCallback;
-int _cgoexp_15813bb8b485_accountSummaryCallback;
-int _cgoexp_15813bb8b485_accountSummaryEndCallback;
+int _cgoexp_540f8fc8725b_updateAccountTimeCallback;
+int _cgoexp_540f8fc8725b_errorCallback;
+int _cgoexp_540f8fc8725b_connectionClosedCallback;
+int _cgoexp_540f8fc8725b_nextValidIDCallback;
+int _cgoexp_540f8fc8725b_accountSummaryCallback;
+int _cgoexp_540f8fc8725b_accountSummaryEndCallback;

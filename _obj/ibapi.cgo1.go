@@ -285,3 +285,13 @@ func (c *IBClient) ReqAccountSummary(reqID int, group, tags string) {
 func (c *IBClient) CancelAccountSummary(reqID int) {
 	func(_cgo0 *_Ctype_struct_IBClient, _cgo1 _Ctype_int) {;	_cgoCheckPointer(_cgo0);	(_Cfunc_client_cancel_account_summ)(_cgo0, _cgo1);}(c.client, _Ctype_int(reqID))
 }
+
+// PlaceOrder places an order with the given contracts
+func (c *IBClient) PlaceOrder(orderID OrderID, contract *Contract, order *Order) {
+	func(_cgo0 *_Ctype_struct_IBClient, _cgo1 _Ctype_OrderId, _cgo2 *_Ctype_struct_Contract, _cgo3 *_Ctype_struct_Order) {;	_cgoCheckPointer(_cgo0);	_cgoCheckPointer(_cgo2);	_cgoCheckPointer(_cgo3);	(_Cfunc_client_place_order)(_cgo0, _cgo1, _cgo2, _cgo3);}(c.client, orderID, contract.contract, order.order)
+}
+
+// CancelOrder cancels the order with the given order id
+func (c *IBClient) CancelOrder(orderID OrderID) {
+	func(_cgo0 *_Ctype_struct_IBClient, _cgo1 _Ctype_OrderId) {;	_cgoCheckPointer(_cgo0);	(_Cfunc_client_cancel_order)(_cgo0, _cgo1);}(c.client, orderID)
+}

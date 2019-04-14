@@ -156,6 +156,16 @@ void IBClient::cancelAccountSummary(int reqId)
     sock.cancelAccountSummary(reqId);
 }
 
+void IBClient::placeOrder(OrderId orderId, Contract &contract, Order &order)
+{
+    sock.placeOrder(orderId, contract, order);
+}
+
+void IBClient::cancelOrder(OrderId orderId)
+{
+    sock.cancelOrder(orderId);
+}
+
 // *** EWrapper ***
 
 // *** C API ***
@@ -198,4 +208,14 @@ void client_req_account_summ(IBClient *client, int req_id, const char *group, co
 void client_cancel_account_summ(IBClient *client, int req_id)
 {
     client->cancelAccountSummary(req_id);
+}
+
+void client_place_order(IBClient *client, OrderId orderId, Contract *contract, Order *order)
+{
+    client->placeOrder(orderId, *contract, *order);
+}
+
+void client_cancel_order(IBClient *client, OrderId orderId)
+{
+    client->cancelOrder(orderId);
 }

@@ -282,3 +282,13 @@ func (c *IBClient) ReqAccountSummary(reqID int, group, tags string) {
 func (c *IBClient) CancelAccountSummary(reqID int) {
 	C.client_cancel_account_summ(c.client, C.int(reqID))
 }
+
+// PlaceOrder places an order with the given contracts
+func (c *IBClient) PlaceOrder(orderID OrderID, contract *Contract, order *Order) {
+	C.client_place_order(c.client, orderID, contract.contract, order.order)
+}
+
+// CancelOrder cancels the order with the given order id
+func (c *IBClient) CancelOrder(orderID OrderID) {
+	C.client_cancel_order(c.client, orderID)
+}

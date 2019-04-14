@@ -15,7 +15,7 @@ extern char* _cgo_topofstack(void);
 
 #define _cgo_msan_write(addr, sz)
 
-extern void _cgoexp_15813bb8b485_updateAccountTimeCallback(void *, int, __SIZE_TYPE__);
+extern void _cgoexp_540f8fc8725b_updateAccountTimeCallback(void *, int, __SIZE_TYPE__);
 
 CGO_NO_SANITIZE_THREAD
 void updateAccountTimeCallback(long int p0, char* p1)
@@ -28,11 +28,11 @@ void updateAccountTimeCallback(long int p0, char* p1)
 	a.p0 = p0;
 	a.p1 = p1;
 	_cgo_tsan_release();
-	crosscall2(_cgoexp_15813bb8b485_updateAccountTimeCallback, &a, 16, _cgo_ctxt);
+	crosscall2(_cgoexp_540f8fc8725b_updateAccountTimeCallback, &a, 16, _cgo_ctxt);
 	_cgo_tsan_acquire();
 	_cgo_release_context(_cgo_ctxt);
 }
-extern void _cgoexp_15813bb8b485_errorCallback(void *, int, __SIZE_TYPE__);
+extern void _cgoexp_540f8fc8725b_errorCallback(void *, int, __SIZE_TYPE__);
 
 CGO_NO_SANITIZE_THREAD
 void errorCallback(long int p0, int p1, int p2, char* p3)
@@ -49,11 +49,11 @@ void errorCallback(long int p0, int p1, int p2, char* p3)
 	a.p2 = p2;
 	a.p3 = p3;
 	_cgo_tsan_release();
-	crosscall2(_cgoexp_15813bb8b485_errorCallback, &a, 24, _cgo_ctxt);
+	crosscall2(_cgoexp_540f8fc8725b_errorCallback, &a, 24, _cgo_ctxt);
 	_cgo_tsan_acquire();
 	_cgo_release_context(_cgo_ctxt);
 }
-extern void _cgoexp_15813bb8b485_connectionClosedCallback(void *, int, __SIZE_TYPE__);
+extern void _cgoexp_540f8fc8725b_connectionClosedCallback(void *, int, __SIZE_TYPE__);
 
 CGO_NO_SANITIZE_THREAD
 void connectionClosedCallback(long int p0)
@@ -64,11 +64,11 @@ void connectionClosedCallback(long int p0)
 	} __attribute__((__packed__, __gcc_struct__)) a;
 	a.p0 = p0;
 	_cgo_tsan_release();
-	crosscall2(_cgoexp_15813bb8b485_connectionClosedCallback, &a, 8, _cgo_ctxt);
+	crosscall2(_cgoexp_540f8fc8725b_connectionClosedCallback, &a, 8, _cgo_ctxt);
 	_cgo_tsan_acquire();
 	_cgo_release_context(_cgo_ctxt);
 }
-extern void _cgoexp_15813bb8b485_nextValidIDCallback(void *, int, __SIZE_TYPE__);
+extern void _cgoexp_540f8fc8725b_nextValidIDCallback(void *, int, __SIZE_TYPE__);
 
 CGO_NO_SANITIZE_THREAD
 void nextValidIDCallback(long int p0, OrderId p1)
@@ -81,11 +81,11 @@ void nextValidIDCallback(long int p0, OrderId p1)
 	a.p0 = p0;
 	a.p1 = p1;
 	_cgo_tsan_release();
-	crosscall2(_cgoexp_15813bb8b485_nextValidIDCallback, &a, 16, _cgo_ctxt);
+	crosscall2(_cgoexp_540f8fc8725b_nextValidIDCallback, &a, 16, _cgo_ctxt);
 	_cgo_tsan_acquire();
 	_cgo_release_context(_cgo_ctxt);
 }
-extern void _cgoexp_15813bb8b485_accountSummaryCallback(void *, int, __SIZE_TYPE__);
+extern void _cgoexp_540f8fc8725b_accountSummaryCallback(void *, int, __SIZE_TYPE__);
 
 CGO_NO_SANITIZE_THREAD
 void accountSummaryCallback(long int p0, int p1, char* p2, char* p3, char* p4, char* p5)
@@ -107,11 +107,11 @@ void accountSummaryCallback(long int p0, int p1, char* p2, char* p3, char* p4, c
 	a.p4 = p4;
 	a.p5 = p5;
 	_cgo_tsan_release();
-	crosscall2(_cgoexp_15813bb8b485_accountSummaryCallback, &a, 48, _cgo_ctxt);
+	crosscall2(_cgoexp_540f8fc8725b_accountSummaryCallback, &a, 48, _cgo_ctxt);
 	_cgo_tsan_acquire();
 	_cgo_release_context(_cgo_ctxt);
 }
-extern void _cgoexp_15813bb8b485_accountSummaryEndCallback(void *, int, __SIZE_TYPE__);
+extern void _cgoexp_540f8fc8725b_accountSummaryEndCallback(void *, int, __SIZE_TYPE__);
 
 CGO_NO_SANITIZE_THREAD
 void accountSummaryEndCallback(long int p0, int p1)
@@ -125,13 +125,13 @@ void accountSummaryEndCallback(long int p0, int p1)
 	a.p0 = p0;
 	a.p1 = p1;
 	_cgo_tsan_release();
-	crosscall2(_cgoexp_15813bb8b485_accountSummaryEndCallback, &a, 16, _cgo_ctxt);
+	crosscall2(_cgoexp_540f8fc8725b_accountSummaryEndCallback, &a, 16, _cgo_ctxt);
 	_cgo_tsan_acquire();
 	_cgo_release_context(_cgo_ctxt);
 }
 
 CGO_NO_SANITIZE_THREAD
-void _cgo_15813bb8b485_Cfunc__Cmalloc(void *v) {
+void _cgo_540f8fc8725b_Cfunc__Cmalloc(void *v) {
 	struct {
 		unsigned long long p0;
 		void *r1;
