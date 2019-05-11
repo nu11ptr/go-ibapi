@@ -128,6 +128,94 @@ func (o *Order) TIF() string {
 	return C.GoString(C.order_tif(o.order))
 }
 
+// *** ExecutionFilter ***
+
+// ExecutionFilter represents an execution filter
+type ExecutionFilter struct {
+	filter *C.ExecutionFilter
+}
+
+// NewFilterParams creates a new execution filter with parameters
+func NewFilterParams(clientID int, acctCode, time, symbol, secType, exchange, side string) *ExecutionFilter {
+	cAcctCode, cTime, cSymbol, cSecType, cExchange, cSide := C.CString(acctCode), C.CString(time),
+		C.CString(symbol), C.CString(secType), C.CString(exchange), C.CString(side)
+	// NOTE: Since the underlying class uses C++ std::string, we know these will be copied by the
+	// constructor and can therefore be safely deallocated when this function exits
+	defer func() {
+		C.free(unsafe.Pointer(cAcctCode))
+		C.free(unsafe.Pointer(cTime))
+		C.free(unsafe.Pointer(cSymbol))
+		C.free(unsafe.Pointer(cSecType))
+		C.free(unsafe.Pointer(cExchange))
+		C.free(unsafe.Pointer(cSide))
+	}()
+	f := &ExecutionFilter{filter: C.new_exec_filter(C.long(clientID), cAcctCode, cTime, cSymbol,
+		cSecType, cExchange, cSide)}
+	runtime.SetFinalizer(f, deleteFilter)
+	return f
+}
+
+// NewFilter creates a new blank filter
+func NewFilter() *ExecutionFilter {
+	return NewFilterParams(0, "", "", "", "", "", "")
+}
+
+func deleteFilter(f *ExecutionFilter) {
+	C.delete_exec_filter(f.filter)
+}
+
+// *** Execution ***
+
+// Execution represents an order execution
+type Execution struct {
+	exec *C.Execution
+}
+
+// ID returns the execution ID
+func (e *Execution) ID() string {
+	return C.GoString(C.exec_id(e.exec))
+}
+
+// Time returns the time of the execution
+func (e *Execution) Time() string {
+	return C.GoString(C.exec_time(e.exec))
+}
+
+// AccountNum returns the account number in the execution
+func (e *Execution) AccountNum() string {
+	return C.GoString(C.exec_account_num(e.exec))
+}
+
+// Exchange returns the exchange the execution occurred on
+func (e *Execution) Exchange() string {
+	return C.GoString(C.exec_exchange(e.exec))
+}
+
+// Side returns whether this was a buy/sell/short/cover/etc.
+func (e *Execution) Side() string {
+	return C.GoString(C.exec_side(e.exec))
+}
+
+// Shares returns the number of shares executed
+func (e *Execution) Shares() float64 {
+	return float64(C.exec_shares(e.exec))
+}
+
+// Price returns the price that executed
+func (e *Execution) Price() float64 {
+	return float64(C.exec_price(e.exec))
+}
+
+// AvgPrice returns the average price of the execution
+func (e *Execution) AvgPrice() float64 {
+	return float64(C.exec_avg_price(e.exec))
+}
+
+// OrderID returns the associated orderID for this execution
+func (e *Execution) OrderID() OrderID {
+	return OrderID(C.exec_order_id(e.exec))
+}
+
 // *** EWrapper ***
 
 type wrappers struct {
@@ -156,6 +244,19 @@ type EWrapper interface {
 	AccountSummary(reqID int, account, tag, value string)
 
 	AccountSummaryEnd(reqID int)
+
+	OpenOrder(orderID OrderID, contract *Contract, order *Order)
+
+	OrderStatus(orderID OrderID, status string, filled, remaining, avgFillPrice float64,
+		permID, parentID int, lastFillPrice float64, clientID int, whyHeld string, mktCapPrice float64)
+
+	OrderBound(orderID OrderID, apiClientID, apiOrderID int)
+
+	OpenOrderEnd()
+
+	ExecDetails(reqID int, contract *Contract, exec *Execution)
+
+	ExecDetailsEnd(reqID int)
 }
 
 func findEWrapper(id C.long) EWrapper {
@@ -208,6 +309,53 @@ func accountSummaryCallback(id C.long, reqID C.int, account, tag, value, currenc
 func accountSummaryEndCallback(id C.long, reqID C.int) {
 	if wrapper := findEWrapper(id); wrapper != nil {
 		wrapper.AccountSummaryEnd(int(reqID))
+	}
+}
+
+//export openOrderCallback
+func openOrderCallback(id C.long, orderID OrderID, contract *C.Contract, order *C.Order) {
+	if wrapper := findEWrapper(id); wrapper != nil {
+		wrapper.OpenOrder(orderID, &Contract{contract: contract}, &Order{order: order})
+	}
+}
+
+//export orderStatusCallback
+func orderStatusCallback(id C.long, orderID OrderID, status *C.char, filled, remaining,
+	avgFillPrice C.double, permID, parentID C.int, lastFillPrice C.double, clientID C.int,
+	whyHeld *C.char, mktCapPrice C.double) {
+
+	if wrapper := findEWrapper(id); wrapper != nil {
+		wrapper.OrderStatus(orderID, C.GoString(status), float64(filled), float64(remaining),
+			float64(avgFillPrice), int(permID), int(parentID), float64(lastFillPrice), int(clientID),
+			C.GoString(whyHeld), float64(mktCapPrice))
+	}
+}
+
+//export orderBoundCallback
+func orderBoundCallback(id C.long, orderID C.long, apiClientID, apiOrderID C.int) {
+	if wrapper := findEWrapper(id); wrapper != nil {
+		wrapper.OrderBound(OrderID(orderID), int(apiClientID), int(apiOrderID))
+	}
+}
+
+//export openOrderEndCallback
+func openOrderEndCallback(id C.long) {
+	if wrapper := findEWrapper(id); wrapper != nil {
+		wrapper.OpenOrderEnd()
+	}
+}
+
+//export execDetailsCallback
+func execDetailsCallback(id C.long, reqID C.int, contract *C.Contract, exec *C.Execution) {
+	if wrapper := findEWrapper(id); wrapper != nil {
+		wrapper.ExecDetails(int(reqID), &Contract{contract: contract}, &Execution{exec: exec})
+	}
+}
+
+//export execDetailsEndCallback
+func execDetailsEndCallback(id C.long, reqID C.int) {
+	if wrapper := findEWrapper(id); wrapper != nil {
+		wrapper.ExecDetailsEnd(int(reqID))
 	}
 }
 
@@ -291,4 +439,14 @@ func (c *IBClient) PlaceOrder(orderID OrderID, contract *Contract, order *Order)
 // CancelOrder cancels the order with the given order id
 func (c *IBClient) CancelOrder(orderID OrderID) {
 	C.client_cancel_order(c.client, orderID)
+}
+
+// ReqOpenOrders requests all open orders
+func (c *IBClient) ReqOpenOrders() {
+	C.client_req_open_orders(c.client)
+}
+
+// ReqExecutions requests details on executed orders
+func (c *IBClient) ReqExecutions(reqID int, filter *ExecutionFilter) {
+	C.client_req_executions(c.client, C.int(reqID), filter.filter)
 }

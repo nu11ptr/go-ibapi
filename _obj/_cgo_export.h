@@ -87,6 +87,18 @@ extern void accountSummaryCallback(long int p0, int p1, char* p2, char* p3, char
 
 extern void accountSummaryEndCallback(long int p0, int p1);
 
+extern void openOrderCallback(long int p0, OrderId p1, Contract* p2, Order* p3);
+
+extern void orderStatusCallback(long int p0, OrderId p1, char* p2, double p3, double p4, double p5, int p6, int p7, double p8, int p9, char* p10, double p11);
+
+extern void orderBoundCallback(long int p0, long int p1, int p2, int p3);
+
+extern void openOrderEndCallback(long int p0);
+
+extern void execDetailsCallback(long int p0, int p1, Contract* p2, Execution* p3);
+
+extern void execDetailsEndCallback(long int p0, int p1);
+
 #ifdef __cplusplus
 }
 #endif

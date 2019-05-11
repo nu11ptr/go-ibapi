@@ -103,6 +103,20 @@ func (w *wrapper) AccountSummaryEnd(reqID int) {
 	w.acctDone = true
 }
 
+func (w *wrapper) OpenOrder(orderID ibapi.OrderID, contract *ibapi.Contract, order *ibapi.Order) {}
+
+func (w *wrapper) OrderStatus(orderID ibapi.OrderID, status string, filled, remaining, avgFillPrice float64,
+	permID, parentID int, lastFillPrice float64, clientID int, whyHeld string, mktCapPrice float64) {
+}
+
+func (w *wrapper) OrderBound(orderID ibapi.OrderID, apiClientID, apiOrderID int) {}
+
+func (w *wrapper) OpenOrderEnd() {}
+
+func (w *wrapper) ExecDetails(reqID int, contract *ibapi.Contract, exec *ibapi.Execution) {}
+
+func (w *wrapper) ExecDetailsEnd(reqID int) {}
+
 func TestEClientSocket(t *testing.T) {
 	if _, ok := os.LookupEnv("IB_INTEGRATION"); !ok {
 		t.Skip("'IB_INTEGRATION' not set - skipping")

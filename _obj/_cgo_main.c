@@ -7,9 +7,15 @@ void _cgo_allocate(void *a, int c) { }
 void _cgo_panic(void *a, int c) { }
 void _cgo_reginit(void) { }
 #line 1 "cgo-generated-wrappers"
-int _cgoexp_540f8fc8725b_updateAccountTimeCallback;
-int _cgoexp_540f8fc8725b_errorCallback;
-int _cgoexp_540f8fc8725b_connectionClosedCallback;
-int _cgoexp_540f8fc8725b_nextValidIDCallback;
-int _cgoexp_540f8fc8725b_accountSummaryCallback;
-int _cgoexp_540f8fc8725b_accountSummaryEndCallback;
+int _cgoexp_39f9fa9c3e05_updateAccountTimeCallback;
+int _cgoexp_39f9fa9c3e05_errorCallback;
+int _cgoexp_39f9fa9c3e05_connectionClosedCallback;
+int _cgoexp_39f9fa9c3e05_nextValidIDCallback;
+int _cgoexp_39f9fa9c3e05_accountSummaryCallback;
+int _cgoexp_39f9fa9c3e05_accountSummaryEndCallback;
+int _cgoexp_39f9fa9c3e05_openOrderCallback;
+int _cgoexp_39f9fa9c3e05_orderStatusCallback;
+int _cgoexp_39f9fa9c3e05_orderBoundCallback;
+int _cgoexp_39f9fa9c3e05_openOrderEndCallback;
+int _cgoexp_39f9fa9c3e05_execDetailsCallback;
+int _cgoexp_39f9fa9c3e05_execDetailsEndCallback;

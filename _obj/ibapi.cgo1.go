@@ -131,6 +131,94 @@ func (o *Order) TIF() string {
 	return (_Cfunc_GoString)(func(_cgo0 *_Ctype_struct_Order) *_Ctype_char {;	_cgoCheckPointer(_cgo0);	return (_Cfunc_order_tif)(_cgo0);}(o.order))
 }
 
+// *** ExecutionFilter ***
+
+// ExecutionFilter represents an execution filter
+type ExecutionFilter struct {
+	filter *_Ctype_struct_ExecutionFilter
+}
+
+// NewFilterParams creates a new execution filter with parameters
+func NewFilterParams(clientID int, acctCode, time, symbol, secType, exchange, side string) *ExecutionFilter {
+	cAcctCode, cTime, cSymbol, cSecType, cExchange, cSide := (_Cfunc_CString)(acctCode), (_Cfunc_CString)(time),
+		(_Cfunc_CString)(symbol), (_Cfunc_CString)(secType), (_Cfunc_CString)(exchange), (_Cfunc_CString)(side)
+	// NOTE: Since the underlying class uses C++ std::string, we know these will be copied by the
+	// constructor and can therefore be safely deallocated when this function exits
+	defer func() {
+		func(_cgo0 _cgo_unsafe.Pointer) {;	_cgoCheckPointer(_cgo0);	(_Cfunc_free)(_cgo0);}(unsafe.Pointer(cAcctCode))
+		func(_cgo0 _cgo_unsafe.Pointer) {;	_cgoCheckPointer(_cgo0);	(_Cfunc_free)(_cgo0);}(unsafe.Pointer(cTime))
+		func(_cgo0 _cgo_unsafe.Pointer) {;	_cgoCheckPointer(_cgo0);	(_Cfunc_free)(_cgo0);}(unsafe.Pointer(cSymbol))
+		func(_cgo0 _cgo_unsafe.Pointer) {;	_cgoCheckPointer(_cgo0);	(_Cfunc_free)(_cgo0);}(unsafe.Pointer(cSecType))
+		func(_cgo0 _cgo_unsafe.Pointer) {;	_cgoCheckPointer(_cgo0);	(_Cfunc_free)(_cgo0);}(unsafe.Pointer(cExchange))
+		func(_cgo0 _cgo_unsafe.Pointer) {;	_cgoCheckPointer(_cgo0);	(_Cfunc_free)(_cgo0);}(unsafe.Pointer(cSide))
+	}()
+	f := &ExecutionFilter{filter: (_Cfunc_new_exec_filter)(_Ctype_long(clientID), cAcctCode, cTime, cSymbol,
+		cSecType, cExchange, cSide)}
+	runtime.SetFinalizer(f, deleteFilter)
+	return f
+}
+
+// NewFilter creates a new blank filter
+func NewFilter() *ExecutionFilter {
+	return NewFilterParams(0, "", "", "", "", "", "")
+}
+
+func deleteFilter(f *ExecutionFilter) {
+	func(_cgo0 *_Ctype_struct_ExecutionFilter) {;	_cgoCheckPointer(_cgo0);	(_Cfunc_delete_exec_filter)(_cgo0);}(f.filter)
+}
+
+// *** Execution ***
+
+// Execution represents an order execution
+type Execution struct {
+	exec *_Ctype_struct_Execution
+}
+
+// ID returns the execution ID
+func (e *Execution) ID() string {
+	return (_Cfunc_GoString)(func(_cgo0 *_Ctype_struct_Execution) *_Ctype_char {;	_cgoCheckPointer(_cgo0);	return (_Cfunc_exec_id)(_cgo0);}(e.exec))
+}
+
+// Time returns the time of the execution
+func (e *Execution) Time() string {
+	return (_Cfunc_GoString)(func(_cgo0 *_Ctype_struct_Execution) *_Ctype_char {;	_cgoCheckPointer(_cgo0);	return (_Cfunc_exec_time)(_cgo0);}(e.exec))
+}
+
+// AccountNum returns the account number in the execution
+func (e *Execution) AccountNum() string {
+	return (_Cfunc_GoString)(func(_cgo0 *_Ctype_struct_Execution) *_Ctype_char {;	_cgoCheckPointer(_cgo0);	return (_Cfunc_exec_account_num)(_cgo0);}(e.exec))
+}
+
+// Exchange returns the exchange the execution occurred on
+func (e *Execution) Exchange() string {
+	return (_Cfunc_GoString)(func(_cgo0 *_Ctype_struct_Execution) *_Ctype_char {;	_cgoCheckPointer(_cgo0);	return (_Cfunc_exec_exchange)(_cgo0);}(e.exec))
+}
+
+// Side returns whether this was a buy/sell/short/cover/etc.
+func (e *Execution) Side() string {
+	return (_Cfunc_GoString)(func(_cgo0 *_Ctype_struct_Execution) *_Ctype_char {;	_cgoCheckPointer(_cgo0);	return (_Cfunc_exec_side)(_cgo0);}(e.exec))
+}
+
+// Shares returns the number of shares executed
+func (e *Execution) Shares() float64 {
+	return float64(func(_cgo0 *_Ctype_struct_Execution) _Ctype_double {;	_cgoCheckPointer(_cgo0);	return (_Cfunc_exec_shares)(_cgo0);}(e.exec))
+}
+
+// Price returns the price that executed
+func (e *Execution) Price() float64 {
+	return float64(func(_cgo0 *_Ctype_struct_Execution) _Ctype_double {;	_cgoCheckPointer(_cgo0);	return (_Cfunc_exec_price)(_cgo0);}(e.exec))
+}
+
+// AvgPrice returns the average price of the execution
+func (e *Execution) AvgPrice() float64 {
+	return float64(func(_cgo0 *_Ctype_struct_Execution) _Ctype_double {;	_cgoCheckPointer(_cgo0);	return (_Cfunc_exec_avg_price)(_cgo0);}(e.exec))
+}
+
+// OrderID returns the associated orderID for this execution
+func (e *Execution) OrderID() OrderID {
+	return OrderID(func(_cgo0 *_Ctype_struct_Execution) _Ctype_long {;	_cgoCheckPointer(_cgo0);	return (_Cfunc_exec_order_id)(_cgo0);}(e.exec))
+}
+
 // *** EWrapper ***
 
 type wrappers struct {
@@ -159,6 +247,19 @@ type EWrapper interface {
 	AccountSummary(reqID int, account, tag, value string)
 
 	AccountSummaryEnd(reqID int)
+
+	OpenOrder(orderID OrderID, contract *Contract, order *Order)
+
+	OrderStatus(orderID OrderID, status string, filled, remaining, avgFillPrice float64,
+		permID, parentID int, lastFillPrice float64, clientID int, whyHeld string, mktCapPrice float64)
+
+	OrderBound(orderID OrderID, apiClientID, apiOrderID int)
+
+	OpenOrderEnd()
+
+	ExecDetails(reqID int, contract *Contract, exec *Execution)
+
+	ExecDetailsEnd(reqID int)
 }
 
 func findEWrapper(id _Ctype_long) EWrapper {
@@ -211,6 +312,53 @@ func accountSummaryCallback(id _Ctype_long, reqID _Ctype_int, account, tag, valu
 func accountSummaryEndCallback(id _Ctype_long, reqID _Ctype_int) {
 	if wrapper := findEWrapper(id); wrapper != nil {
 		wrapper.AccountSummaryEnd(int(reqID))
+	}
+}
+
+//export openOrderCallback
+func openOrderCallback(id _Ctype_long, orderID OrderID, contract *_Ctype_struct_Contract, order *_Ctype_struct_Order) {
+	if wrapper := findEWrapper(id); wrapper != nil {
+		wrapper.OpenOrder(orderID, &Contract{contract: contract}, &Order{order: order})
+	}
+}
+
+//export orderStatusCallback
+func orderStatusCallback(id _Ctype_long, orderID OrderID, status *_Ctype_char, filled, remaining,
+	avgFillPrice _Ctype_double, permID, parentID _Ctype_int, lastFillPrice _Ctype_double, clientID _Ctype_int,
+	whyHeld *_Ctype_char, mktCapPrice _Ctype_double) {
+
+	if wrapper := findEWrapper(id); wrapper != nil {
+		wrapper.OrderStatus(orderID, (_Cfunc_GoString)(status), float64(filled), float64(remaining),
+			float64(avgFillPrice), int(permID), int(parentID), float64(lastFillPrice), int(clientID),
+			(_Cfunc_GoString)(whyHeld), float64(mktCapPrice))
+	}
+}
+
+//export orderBoundCallback
+func orderBoundCallback(id _Ctype_long, orderID _Ctype_long, apiClientID, apiOrderID _Ctype_int) {
+	if wrapper := findEWrapper(id); wrapper != nil {
+		wrapper.OrderBound(OrderID(orderID), int(apiClientID), int(apiOrderID))
+	}
+}
+
+//export openOrderEndCallback
+func openOrderEndCallback(id _Ctype_long) {
+	if wrapper := findEWrapper(id); wrapper != nil {
+		wrapper.OpenOrderEnd()
+	}
+}
+
+//export execDetailsCallback
+func execDetailsCallback(id _Ctype_long, reqID _Ctype_int, contract *_Ctype_struct_Contract, exec *_Ctype_struct_Execution) {
+	if wrapper := findEWrapper(id); wrapper != nil {
+		wrapper.ExecDetails(int(reqID), &Contract{contract: contract}, &Execution{exec: exec})
+	}
+}
+
+//export execDetailsEndCallback
+func execDetailsEndCallback(id _Ctype_long, reqID _Ctype_int) {
+	if wrapper := findEWrapper(id); wrapper != nil {
+		wrapper.ExecDetailsEnd(int(reqID))
 	}
 }
 
@@ -294,4 +442,14 @@ func (c *IBClient) PlaceOrder(orderID OrderID, contract *Contract, order *Order)
 // CancelOrder cancels the order with the given order id
 func (c *IBClient) CancelOrder(orderID OrderID) {
 	func(_cgo0 *_Ctype_struct_IBClient, _cgo1 _Ctype_OrderId) {;	_cgoCheckPointer(_cgo0);	(_Cfunc_client_cancel_order)(_cgo0, _cgo1);}(c.client, orderID)
+}
+
+// ReqOpenOrders requests all open orders
+func (c *IBClient) ReqOpenOrders() {
+	func(_cgo0 *_Ctype_struct_IBClient) {;	_cgoCheckPointer(_cgo0);	(_Cfunc_client_req_open_orders)(_cgo0);}(c.client)
+}
+
+// ReqExecutions requests details on executed orders
+func (c *IBClient) ReqExecutions(reqID int, filter *ExecutionFilter) {
+	func(_cgo0 *_Ctype_struct_IBClient, _cgo1 _Ctype_int, _cgo2 *_Ctype_struct_ExecutionFilter) {;	_cgoCheckPointer(_cgo0);	_cgoCheckPointer(_cgo2);	(_Cfunc_client_req_executions)(_cgo0, _cgo1, _cgo2);}(c.client, _Ctype_int(reqID), filter.filter)
 }

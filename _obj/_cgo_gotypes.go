@@ -17,6 +17,10 @@ var _Cgo_always_false bool
 func _Cgo_use(interface{})
 type _Ctype_Contract = _Ctype_struct_Contract
 
+type _Ctype_Execution = _Ctype_struct_Execution
+
+type _Ctype_ExecutionFilter = _Ctype_struct_ExecutionFilter
+
 type _Ctype_IBClient = _Ctype_struct_IBClient
 
 type _Ctype_Order = _Ctype_struct_Order
@@ -38,6 +42,10 @@ type _Ctype_long int64
 type _Ctype_ptrdiff_t = _Ctype_long
 
 type _Ctype_struct_Contract struct{}
+
+type _Ctype_struct_Execution struct{}
+
+type _Ctype_struct_ExecutionFilter struct{}
 
 type _Ctype_struct_IBClient struct{}
 
@@ -74,42 +82,42 @@ func _cgo_runtime_gostring(*_Ctype_char) string
 func _Cfunc_GoString(p *_Ctype_char) string {
 	return _cgo_runtime_gostring(p)
 }
-//go:cgo_import_static _cgo_540f8fc8725b_Cfunc_client_cancel_account_summ
-//go:linkname __cgofn__cgo_540f8fc8725b_Cfunc_client_cancel_account_summ _cgo_540f8fc8725b_Cfunc_client_cancel_account_summ
-var __cgofn__cgo_540f8fc8725b_Cfunc_client_cancel_account_summ byte
-var _cgo_540f8fc8725b_Cfunc_client_cancel_account_summ = unsafe.Pointer(&__cgofn__cgo_540f8fc8725b_Cfunc_client_cancel_account_summ)
+//go:cgo_import_static _cgo_39f9fa9c3e05_Cfunc_client_cancel_account_summ
+//go:linkname __cgofn__cgo_39f9fa9c3e05_Cfunc_client_cancel_account_summ _cgo_39f9fa9c3e05_Cfunc_client_cancel_account_summ
+var __cgofn__cgo_39f9fa9c3e05_Cfunc_client_cancel_account_summ byte
+var _cgo_39f9fa9c3e05_Cfunc_client_cancel_account_summ = unsafe.Pointer(&__cgofn__cgo_39f9fa9c3e05_Cfunc_client_cancel_account_summ)
 
 //go:cgo_unsafe_args
 func _Cfunc_client_cancel_account_summ(p0 *_Ctype_struct_IBClient, p1 _Ctype_int) (r1 _Ctype_void) {
-	_cgo_runtime_cgocall(_cgo_540f8fc8725b_Cfunc_client_cancel_account_summ, uintptr(unsafe.Pointer(&p0)))
+	_cgo_runtime_cgocall(_cgo_39f9fa9c3e05_Cfunc_client_cancel_account_summ, uintptr(unsafe.Pointer(&p0)))
 	if _Cgo_always_false {
 		_Cgo_use(p0)
 		_Cgo_use(p1)
 	}
 	return
 }
-//go:cgo_import_static _cgo_540f8fc8725b_Cfunc_client_cancel_order
-//go:linkname __cgofn__cgo_540f8fc8725b_Cfunc_client_cancel_order _cgo_540f8fc8725b_Cfunc_client_cancel_order
-var __cgofn__cgo_540f8fc8725b_Cfunc_client_cancel_order byte
-var _cgo_540f8fc8725b_Cfunc_client_cancel_order = unsafe.Pointer(&__cgofn__cgo_540f8fc8725b_Cfunc_client_cancel_order)
+//go:cgo_import_static _cgo_39f9fa9c3e05_Cfunc_client_cancel_order
+//go:linkname __cgofn__cgo_39f9fa9c3e05_Cfunc_client_cancel_order _cgo_39f9fa9c3e05_Cfunc_client_cancel_order
+var __cgofn__cgo_39f9fa9c3e05_Cfunc_client_cancel_order byte
+var _cgo_39f9fa9c3e05_Cfunc_client_cancel_order = unsafe.Pointer(&__cgofn__cgo_39f9fa9c3e05_Cfunc_client_cancel_order)
 
 //go:cgo_unsafe_args
 func _Cfunc_client_cancel_order(p0 *_Ctype_struct_IBClient, p1 _Ctype_OrderId) (r1 _Ctype_void) {
-	_cgo_runtime_cgocall(_cgo_540f8fc8725b_Cfunc_client_cancel_order, uintptr(unsafe.Pointer(&p0)))
+	_cgo_runtime_cgocall(_cgo_39f9fa9c3e05_Cfunc_client_cancel_order, uintptr(unsafe.Pointer(&p0)))
 	if _Cgo_always_false {
 		_Cgo_use(p0)
 		_Cgo_use(p1)
 	}
 	return
 }
-//go:cgo_import_static _cgo_540f8fc8725b_Cfunc_client_connect
-//go:linkname __cgofn__cgo_540f8fc8725b_Cfunc_client_connect _cgo_540f8fc8725b_Cfunc_client_connect
-var __cgofn__cgo_540f8fc8725b_Cfunc_client_connect byte
-var _cgo_540f8fc8725b_Cfunc_client_connect = unsafe.Pointer(&__cgofn__cgo_540f8fc8725b_Cfunc_client_connect)
+//go:cgo_import_static _cgo_39f9fa9c3e05_Cfunc_client_connect
+//go:linkname __cgofn__cgo_39f9fa9c3e05_Cfunc_client_connect _cgo_39f9fa9c3e05_Cfunc_client_connect
+var __cgofn__cgo_39f9fa9c3e05_Cfunc_client_connect byte
+var _cgo_39f9fa9c3e05_Cfunc_client_connect = unsafe.Pointer(&__cgofn__cgo_39f9fa9c3e05_Cfunc_client_connect)
 
 //go:cgo_unsafe_args
 func _Cfunc_client_connect(p0 *_Ctype_struct_IBClient, p1 *_Ctype_char, p2 _Ctype_int, p3 _Ctype_int) (r1 _Ctype__Bool) {
-	_cgo_runtime_cgocall(_cgo_540f8fc8725b_Cfunc_client_connect, uintptr(unsafe.Pointer(&p0)))
+	_cgo_runtime_cgocall(_cgo_39f9fa9c3e05_Cfunc_client_connect, uintptr(unsafe.Pointer(&p0)))
 	if _Cgo_always_false {
 		_Cgo_use(p0)
 		_Cgo_use(p1)
@@ -118,40 +126,40 @@ func _Cfunc_client_connect(p0 *_Ctype_struct_IBClient, p1 *_Ctype_char, p2 _Ctyp
 	}
 	return
 }
-//go:cgo_import_static _cgo_540f8fc8725b_Cfunc_client_disconnect
-//go:linkname __cgofn__cgo_540f8fc8725b_Cfunc_client_disconnect _cgo_540f8fc8725b_Cfunc_client_disconnect
-var __cgofn__cgo_540f8fc8725b_Cfunc_client_disconnect byte
-var _cgo_540f8fc8725b_Cfunc_client_disconnect = unsafe.Pointer(&__cgofn__cgo_540f8fc8725b_Cfunc_client_disconnect)
+//go:cgo_import_static _cgo_39f9fa9c3e05_Cfunc_client_disconnect
+//go:linkname __cgofn__cgo_39f9fa9c3e05_Cfunc_client_disconnect _cgo_39f9fa9c3e05_Cfunc_client_disconnect
+var __cgofn__cgo_39f9fa9c3e05_Cfunc_client_disconnect byte
+var _cgo_39f9fa9c3e05_Cfunc_client_disconnect = unsafe.Pointer(&__cgofn__cgo_39f9fa9c3e05_Cfunc_client_disconnect)
 
 //go:cgo_unsafe_args
 func _Cfunc_client_disconnect(p0 *_Ctype_struct_IBClient) (r1 _Ctype_void) {
-	_cgo_runtime_cgocall(_cgo_540f8fc8725b_Cfunc_client_disconnect, uintptr(unsafe.Pointer(&p0)))
+	_cgo_runtime_cgocall(_cgo_39f9fa9c3e05_Cfunc_client_disconnect, uintptr(unsafe.Pointer(&p0)))
 	if _Cgo_always_false {
 		_Cgo_use(p0)
 	}
 	return
 }
-//go:cgo_import_static _cgo_540f8fc8725b_Cfunc_client_is_connected
-//go:linkname __cgofn__cgo_540f8fc8725b_Cfunc_client_is_connected _cgo_540f8fc8725b_Cfunc_client_is_connected
-var __cgofn__cgo_540f8fc8725b_Cfunc_client_is_connected byte
-var _cgo_540f8fc8725b_Cfunc_client_is_connected = unsafe.Pointer(&__cgofn__cgo_540f8fc8725b_Cfunc_client_is_connected)
+//go:cgo_import_static _cgo_39f9fa9c3e05_Cfunc_client_is_connected
+//go:linkname __cgofn__cgo_39f9fa9c3e05_Cfunc_client_is_connected _cgo_39f9fa9c3e05_Cfunc_client_is_connected
+var __cgofn__cgo_39f9fa9c3e05_Cfunc_client_is_connected byte
+var _cgo_39f9fa9c3e05_Cfunc_client_is_connected = unsafe.Pointer(&__cgofn__cgo_39f9fa9c3e05_Cfunc_client_is_connected)
 
 //go:cgo_unsafe_args
 func _Cfunc_client_is_connected(p0 *_Ctype_struct_IBClient) (r1 _Ctype__Bool) {
-	_cgo_runtime_cgocall(_cgo_540f8fc8725b_Cfunc_client_is_connected, uintptr(unsafe.Pointer(&p0)))
+	_cgo_runtime_cgocall(_cgo_39f9fa9c3e05_Cfunc_client_is_connected, uintptr(unsafe.Pointer(&p0)))
 	if _Cgo_always_false {
 		_Cgo_use(p0)
 	}
 	return
 }
-//go:cgo_import_static _cgo_540f8fc8725b_Cfunc_client_place_order
-//go:linkname __cgofn__cgo_540f8fc8725b_Cfunc_client_place_order _cgo_540f8fc8725b_Cfunc_client_place_order
-var __cgofn__cgo_540f8fc8725b_Cfunc_client_place_order byte
-var _cgo_540f8fc8725b_Cfunc_client_place_order = unsafe.Pointer(&__cgofn__cgo_540f8fc8725b_Cfunc_client_place_order)
+//go:cgo_import_static _cgo_39f9fa9c3e05_Cfunc_client_place_order
+//go:linkname __cgofn__cgo_39f9fa9c3e05_Cfunc_client_place_order _cgo_39f9fa9c3e05_Cfunc_client_place_order
+var __cgofn__cgo_39f9fa9c3e05_Cfunc_client_place_order byte
+var _cgo_39f9fa9c3e05_Cfunc_client_place_order = unsafe.Pointer(&__cgofn__cgo_39f9fa9c3e05_Cfunc_client_place_order)
 
 //go:cgo_unsafe_args
 func _Cfunc_client_place_order(p0 *_Ctype_struct_IBClient, p1 _Ctype_OrderId, p2 *_Ctype_struct_Contract, p3 *_Ctype_struct_Order) (r1 _Ctype_void) {
-	_cgo_runtime_cgocall(_cgo_540f8fc8725b_Cfunc_client_place_order, uintptr(unsafe.Pointer(&p0)))
+	_cgo_runtime_cgocall(_cgo_39f9fa9c3e05_Cfunc_client_place_order, uintptr(unsafe.Pointer(&p0)))
 	if _Cgo_always_false {
 		_Cgo_use(p0)
 		_Cgo_use(p1)
@@ -160,27 +168,27 @@ func _Cfunc_client_place_order(p0 *_Ctype_struct_IBClient, p1 _Ctype_OrderId, p2
 	}
 	return
 }
-//go:cgo_import_static _cgo_540f8fc8725b_Cfunc_client_process_msg
-//go:linkname __cgofn__cgo_540f8fc8725b_Cfunc_client_process_msg _cgo_540f8fc8725b_Cfunc_client_process_msg
-var __cgofn__cgo_540f8fc8725b_Cfunc_client_process_msg byte
-var _cgo_540f8fc8725b_Cfunc_client_process_msg = unsafe.Pointer(&__cgofn__cgo_540f8fc8725b_Cfunc_client_process_msg)
+//go:cgo_import_static _cgo_39f9fa9c3e05_Cfunc_client_process_msg
+//go:linkname __cgofn__cgo_39f9fa9c3e05_Cfunc_client_process_msg _cgo_39f9fa9c3e05_Cfunc_client_process_msg
+var __cgofn__cgo_39f9fa9c3e05_Cfunc_client_process_msg byte
+var _cgo_39f9fa9c3e05_Cfunc_client_process_msg = unsafe.Pointer(&__cgofn__cgo_39f9fa9c3e05_Cfunc_client_process_msg)
 
 //go:cgo_unsafe_args
 func _Cfunc_client_process_msg(p0 *_Ctype_struct_IBClient) (r1 _Ctype_void) {
-	_cgo_runtime_cgocall(_cgo_540f8fc8725b_Cfunc_client_process_msg, uintptr(unsafe.Pointer(&p0)))
+	_cgo_runtime_cgocall(_cgo_39f9fa9c3e05_Cfunc_client_process_msg, uintptr(unsafe.Pointer(&p0)))
 	if _Cgo_always_false {
 		_Cgo_use(p0)
 	}
 	return
 }
-//go:cgo_import_static _cgo_540f8fc8725b_Cfunc_client_req_account_summ
-//go:linkname __cgofn__cgo_540f8fc8725b_Cfunc_client_req_account_summ _cgo_540f8fc8725b_Cfunc_client_req_account_summ
-var __cgofn__cgo_540f8fc8725b_Cfunc_client_req_account_summ byte
-var _cgo_540f8fc8725b_Cfunc_client_req_account_summ = unsafe.Pointer(&__cgofn__cgo_540f8fc8725b_Cfunc_client_req_account_summ)
+//go:cgo_import_static _cgo_39f9fa9c3e05_Cfunc_client_req_account_summ
+//go:linkname __cgofn__cgo_39f9fa9c3e05_Cfunc_client_req_account_summ _cgo_39f9fa9c3e05_Cfunc_client_req_account_summ
+var __cgofn__cgo_39f9fa9c3e05_Cfunc_client_req_account_summ byte
+var _cgo_39f9fa9c3e05_Cfunc_client_req_account_summ = unsafe.Pointer(&__cgofn__cgo_39f9fa9c3e05_Cfunc_client_req_account_summ)
 
 //go:cgo_unsafe_args
 func _Cfunc_client_req_account_summ(p0 *_Ctype_struct_IBClient, p1 _Ctype_int, p2 *_Ctype_char, p3 *_Ctype_char) (r1 _Ctype_void) {
-	_cgo_runtime_cgocall(_cgo_540f8fc8725b_Cfunc_client_req_account_summ, uintptr(unsafe.Pointer(&p0)))
+	_cgo_runtime_cgocall(_cgo_39f9fa9c3e05_Cfunc_client_req_account_summ, uintptr(unsafe.Pointer(&p0)))
 	if _Cgo_always_false {
 		_Cgo_use(p0)
 		_Cgo_use(p1)
@@ -189,145 +197,303 @@ func _Cfunc_client_req_account_summ(p0 *_Ctype_struct_IBClient, p1 _Ctype_int, p
 	}
 	return
 }
-//go:cgo_import_static _cgo_540f8fc8725b_Cfunc_contract_currency
-//go:linkname __cgofn__cgo_540f8fc8725b_Cfunc_contract_currency _cgo_540f8fc8725b_Cfunc_contract_currency
-var __cgofn__cgo_540f8fc8725b_Cfunc_contract_currency byte
-var _cgo_540f8fc8725b_Cfunc_contract_currency = unsafe.Pointer(&__cgofn__cgo_540f8fc8725b_Cfunc_contract_currency)
+//go:cgo_import_static _cgo_39f9fa9c3e05_Cfunc_client_req_executions
+//go:linkname __cgofn__cgo_39f9fa9c3e05_Cfunc_client_req_executions _cgo_39f9fa9c3e05_Cfunc_client_req_executions
+var __cgofn__cgo_39f9fa9c3e05_Cfunc_client_req_executions byte
+var _cgo_39f9fa9c3e05_Cfunc_client_req_executions = unsafe.Pointer(&__cgofn__cgo_39f9fa9c3e05_Cfunc_client_req_executions)
+
+//go:cgo_unsafe_args
+func _Cfunc_client_req_executions(p0 *_Ctype_struct_IBClient, p1 _Ctype_int, p2 *_Ctype_struct_ExecutionFilter) (r1 _Ctype_void) {
+	_cgo_runtime_cgocall(_cgo_39f9fa9c3e05_Cfunc_client_req_executions, uintptr(unsafe.Pointer(&p0)))
+	if _Cgo_always_false {
+		_Cgo_use(p0)
+		_Cgo_use(p1)
+		_Cgo_use(p2)
+	}
+	return
+}
+//go:cgo_import_static _cgo_39f9fa9c3e05_Cfunc_client_req_open_orders
+//go:linkname __cgofn__cgo_39f9fa9c3e05_Cfunc_client_req_open_orders _cgo_39f9fa9c3e05_Cfunc_client_req_open_orders
+var __cgofn__cgo_39f9fa9c3e05_Cfunc_client_req_open_orders byte
+var _cgo_39f9fa9c3e05_Cfunc_client_req_open_orders = unsafe.Pointer(&__cgofn__cgo_39f9fa9c3e05_Cfunc_client_req_open_orders)
+
+//go:cgo_unsafe_args
+func _Cfunc_client_req_open_orders(p0 *_Ctype_struct_IBClient) (r1 _Ctype_void) {
+	_cgo_runtime_cgocall(_cgo_39f9fa9c3e05_Cfunc_client_req_open_orders, uintptr(unsafe.Pointer(&p0)))
+	if _Cgo_always_false {
+		_Cgo_use(p0)
+	}
+	return
+}
+//go:cgo_import_static _cgo_39f9fa9c3e05_Cfunc_contract_currency
+//go:linkname __cgofn__cgo_39f9fa9c3e05_Cfunc_contract_currency _cgo_39f9fa9c3e05_Cfunc_contract_currency
+var __cgofn__cgo_39f9fa9c3e05_Cfunc_contract_currency byte
+var _cgo_39f9fa9c3e05_Cfunc_contract_currency = unsafe.Pointer(&__cgofn__cgo_39f9fa9c3e05_Cfunc_contract_currency)
 
 //go:cgo_unsafe_args
 func _Cfunc_contract_currency(p0 *_Ctype_struct_Contract) (r1 *_Ctype_char) {
-	_cgo_runtime_cgocall(_cgo_540f8fc8725b_Cfunc_contract_currency, uintptr(unsafe.Pointer(&p0)))
+	_cgo_runtime_cgocall(_cgo_39f9fa9c3e05_Cfunc_contract_currency, uintptr(unsafe.Pointer(&p0)))
 	if _Cgo_always_false {
 		_Cgo_use(p0)
 	}
 	return
 }
-//go:cgo_import_static _cgo_540f8fc8725b_Cfunc_contract_exchange
-//go:linkname __cgofn__cgo_540f8fc8725b_Cfunc_contract_exchange _cgo_540f8fc8725b_Cfunc_contract_exchange
-var __cgofn__cgo_540f8fc8725b_Cfunc_contract_exchange byte
-var _cgo_540f8fc8725b_Cfunc_contract_exchange = unsafe.Pointer(&__cgofn__cgo_540f8fc8725b_Cfunc_contract_exchange)
+//go:cgo_import_static _cgo_39f9fa9c3e05_Cfunc_contract_exchange
+//go:linkname __cgofn__cgo_39f9fa9c3e05_Cfunc_contract_exchange _cgo_39f9fa9c3e05_Cfunc_contract_exchange
+var __cgofn__cgo_39f9fa9c3e05_Cfunc_contract_exchange byte
+var _cgo_39f9fa9c3e05_Cfunc_contract_exchange = unsafe.Pointer(&__cgofn__cgo_39f9fa9c3e05_Cfunc_contract_exchange)
 
 //go:cgo_unsafe_args
 func _Cfunc_contract_exchange(p0 *_Ctype_struct_Contract) (r1 *_Ctype_char) {
-	_cgo_runtime_cgocall(_cgo_540f8fc8725b_Cfunc_contract_exchange, uintptr(unsafe.Pointer(&p0)))
+	_cgo_runtime_cgocall(_cgo_39f9fa9c3e05_Cfunc_contract_exchange, uintptr(unsafe.Pointer(&p0)))
 	if _Cgo_always_false {
 		_Cgo_use(p0)
 	}
 	return
 }
-//go:cgo_import_static _cgo_540f8fc8725b_Cfunc_contract_month
-//go:linkname __cgofn__cgo_540f8fc8725b_Cfunc_contract_month _cgo_540f8fc8725b_Cfunc_contract_month
-var __cgofn__cgo_540f8fc8725b_Cfunc_contract_month byte
-var _cgo_540f8fc8725b_Cfunc_contract_month = unsafe.Pointer(&__cgofn__cgo_540f8fc8725b_Cfunc_contract_month)
+//go:cgo_import_static _cgo_39f9fa9c3e05_Cfunc_contract_month
+//go:linkname __cgofn__cgo_39f9fa9c3e05_Cfunc_contract_month _cgo_39f9fa9c3e05_Cfunc_contract_month
+var __cgofn__cgo_39f9fa9c3e05_Cfunc_contract_month byte
+var _cgo_39f9fa9c3e05_Cfunc_contract_month = unsafe.Pointer(&__cgofn__cgo_39f9fa9c3e05_Cfunc_contract_month)
 
 //go:cgo_unsafe_args
 func _Cfunc_contract_month(p0 *_Ctype_struct_Contract) (r1 *_Ctype_char) {
-	_cgo_runtime_cgocall(_cgo_540f8fc8725b_Cfunc_contract_month, uintptr(unsafe.Pointer(&p0)))
+	_cgo_runtime_cgocall(_cgo_39f9fa9c3e05_Cfunc_contract_month, uintptr(unsafe.Pointer(&p0)))
 	if _Cgo_always_false {
 		_Cgo_use(p0)
 	}
 	return
 }
-//go:cgo_import_static _cgo_540f8fc8725b_Cfunc_contract_sec_type
-//go:linkname __cgofn__cgo_540f8fc8725b_Cfunc_contract_sec_type _cgo_540f8fc8725b_Cfunc_contract_sec_type
-var __cgofn__cgo_540f8fc8725b_Cfunc_contract_sec_type byte
-var _cgo_540f8fc8725b_Cfunc_contract_sec_type = unsafe.Pointer(&__cgofn__cgo_540f8fc8725b_Cfunc_contract_sec_type)
+//go:cgo_import_static _cgo_39f9fa9c3e05_Cfunc_contract_sec_type
+//go:linkname __cgofn__cgo_39f9fa9c3e05_Cfunc_contract_sec_type _cgo_39f9fa9c3e05_Cfunc_contract_sec_type
+var __cgofn__cgo_39f9fa9c3e05_Cfunc_contract_sec_type byte
+var _cgo_39f9fa9c3e05_Cfunc_contract_sec_type = unsafe.Pointer(&__cgofn__cgo_39f9fa9c3e05_Cfunc_contract_sec_type)
 
 //go:cgo_unsafe_args
 func _Cfunc_contract_sec_type(p0 *_Ctype_struct_Contract) (r1 *_Ctype_char) {
-	_cgo_runtime_cgocall(_cgo_540f8fc8725b_Cfunc_contract_sec_type, uintptr(unsafe.Pointer(&p0)))
+	_cgo_runtime_cgocall(_cgo_39f9fa9c3e05_Cfunc_contract_sec_type, uintptr(unsafe.Pointer(&p0)))
 	if _Cgo_always_false {
 		_Cgo_use(p0)
 	}
 	return
 }
-//go:cgo_import_static _cgo_540f8fc8725b_Cfunc_contract_symbol
-//go:linkname __cgofn__cgo_540f8fc8725b_Cfunc_contract_symbol _cgo_540f8fc8725b_Cfunc_contract_symbol
-var __cgofn__cgo_540f8fc8725b_Cfunc_contract_symbol byte
-var _cgo_540f8fc8725b_Cfunc_contract_symbol = unsafe.Pointer(&__cgofn__cgo_540f8fc8725b_Cfunc_contract_symbol)
+//go:cgo_import_static _cgo_39f9fa9c3e05_Cfunc_contract_symbol
+//go:linkname __cgofn__cgo_39f9fa9c3e05_Cfunc_contract_symbol _cgo_39f9fa9c3e05_Cfunc_contract_symbol
+var __cgofn__cgo_39f9fa9c3e05_Cfunc_contract_symbol byte
+var _cgo_39f9fa9c3e05_Cfunc_contract_symbol = unsafe.Pointer(&__cgofn__cgo_39f9fa9c3e05_Cfunc_contract_symbol)
 
 //go:cgo_unsafe_args
 func _Cfunc_contract_symbol(p0 *_Ctype_struct_Contract) (r1 *_Ctype_char) {
-	_cgo_runtime_cgocall(_cgo_540f8fc8725b_Cfunc_contract_symbol, uintptr(unsafe.Pointer(&p0)))
+	_cgo_runtime_cgocall(_cgo_39f9fa9c3e05_Cfunc_contract_symbol, uintptr(unsafe.Pointer(&p0)))
 	if _Cgo_always_false {
 		_Cgo_use(p0)
 	}
 	return
 }
-//go:cgo_import_static _cgo_540f8fc8725b_Cfunc_delete_client
-//go:linkname __cgofn__cgo_540f8fc8725b_Cfunc_delete_client _cgo_540f8fc8725b_Cfunc_delete_client
-var __cgofn__cgo_540f8fc8725b_Cfunc_delete_client byte
-var _cgo_540f8fc8725b_Cfunc_delete_client = unsafe.Pointer(&__cgofn__cgo_540f8fc8725b_Cfunc_delete_client)
+//go:cgo_import_static _cgo_39f9fa9c3e05_Cfunc_delete_client
+//go:linkname __cgofn__cgo_39f9fa9c3e05_Cfunc_delete_client _cgo_39f9fa9c3e05_Cfunc_delete_client
+var __cgofn__cgo_39f9fa9c3e05_Cfunc_delete_client byte
+var _cgo_39f9fa9c3e05_Cfunc_delete_client = unsafe.Pointer(&__cgofn__cgo_39f9fa9c3e05_Cfunc_delete_client)
 
 //go:cgo_unsafe_args
 func _Cfunc_delete_client(p0 *_Ctype_struct_IBClient) (r1 _Ctype_void) {
-	_cgo_runtime_cgocall(_cgo_540f8fc8725b_Cfunc_delete_client, uintptr(unsafe.Pointer(&p0)))
+	_cgo_runtime_cgocall(_cgo_39f9fa9c3e05_Cfunc_delete_client, uintptr(unsafe.Pointer(&p0)))
 	if _Cgo_always_false {
 		_Cgo_use(p0)
 	}
 	return
 }
-//go:cgo_import_static _cgo_540f8fc8725b_Cfunc_delete_contract
-//go:linkname __cgofn__cgo_540f8fc8725b_Cfunc_delete_contract _cgo_540f8fc8725b_Cfunc_delete_contract
-var __cgofn__cgo_540f8fc8725b_Cfunc_delete_contract byte
-var _cgo_540f8fc8725b_Cfunc_delete_contract = unsafe.Pointer(&__cgofn__cgo_540f8fc8725b_Cfunc_delete_contract)
+//go:cgo_import_static _cgo_39f9fa9c3e05_Cfunc_delete_contract
+//go:linkname __cgofn__cgo_39f9fa9c3e05_Cfunc_delete_contract _cgo_39f9fa9c3e05_Cfunc_delete_contract
+var __cgofn__cgo_39f9fa9c3e05_Cfunc_delete_contract byte
+var _cgo_39f9fa9c3e05_Cfunc_delete_contract = unsafe.Pointer(&__cgofn__cgo_39f9fa9c3e05_Cfunc_delete_contract)
 
 //go:cgo_unsafe_args
 func _Cfunc_delete_contract(p0 *_Ctype_struct_Contract) (r1 _Ctype_void) {
-	_cgo_runtime_cgocall(_cgo_540f8fc8725b_Cfunc_delete_contract, uintptr(unsafe.Pointer(&p0)))
+	_cgo_runtime_cgocall(_cgo_39f9fa9c3e05_Cfunc_delete_contract, uintptr(unsafe.Pointer(&p0)))
 	if _Cgo_always_false {
 		_Cgo_use(p0)
 	}
 	return
 }
-//go:cgo_import_static _cgo_540f8fc8725b_Cfunc_delete_order
-//go:linkname __cgofn__cgo_540f8fc8725b_Cfunc_delete_order _cgo_540f8fc8725b_Cfunc_delete_order
-var __cgofn__cgo_540f8fc8725b_Cfunc_delete_order byte
-var _cgo_540f8fc8725b_Cfunc_delete_order = unsafe.Pointer(&__cgofn__cgo_540f8fc8725b_Cfunc_delete_order)
+//go:cgo_import_static _cgo_39f9fa9c3e05_Cfunc_delete_exec_filter
+//go:linkname __cgofn__cgo_39f9fa9c3e05_Cfunc_delete_exec_filter _cgo_39f9fa9c3e05_Cfunc_delete_exec_filter
+var __cgofn__cgo_39f9fa9c3e05_Cfunc_delete_exec_filter byte
+var _cgo_39f9fa9c3e05_Cfunc_delete_exec_filter = unsafe.Pointer(&__cgofn__cgo_39f9fa9c3e05_Cfunc_delete_exec_filter)
+
+//go:cgo_unsafe_args
+func _Cfunc_delete_exec_filter(p0 *_Ctype_struct_ExecutionFilter) (r1 _Ctype_void) {
+	_cgo_runtime_cgocall(_cgo_39f9fa9c3e05_Cfunc_delete_exec_filter, uintptr(unsafe.Pointer(&p0)))
+	if _Cgo_always_false {
+		_Cgo_use(p0)
+	}
+	return
+}
+//go:cgo_import_static _cgo_39f9fa9c3e05_Cfunc_delete_order
+//go:linkname __cgofn__cgo_39f9fa9c3e05_Cfunc_delete_order _cgo_39f9fa9c3e05_Cfunc_delete_order
+var __cgofn__cgo_39f9fa9c3e05_Cfunc_delete_order byte
+var _cgo_39f9fa9c3e05_Cfunc_delete_order = unsafe.Pointer(&__cgofn__cgo_39f9fa9c3e05_Cfunc_delete_order)
 
 //go:cgo_unsafe_args
 func _Cfunc_delete_order(p0 *_Ctype_struct_Order) (r1 _Ctype_void) {
-	_cgo_runtime_cgocall(_cgo_540f8fc8725b_Cfunc_delete_order, uintptr(unsafe.Pointer(&p0)))
+	_cgo_runtime_cgocall(_cgo_39f9fa9c3e05_Cfunc_delete_order, uintptr(unsafe.Pointer(&p0)))
 	if _Cgo_always_false {
 		_Cgo_use(p0)
 	}
 	return
 }
-//go:cgo_import_static _cgo_540f8fc8725b_Cfunc_free
-//go:linkname __cgofn__cgo_540f8fc8725b_Cfunc_free _cgo_540f8fc8725b_Cfunc_free
-var __cgofn__cgo_540f8fc8725b_Cfunc_free byte
-var _cgo_540f8fc8725b_Cfunc_free = unsafe.Pointer(&__cgofn__cgo_540f8fc8725b_Cfunc_free)
+//go:cgo_import_static _cgo_39f9fa9c3e05_Cfunc_exec_account_num
+//go:linkname __cgofn__cgo_39f9fa9c3e05_Cfunc_exec_account_num _cgo_39f9fa9c3e05_Cfunc_exec_account_num
+var __cgofn__cgo_39f9fa9c3e05_Cfunc_exec_account_num byte
+var _cgo_39f9fa9c3e05_Cfunc_exec_account_num = unsafe.Pointer(&__cgofn__cgo_39f9fa9c3e05_Cfunc_exec_account_num)
+
+//go:cgo_unsafe_args
+func _Cfunc_exec_account_num(p0 *_Ctype_struct_Execution) (r1 *_Ctype_char) {
+	_cgo_runtime_cgocall(_cgo_39f9fa9c3e05_Cfunc_exec_account_num, uintptr(unsafe.Pointer(&p0)))
+	if _Cgo_always_false {
+		_Cgo_use(p0)
+	}
+	return
+}
+//go:cgo_import_static _cgo_39f9fa9c3e05_Cfunc_exec_avg_price
+//go:linkname __cgofn__cgo_39f9fa9c3e05_Cfunc_exec_avg_price _cgo_39f9fa9c3e05_Cfunc_exec_avg_price
+var __cgofn__cgo_39f9fa9c3e05_Cfunc_exec_avg_price byte
+var _cgo_39f9fa9c3e05_Cfunc_exec_avg_price = unsafe.Pointer(&__cgofn__cgo_39f9fa9c3e05_Cfunc_exec_avg_price)
+
+//go:cgo_unsafe_args
+func _Cfunc_exec_avg_price(p0 *_Ctype_struct_Execution) (r1 _Ctype_double) {
+	_cgo_runtime_cgocall(_cgo_39f9fa9c3e05_Cfunc_exec_avg_price, uintptr(unsafe.Pointer(&p0)))
+	if _Cgo_always_false {
+		_Cgo_use(p0)
+	}
+	return
+}
+//go:cgo_import_static _cgo_39f9fa9c3e05_Cfunc_exec_exchange
+//go:linkname __cgofn__cgo_39f9fa9c3e05_Cfunc_exec_exchange _cgo_39f9fa9c3e05_Cfunc_exec_exchange
+var __cgofn__cgo_39f9fa9c3e05_Cfunc_exec_exchange byte
+var _cgo_39f9fa9c3e05_Cfunc_exec_exchange = unsafe.Pointer(&__cgofn__cgo_39f9fa9c3e05_Cfunc_exec_exchange)
+
+//go:cgo_unsafe_args
+func _Cfunc_exec_exchange(p0 *_Ctype_struct_Execution) (r1 *_Ctype_char) {
+	_cgo_runtime_cgocall(_cgo_39f9fa9c3e05_Cfunc_exec_exchange, uintptr(unsafe.Pointer(&p0)))
+	if _Cgo_always_false {
+		_Cgo_use(p0)
+	}
+	return
+}
+//go:cgo_import_static _cgo_39f9fa9c3e05_Cfunc_exec_id
+//go:linkname __cgofn__cgo_39f9fa9c3e05_Cfunc_exec_id _cgo_39f9fa9c3e05_Cfunc_exec_id
+var __cgofn__cgo_39f9fa9c3e05_Cfunc_exec_id byte
+var _cgo_39f9fa9c3e05_Cfunc_exec_id = unsafe.Pointer(&__cgofn__cgo_39f9fa9c3e05_Cfunc_exec_id)
+
+//go:cgo_unsafe_args
+func _Cfunc_exec_id(p0 *_Ctype_struct_Execution) (r1 *_Ctype_char) {
+	_cgo_runtime_cgocall(_cgo_39f9fa9c3e05_Cfunc_exec_id, uintptr(unsafe.Pointer(&p0)))
+	if _Cgo_always_false {
+		_Cgo_use(p0)
+	}
+	return
+}
+//go:cgo_import_static _cgo_39f9fa9c3e05_Cfunc_exec_order_id
+//go:linkname __cgofn__cgo_39f9fa9c3e05_Cfunc_exec_order_id _cgo_39f9fa9c3e05_Cfunc_exec_order_id
+var __cgofn__cgo_39f9fa9c3e05_Cfunc_exec_order_id byte
+var _cgo_39f9fa9c3e05_Cfunc_exec_order_id = unsafe.Pointer(&__cgofn__cgo_39f9fa9c3e05_Cfunc_exec_order_id)
+
+//go:cgo_unsafe_args
+func _Cfunc_exec_order_id(p0 *_Ctype_struct_Execution) (r1 _Ctype_long) {
+	_cgo_runtime_cgocall(_cgo_39f9fa9c3e05_Cfunc_exec_order_id, uintptr(unsafe.Pointer(&p0)))
+	if _Cgo_always_false {
+		_Cgo_use(p0)
+	}
+	return
+}
+//go:cgo_import_static _cgo_39f9fa9c3e05_Cfunc_exec_price
+//go:linkname __cgofn__cgo_39f9fa9c3e05_Cfunc_exec_price _cgo_39f9fa9c3e05_Cfunc_exec_price
+var __cgofn__cgo_39f9fa9c3e05_Cfunc_exec_price byte
+var _cgo_39f9fa9c3e05_Cfunc_exec_price = unsafe.Pointer(&__cgofn__cgo_39f9fa9c3e05_Cfunc_exec_price)
+
+//go:cgo_unsafe_args
+func _Cfunc_exec_price(p0 *_Ctype_struct_Execution) (r1 _Ctype_double) {
+	_cgo_runtime_cgocall(_cgo_39f9fa9c3e05_Cfunc_exec_price, uintptr(unsafe.Pointer(&p0)))
+	if _Cgo_always_false {
+		_Cgo_use(p0)
+	}
+	return
+}
+//go:cgo_import_static _cgo_39f9fa9c3e05_Cfunc_exec_shares
+//go:linkname __cgofn__cgo_39f9fa9c3e05_Cfunc_exec_shares _cgo_39f9fa9c3e05_Cfunc_exec_shares
+var __cgofn__cgo_39f9fa9c3e05_Cfunc_exec_shares byte
+var _cgo_39f9fa9c3e05_Cfunc_exec_shares = unsafe.Pointer(&__cgofn__cgo_39f9fa9c3e05_Cfunc_exec_shares)
+
+//go:cgo_unsafe_args
+func _Cfunc_exec_shares(p0 *_Ctype_struct_Execution) (r1 _Ctype_double) {
+	_cgo_runtime_cgocall(_cgo_39f9fa9c3e05_Cfunc_exec_shares, uintptr(unsafe.Pointer(&p0)))
+	if _Cgo_always_false {
+		_Cgo_use(p0)
+	}
+	return
+}
+//go:cgo_import_static _cgo_39f9fa9c3e05_Cfunc_exec_side
+//go:linkname __cgofn__cgo_39f9fa9c3e05_Cfunc_exec_side _cgo_39f9fa9c3e05_Cfunc_exec_side
+var __cgofn__cgo_39f9fa9c3e05_Cfunc_exec_side byte
+var _cgo_39f9fa9c3e05_Cfunc_exec_side = unsafe.Pointer(&__cgofn__cgo_39f9fa9c3e05_Cfunc_exec_side)
+
+//go:cgo_unsafe_args
+func _Cfunc_exec_side(p0 *_Ctype_struct_Execution) (r1 *_Ctype_char) {
+	_cgo_runtime_cgocall(_cgo_39f9fa9c3e05_Cfunc_exec_side, uintptr(unsafe.Pointer(&p0)))
+	if _Cgo_always_false {
+		_Cgo_use(p0)
+	}
+	return
+}
+//go:cgo_import_static _cgo_39f9fa9c3e05_Cfunc_exec_time
+//go:linkname __cgofn__cgo_39f9fa9c3e05_Cfunc_exec_time _cgo_39f9fa9c3e05_Cfunc_exec_time
+var __cgofn__cgo_39f9fa9c3e05_Cfunc_exec_time byte
+var _cgo_39f9fa9c3e05_Cfunc_exec_time = unsafe.Pointer(&__cgofn__cgo_39f9fa9c3e05_Cfunc_exec_time)
+
+//go:cgo_unsafe_args
+func _Cfunc_exec_time(p0 *_Ctype_struct_Execution) (r1 *_Ctype_char) {
+	_cgo_runtime_cgocall(_cgo_39f9fa9c3e05_Cfunc_exec_time, uintptr(unsafe.Pointer(&p0)))
+	if _Cgo_always_false {
+		_Cgo_use(p0)
+	}
+	return
+}
+//go:cgo_import_static _cgo_39f9fa9c3e05_Cfunc_free
+//go:linkname __cgofn__cgo_39f9fa9c3e05_Cfunc_free _cgo_39f9fa9c3e05_Cfunc_free
+var __cgofn__cgo_39f9fa9c3e05_Cfunc_free byte
+var _cgo_39f9fa9c3e05_Cfunc_free = unsafe.Pointer(&__cgofn__cgo_39f9fa9c3e05_Cfunc_free)
 
 //go:cgo_unsafe_args
 func _Cfunc_free(p0 unsafe.Pointer) (r1 _Ctype_void) {
-	_cgo_runtime_cgocall(_cgo_540f8fc8725b_Cfunc_free, uintptr(unsafe.Pointer(&p0)))
+	_cgo_runtime_cgocall(_cgo_39f9fa9c3e05_Cfunc_free, uintptr(unsafe.Pointer(&p0)))
 	if _Cgo_always_false {
 		_Cgo_use(p0)
 	}
 	return
 }
-//go:cgo_import_static _cgo_540f8fc8725b_Cfunc_new_client
-//go:linkname __cgofn__cgo_540f8fc8725b_Cfunc_new_client _cgo_540f8fc8725b_Cfunc_new_client
-var __cgofn__cgo_540f8fc8725b_Cfunc_new_client byte
-var _cgo_540f8fc8725b_Cfunc_new_client = unsafe.Pointer(&__cgofn__cgo_540f8fc8725b_Cfunc_new_client)
+//go:cgo_import_static _cgo_39f9fa9c3e05_Cfunc_new_client
+//go:linkname __cgofn__cgo_39f9fa9c3e05_Cfunc_new_client _cgo_39f9fa9c3e05_Cfunc_new_client
+var __cgofn__cgo_39f9fa9c3e05_Cfunc_new_client byte
+var _cgo_39f9fa9c3e05_Cfunc_new_client = unsafe.Pointer(&__cgofn__cgo_39f9fa9c3e05_Cfunc_new_client)
 
 //go:cgo_unsafe_args
 func _Cfunc_new_client(p0 _Ctype_long, p1 _Ctype_ulong) (r1 *_Ctype_struct_IBClient) {
-	_cgo_runtime_cgocall(_cgo_540f8fc8725b_Cfunc_new_client, uintptr(unsafe.Pointer(&p0)))
+	_cgo_runtime_cgocall(_cgo_39f9fa9c3e05_Cfunc_new_client, uintptr(unsafe.Pointer(&p0)))
 	if _Cgo_always_false {
 		_Cgo_use(p0)
 		_Cgo_use(p1)
 	}
 	return
 }
-//go:cgo_import_static _cgo_540f8fc8725b_Cfunc_new_contract
-//go:linkname __cgofn__cgo_540f8fc8725b_Cfunc_new_contract _cgo_540f8fc8725b_Cfunc_new_contract
-var __cgofn__cgo_540f8fc8725b_Cfunc_new_contract byte
-var _cgo_540f8fc8725b_Cfunc_new_contract = unsafe.Pointer(&__cgofn__cgo_540f8fc8725b_Cfunc_new_contract)
+//go:cgo_import_static _cgo_39f9fa9c3e05_Cfunc_new_contract
+//go:linkname __cgofn__cgo_39f9fa9c3e05_Cfunc_new_contract _cgo_39f9fa9c3e05_Cfunc_new_contract
+var __cgofn__cgo_39f9fa9c3e05_Cfunc_new_contract byte
+var _cgo_39f9fa9c3e05_Cfunc_new_contract = unsafe.Pointer(&__cgofn__cgo_39f9fa9c3e05_Cfunc_new_contract)
 
 //go:cgo_unsafe_args
 func _Cfunc_new_contract(p0 *_Ctype_char, p1 *_Ctype_char, p2 *_Ctype_char, p3 *_Ctype_char, p4 *_Ctype_char) (r1 *_Ctype_struct_Contract) {
-	_cgo_runtime_cgocall(_cgo_540f8fc8725b_Cfunc_new_contract, uintptr(unsafe.Pointer(&p0)))
+	_cgo_runtime_cgocall(_cgo_39f9fa9c3e05_Cfunc_new_contract, uintptr(unsafe.Pointer(&p0)))
 	if _Cgo_always_false {
 		_Cgo_use(p0)
 		_Cgo_use(p1)
@@ -337,14 +503,33 @@ func _Cfunc_new_contract(p0 *_Ctype_char, p1 *_Ctype_char, p2 *_Ctype_char, p3 *
 	}
 	return
 }
-//go:cgo_import_static _cgo_540f8fc8725b_Cfunc_new_order
-//go:linkname __cgofn__cgo_540f8fc8725b_Cfunc_new_order _cgo_540f8fc8725b_Cfunc_new_order
-var __cgofn__cgo_540f8fc8725b_Cfunc_new_order byte
-var _cgo_540f8fc8725b_Cfunc_new_order = unsafe.Pointer(&__cgofn__cgo_540f8fc8725b_Cfunc_new_order)
+//go:cgo_import_static _cgo_39f9fa9c3e05_Cfunc_new_exec_filter
+//go:linkname __cgofn__cgo_39f9fa9c3e05_Cfunc_new_exec_filter _cgo_39f9fa9c3e05_Cfunc_new_exec_filter
+var __cgofn__cgo_39f9fa9c3e05_Cfunc_new_exec_filter byte
+var _cgo_39f9fa9c3e05_Cfunc_new_exec_filter = unsafe.Pointer(&__cgofn__cgo_39f9fa9c3e05_Cfunc_new_exec_filter)
+
+//go:cgo_unsafe_args
+func _Cfunc_new_exec_filter(p0 _Ctype_long, p1 *_Ctype_char, p2 *_Ctype_char, p3 *_Ctype_char, p4 *_Ctype_char, p5 *_Ctype_char, p6 *_Ctype_char) (r1 *_Ctype_struct_ExecutionFilter) {
+	_cgo_runtime_cgocall(_cgo_39f9fa9c3e05_Cfunc_new_exec_filter, uintptr(unsafe.Pointer(&p0)))
+	if _Cgo_always_false {
+		_Cgo_use(p0)
+		_Cgo_use(p1)
+		_Cgo_use(p2)
+		_Cgo_use(p3)
+		_Cgo_use(p4)
+		_Cgo_use(p5)
+		_Cgo_use(p6)
+	}
+	return
+}
+//go:cgo_import_static _cgo_39f9fa9c3e05_Cfunc_new_order
+//go:linkname __cgofn__cgo_39f9fa9c3e05_Cfunc_new_order _cgo_39f9fa9c3e05_Cfunc_new_order
+var __cgofn__cgo_39f9fa9c3e05_Cfunc_new_order byte
+var _cgo_39f9fa9c3e05_Cfunc_new_order = unsafe.Pointer(&__cgofn__cgo_39f9fa9c3e05_Cfunc_new_order)
 
 //go:cgo_unsafe_args
 func _Cfunc_new_order(p0 _Ctype_int, p1 *_Ctype_char, p2 *_Ctype_char, p3 _Ctype_double, p4 _Ctype_double, p5 *_Ctype_char) (r1 *_Ctype_struct_Order) {
-	_cgo_runtime_cgocall(_cgo_540f8fc8725b_Cfunc_new_order, uintptr(unsafe.Pointer(&p0)))
+	_cgo_runtime_cgocall(_cgo_39f9fa9c3e05_Cfunc_new_order, uintptr(unsafe.Pointer(&p0)))
 	if _Cgo_always_false {
 		_Cgo_use(p0)
 		_Cgo_use(p1)
@@ -355,174 +540,252 @@ func _Cfunc_new_order(p0 _Ctype_int, p1 *_Ctype_char, p2 *_Ctype_char, p3 _Ctype
 	}
 	return
 }
-//go:cgo_import_static _cgo_540f8fc8725b_Cfunc_order_action
-//go:linkname __cgofn__cgo_540f8fc8725b_Cfunc_order_action _cgo_540f8fc8725b_Cfunc_order_action
-var __cgofn__cgo_540f8fc8725b_Cfunc_order_action byte
-var _cgo_540f8fc8725b_Cfunc_order_action = unsafe.Pointer(&__cgofn__cgo_540f8fc8725b_Cfunc_order_action)
+//go:cgo_import_static _cgo_39f9fa9c3e05_Cfunc_order_action
+//go:linkname __cgofn__cgo_39f9fa9c3e05_Cfunc_order_action _cgo_39f9fa9c3e05_Cfunc_order_action
+var __cgofn__cgo_39f9fa9c3e05_Cfunc_order_action byte
+var _cgo_39f9fa9c3e05_Cfunc_order_action = unsafe.Pointer(&__cgofn__cgo_39f9fa9c3e05_Cfunc_order_action)
 
 //go:cgo_unsafe_args
 func _Cfunc_order_action(p0 *_Ctype_struct_Order) (r1 *_Ctype_char) {
-	_cgo_runtime_cgocall(_cgo_540f8fc8725b_Cfunc_order_action, uintptr(unsafe.Pointer(&p0)))
+	_cgo_runtime_cgocall(_cgo_39f9fa9c3e05_Cfunc_order_action, uintptr(unsafe.Pointer(&p0)))
 	if _Cgo_always_false {
 		_Cgo_use(p0)
 	}
 	return
 }
-//go:cgo_import_static _cgo_540f8fc8725b_Cfunc_order_id
-//go:linkname __cgofn__cgo_540f8fc8725b_Cfunc_order_id _cgo_540f8fc8725b_Cfunc_order_id
-var __cgofn__cgo_540f8fc8725b_Cfunc_order_id byte
-var _cgo_540f8fc8725b_Cfunc_order_id = unsafe.Pointer(&__cgofn__cgo_540f8fc8725b_Cfunc_order_id)
+//go:cgo_import_static _cgo_39f9fa9c3e05_Cfunc_order_id
+//go:linkname __cgofn__cgo_39f9fa9c3e05_Cfunc_order_id _cgo_39f9fa9c3e05_Cfunc_order_id
+var __cgofn__cgo_39f9fa9c3e05_Cfunc_order_id byte
+var _cgo_39f9fa9c3e05_Cfunc_order_id = unsafe.Pointer(&__cgofn__cgo_39f9fa9c3e05_Cfunc_order_id)
 
 //go:cgo_unsafe_args
 func _Cfunc_order_id(p0 *_Ctype_struct_Order) (r1 _Ctype_int) {
-	_cgo_runtime_cgocall(_cgo_540f8fc8725b_Cfunc_order_id, uintptr(unsafe.Pointer(&p0)))
+	_cgo_runtime_cgocall(_cgo_39f9fa9c3e05_Cfunc_order_id, uintptr(unsafe.Pointer(&p0)))
 	if _Cgo_always_false {
 		_Cgo_use(p0)
 	}
 	return
 }
-//go:cgo_import_static _cgo_540f8fc8725b_Cfunc_order_price
-//go:linkname __cgofn__cgo_540f8fc8725b_Cfunc_order_price _cgo_540f8fc8725b_Cfunc_order_price
-var __cgofn__cgo_540f8fc8725b_Cfunc_order_price byte
-var _cgo_540f8fc8725b_Cfunc_order_price = unsafe.Pointer(&__cgofn__cgo_540f8fc8725b_Cfunc_order_price)
+//go:cgo_import_static _cgo_39f9fa9c3e05_Cfunc_order_price
+//go:linkname __cgofn__cgo_39f9fa9c3e05_Cfunc_order_price _cgo_39f9fa9c3e05_Cfunc_order_price
+var __cgofn__cgo_39f9fa9c3e05_Cfunc_order_price byte
+var _cgo_39f9fa9c3e05_Cfunc_order_price = unsafe.Pointer(&__cgofn__cgo_39f9fa9c3e05_Cfunc_order_price)
 
 //go:cgo_unsafe_args
 func _Cfunc_order_price(p0 *_Ctype_struct_Order) (r1 _Ctype_double) {
-	_cgo_runtime_cgocall(_cgo_540f8fc8725b_Cfunc_order_price, uintptr(unsafe.Pointer(&p0)))
+	_cgo_runtime_cgocall(_cgo_39f9fa9c3e05_Cfunc_order_price, uintptr(unsafe.Pointer(&p0)))
 	if _Cgo_always_false {
 		_Cgo_use(p0)
 	}
 	return
 }
-//go:cgo_import_static _cgo_540f8fc8725b_Cfunc_order_qty
-//go:linkname __cgofn__cgo_540f8fc8725b_Cfunc_order_qty _cgo_540f8fc8725b_Cfunc_order_qty
-var __cgofn__cgo_540f8fc8725b_Cfunc_order_qty byte
-var _cgo_540f8fc8725b_Cfunc_order_qty = unsafe.Pointer(&__cgofn__cgo_540f8fc8725b_Cfunc_order_qty)
+//go:cgo_import_static _cgo_39f9fa9c3e05_Cfunc_order_qty
+//go:linkname __cgofn__cgo_39f9fa9c3e05_Cfunc_order_qty _cgo_39f9fa9c3e05_Cfunc_order_qty
+var __cgofn__cgo_39f9fa9c3e05_Cfunc_order_qty byte
+var _cgo_39f9fa9c3e05_Cfunc_order_qty = unsafe.Pointer(&__cgofn__cgo_39f9fa9c3e05_Cfunc_order_qty)
 
 //go:cgo_unsafe_args
 func _Cfunc_order_qty(p0 *_Ctype_struct_Order) (r1 _Ctype_double) {
-	_cgo_runtime_cgocall(_cgo_540f8fc8725b_Cfunc_order_qty, uintptr(unsafe.Pointer(&p0)))
+	_cgo_runtime_cgocall(_cgo_39f9fa9c3e05_Cfunc_order_qty, uintptr(unsafe.Pointer(&p0)))
 	if _Cgo_always_false {
 		_Cgo_use(p0)
 	}
 	return
 }
-//go:cgo_import_static _cgo_540f8fc8725b_Cfunc_order_tif
-//go:linkname __cgofn__cgo_540f8fc8725b_Cfunc_order_tif _cgo_540f8fc8725b_Cfunc_order_tif
-var __cgofn__cgo_540f8fc8725b_Cfunc_order_tif byte
-var _cgo_540f8fc8725b_Cfunc_order_tif = unsafe.Pointer(&__cgofn__cgo_540f8fc8725b_Cfunc_order_tif)
+//go:cgo_import_static _cgo_39f9fa9c3e05_Cfunc_order_tif
+//go:linkname __cgofn__cgo_39f9fa9c3e05_Cfunc_order_tif _cgo_39f9fa9c3e05_Cfunc_order_tif
+var __cgofn__cgo_39f9fa9c3e05_Cfunc_order_tif byte
+var _cgo_39f9fa9c3e05_Cfunc_order_tif = unsafe.Pointer(&__cgofn__cgo_39f9fa9c3e05_Cfunc_order_tif)
 
 //go:cgo_unsafe_args
 func _Cfunc_order_tif(p0 *_Ctype_struct_Order) (r1 *_Ctype_char) {
-	_cgo_runtime_cgocall(_cgo_540f8fc8725b_Cfunc_order_tif, uintptr(unsafe.Pointer(&p0)))
+	_cgo_runtime_cgocall(_cgo_39f9fa9c3e05_Cfunc_order_tif, uintptr(unsafe.Pointer(&p0)))
 	if _Cgo_always_false {
 		_Cgo_use(p0)
 	}
 	return
 }
-//go:cgo_import_static _cgo_540f8fc8725b_Cfunc_order_type
-//go:linkname __cgofn__cgo_540f8fc8725b_Cfunc_order_type _cgo_540f8fc8725b_Cfunc_order_type
-var __cgofn__cgo_540f8fc8725b_Cfunc_order_type byte
-var _cgo_540f8fc8725b_Cfunc_order_type = unsafe.Pointer(&__cgofn__cgo_540f8fc8725b_Cfunc_order_type)
+//go:cgo_import_static _cgo_39f9fa9c3e05_Cfunc_order_type
+//go:linkname __cgofn__cgo_39f9fa9c3e05_Cfunc_order_type _cgo_39f9fa9c3e05_Cfunc_order_type
+var __cgofn__cgo_39f9fa9c3e05_Cfunc_order_type byte
+var _cgo_39f9fa9c3e05_Cfunc_order_type = unsafe.Pointer(&__cgofn__cgo_39f9fa9c3e05_Cfunc_order_type)
 
 //go:cgo_unsafe_args
 func _Cfunc_order_type(p0 *_Ctype_struct_Order) (r1 *_Ctype_char) {
-	_cgo_runtime_cgocall(_cgo_540f8fc8725b_Cfunc_order_type, uintptr(unsafe.Pointer(&p0)))
+	_cgo_runtime_cgocall(_cgo_39f9fa9c3e05_Cfunc_order_type, uintptr(unsafe.Pointer(&p0)))
 	if _Cgo_always_false {
 		_Cgo_use(p0)
 	}
 	return
 }
 //go:cgo_export_dynamic updateAccountTimeCallback
-//go:linkname _cgoexp_540f8fc8725b_updateAccountTimeCallback _cgoexp_540f8fc8725b_updateAccountTimeCallback
-//go:cgo_export_static _cgoexp_540f8fc8725b_updateAccountTimeCallback
+//go:linkname _cgoexp_39f9fa9c3e05_updateAccountTimeCallback _cgoexp_39f9fa9c3e05_updateAccountTimeCallback
+//go:cgo_export_static _cgoexp_39f9fa9c3e05_updateAccountTimeCallback
 //go:nosplit
 //go:norace
-func _cgoexp_540f8fc8725b_updateAccountTimeCallback(a unsafe.Pointer, n int32, ctxt uintptr) {
-	fn := _cgoexpwrap_540f8fc8725b_updateAccountTimeCallback
+func _cgoexp_39f9fa9c3e05_updateAccountTimeCallback(a unsafe.Pointer, n int32, ctxt uintptr) {
+	fn := _cgoexpwrap_39f9fa9c3e05_updateAccountTimeCallback
 	_cgo_runtime_cgocallback(**(**unsafe.Pointer)(unsafe.Pointer(&fn)), a, uintptr(n), ctxt);
 }
 
-func _cgoexpwrap_540f8fc8725b_updateAccountTimeCallback(p0 _Ctype_long, p1 *_Ctype_char) {
+func _cgoexpwrap_39f9fa9c3e05_updateAccountTimeCallback(p0 _Ctype_long, p1 *_Ctype_char) {
 	updateAccountTimeCallback(p0, p1)
 }
 //go:cgo_export_dynamic errorCallback
-//go:linkname _cgoexp_540f8fc8725b_errorCallback _cgoexp_540f8fc8725b_errorCallback
-//go:cgo_export_static _cgoexp_540f8fc8725b_errorCallback
+//go:linkname _cgoexp_39f9fa9c3e05_errorCallback _cgoexp_39f9fa9c3e05_errorCallback
+//go:cgo_export_static _cgoexp_39f9fa9c3e05_errorCallback
 //go:nosplit
 //go:norace
-func _cgoexp_540f8fc8725b_errorCallback(a unsafe.Pointer, n int32, ctxt uintptr) {
-	fn := _cgoexpwrap_540f8fc8725b_errorCallback
+func _cgoexp_39f9fa9c3e05_errorCallback(a unsafe.Pointer, n int32, ctxt uintptr) {
+	fn := _cgoexpwrap_39f9fa9c3e05_errorCallback
 	_cgo_runtime_cgocallback(**(**unsafe.Pointer)(unsafe.Pointer(&fn)), a, uintptr(n), ctxt);
 }
 
-func _cgoexpwrap_540f8fc8725b_errorCallback(p0 _Ctype_long, p1 _Ctype_int, p2 _Ctype_int, p3 *_Ctype_char) {
+func _cgoexpwrap_39f9fa9c3e05_errorCallback(p0 _Ctype_long, p1 _Ctype_int, p2 _Ctype_int, p3 *_Ctype_char) {
 	errorCallback(p0, p1, p2, p3)
 }
 //go:cgo_export_dynamic connectionClosedCallback
-//go:linkname _cgoexp_540f8fc8725b_connectionClosedCallback _cgoexp_540f8fc8725b_connectionClosedCallback
-//go:cgo_export_static _cgoexp_540f8fc8725b_connectionClosedCallback
+//go:linkname _cgoexp_39f9fa9c3e05_connectionClosedCallback _cgoexp_39f9fa9c3e05_connectionClosedCallback
+//go:cgo_export_static _cgoexp_39f9fa9c3e05_connectionClosedCallback
 //go:nosplit
 //go:norace
-func _cgoexp_540f8fc8725b_connectionClosedCallback(a unsafe.Pointer, n int32, ctxt uintptr) {
-	fn := _cgoexpwrap_540f8fc8725b_connectionClosedCallback
+func _cgoexp_39f9fa9c3e05_connectionClosedCallback(a unsafe.Pointer, n int32, ctxt uintptr) {
+	fn := _cgoexpwrap_39f9fa9c3e05_connectionClosedCallback
 	_cgo_runtime_cgocallback(**(**unsafe.Pointer)(unsafe.Pointer(&fn)), a, uintptr(n), ctxt);
 }
 
-func _cgoexpwrap_540f8fc8725b_connectionClosedCallback(p0 _Ctype_long) {
+func _cgoexpwrap_39f9fa9c3e05_connectionClosedCallback(p0 _Ctype_long) {
 	connectionClosedCallback(p0)
 }
 //go:cgo_export_dynamic nextValidIDCallback
-//go:linkname _cgoexp_540f8fc8725b_nextValidIDCallback _cgoexp_540f8fc8725b_nextValidIDCallback
-//go:cgo_export_static _cgoexp_540f8fc8725b_nextValidIDCallback
+//go:linkname _cgoexp_39f9fa9c3e05_nextValidIDCallback _cgoexp_39f9fa9c3e05_nextValidIDCallback
+//go:cgo_export_static _cgoexp_39f9fa9c3e05_nextValidIDCallback
 //go:nosplit
 //go:norace
-func _cgoexp_540f8fc8725b_nextValidIDCallback(a unsafe.Pointer, n int32, ctxt uintptr) {
-	fn := _cgoexpwrap_540f8fc8725b_nextValidIDCallback
+func _cgoexp_39f9fa9c3e05_nextValidIDCallback(a unsafe.Pointer, n int32, ctxt uintptr) {
+	fn := _cgoexpwrap_39f9fa9c3e05_nextValidIDCallback
 	_cgo_runtime_cgocallback(**(**unsafe.Pointer)(unsafe.Pointer(&fn)), a, uintptr(n), ctxt);
 }
 
-func _cgoexpwrap_540f8fc8725b_nextValidIDCallback(p0 _Ctype_long, p1 _Ctype_OrderId) {
+func _cgoexpwrap_39f9fa9c3e05_nextValidIDCallback(p0 _Ctype_long, p1 _Ctype_OrderId) {
 	nextValidIDCallback(p0, p1)
 }
 //go:cgo_export_dynamic accountSummaryCallback
-//go:linkname _cgoexp_540f8fc8725b_accountSummaryCallback _cgoexp_540f8fc8725b_accountSummaryCallback
-//go:cgo_export_static _cgoexp_540f8fc8725b_accountSummaryCallback
+//go:linkname _cgoexp_39f9fa9c3e05_accountSummaryCallback _cgoexp_39f9fa9c3e05_accountSummaryCallback
+//go:cgo_export_static _cgoexp_39f9fa9c3e05_accountSummaryCallback
 //go:nosplit
 //go:norace
-func _cgoexp_540f8fc8725b_accountSummaryCallback(a unsafe.Pointer, n int32, ctxt uintptr) {
-	fn := _cgoexpwrap_540f8fc8725b_accountSummaryCallback
+func _cgoexp_39f9fa9c3e05_accountSummaryCallback(a unsafe.Pointer, n int32, ctxt uintptr) {
+	fn := _cgoexpwrap_39f9fa9c3e05_accountSummaryCallback
 	_cgo_runtime_cgocallback(**(**unsafe.Pointer)(unsafe.Pointer(&fn)), a, uintptr(n), ctxt);
 }
 
-func _cgoexpwrap_540f8fc8725b_accountSummaryCallback(p0 _Ctype_long, p1 _Ctype_int, p2 *_Ctype_char, p3 *_Ctype_char, p4 *_Ctype_char, p5 *_Ctype_char) {
+func _cgoexpwrap_39f9fa9c3e05_accountSummaryCallback(p0 _Ctype_long, p1 _Ctype_int, p2 *_Ctype_char, p3 *_Ctype_char, p4 *_Ctype_char, p5 *_Ctype_char) {
 	accountSummaryCallback(p0, p1, p2, p3, p4, p5)
 }
 //go:cgo_export_dynamic accountSummaryEndCallback
-//go:linkname _cgoexp_540f8fc8725b_accountSummaryEndCallback _cgoexp_540f8fc8725b_accountSummaryEndCallback
-//go:cgo_export_static _cgoexp_540f8fc8725b_accountSummaryEndCallback
+//go:linkname _cgoexp_39f9fa9c3e05_accountSummaryEndCallback _cgoexp_39f9fa9c3e05_accountSummaryEndCallback
+//go:cgo_export_static _cgoexp_39f9fa9c3e05_accountSummaryEndCallback
 //go:nosplit
 //go:norace
-func _cgoexp_540f8fc8725b_accountSummaryEndCallback(a unsafe.Pointer, n int32, ctxt uintptr) {
-	fn := _cgoexpwrap_540f8fc8725b_accountSummaryEndCallback
+func _cgoexp_39f9fa9c3e05_accountSummaryEndCallback(a unsafe.Pointer, n int32, ctxt uintptr) {
+	fn := _cgoexpwrap_39f9fa9c3e05_accountSummaryEndCallback
 	_cgo_runtime_cgocallback(**(**unsafe.Pointer)(unsafe.Pointer(&fn)), a, uintptr(n), ctxt);
 }
 
-func _cgoexpwrap_540f8fc8725b_accountSummaryEndCallback(p0 _Ctype_long, p1 _Ctype_int) {
+func _cgoexpwrap_39f9fa9c3e05_accountSummaryEndCallback(p0 _Ctype_long, p1 _Ctype_int) {
 	accountSummaryEndCallback(p0, p1)
 }
+//go:cgo_export_dynamic openOrderCallback
+//go:linkname _cgoexp_39f9fa9c3e05_openOrderCallback _cgoexp_39f9fa9c3e05_openOrderCallback
+//go:cgo_export_static _cgoexp_39f9fa9c3e05_openOrderCallback
+//go:nosplit
+//go:norace
+func _cgoexp_39f9fa9c3e05_openOrderCallback(a unsafe.Pointer, n int32, ctxt uintptr) {
+	fn := _cgoexpwrap_39f9fa9c3e05_openOrderCallback
+	_cgo_runtime_cgocallback(**(**unsafe.Pointer)(unsafe.Pointer(&fn)), a, uintptr(n), ctxt);
+}
 
-//go:cgo_import_static _cgo_540f8fc8725b_Cfunc__Cmalloc
-//go:linkname __cgofn__cgo_540f8fc8725b_Cfunc__Cmalloc _cgo_540f8fc8725b_Cfunc__Cmalloc
-var __cgofn__cgo_540f8fc8725b_Cfunc__Cmalloc byte
-var _cgo_540f8fc8725b_Cfunc__Cmalloc = unsafe.Pointer(&__cgofn__cgo_540f8fc8725b_Cfunc__Cmalloc)
+func _cgoexpwrap_39f9fa9c3e05_openOrderCallback(p0 _Ctype_long, p1 OrderID, p2 *_Ctype_struct_Contract, p3 *_Ctype_struct_Order) {
+	openOrderCallback(p0, p1, p2, p3)
+}
+//go:cgo_export_dynamic orderStatusCallback
+//go:linkname _cgoexp_39f9fa9c3e05_orderStatusCallback _cgoexp_39f9fa9c3e05_orderStatusCallback
+//go:cgo_export_static _cgoexp_39f9fa9c3e05_orderStatusCallback
+//go:nosplit
+//go:norace
+func _cgoexp_39f9fa9c3e05_orderStatusCallback(a unsafe.Pointer, n int32, ctxt uintptr) {
+	fn := _cgoexpwrap_39f9fa9c3e05_orderStatusCallback
+	_cgo_runtime_cgocallback(**(**unsafe.Pointer)(unsafe.Pointer(&fn)), a, uintptr(n), ctxt);
+}
+
+func _cgoexpwrap_39f9fa9c3e05_orderStatusCallback(p0 _Ctype_long, p1 OrderID, p2 *_Ctype_char, p3 _Ctype_double, p4 _Ctype_double, p5 _Ctype_double, p6 _Ctype_int, p7 _Ctype_int, p8 _Ctype_double, p9 _Ctype_int, p10 *_Ctype_char, p11 _Ctype_double) {
+	orderStatusCallback(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11)
+}
+//go:cgo_export_dynamic orderBoundCallback
+//go:linkname _cgoexp_39f9fa9c3e05_orderBoundCallback _cgoexp_39f9fa9c3e05_orderBoundCallback
+//go:cgo_export_static _cgoexp_39f9fa9c3e05_orderBoundCallback
+//go:nosplit
+//go:norace
+func _cgoexp_39f9fa9c3e05_orderBoundCallback(a unsafe.Pointer, n int32, ctxt uintptr) {
+	fn := _cgoexpwrap_39f9fa9c3e05_orderBoundCallback
+	_cgo_runtime_cgocallback(**(**unsafe.Pointer)(unsafe.Pointer(&fn)), a, uintptr(n), ctxt);
+}
+
+func _cgoexpwrap_39f9fa9c3e05_orderBoundCallback(p0 _Ctype_long, p1 _Ctype_long, p2 _Ctype_int, p3 _Ctype_int) {
+	orderBoundCallback(p0, p1, p2, p3)
+}
+//go:cgo_export_dynamic openOrderEndCallback
+//go:linkname _cgoexp_39f9fa9c3e05_openOrderEndCallback _cgoexp_39f9fa9c3e05_openOrderEndCallback
+//go:cgo_export_static _cgoexp_39f9fa9c3e05_openOrderEndCallback
+//go:nosplit
+//go:norace
+func _cgoexp_39f9fa9c3e05_openOrderEndCallback(a unsafe.Pointer, n int32, ctxt uintptr) {
+	fn := _cgoexpwrap_39f9fa9c3e05_openOrderEndCallback
+	_cgo_runtime_cgocallback(**(**unsafe.Pointer)(unsafe.Pointer(&fn)), a, uintptr(n), ctxt);
+}
+
+func _cgoexpwrap_39f9fa9c3e05_openOrderEndCallback(p0 _Ctype_long) {
+	openOrderEndCallback(p0)
+}
+//go:cgo_export_dynamic execDetailsCallback
+//go:linkname _cgoexp_39f9fa9c3e05_execDetailsCallback _cgoexp_39f9fa9c3e05_execDetailsCallback
+//go:cgo_export_static _cgoexp_39f9fa9c3e05_execDetailsCallback
+//go:nosplit
+//go:norace
+func _cgoexp_39f9fa9c3e05_execDetailsCallback(a unsafe.Pointer, n int32, ctxt uintptr) {
+	fn := _cgoexpwrap_39f9fa9c3e05_execDetailsCallback
+	_cgo_runtime_cgocallback(**(**unsafe.Pointer)(unsafe.Pointer(&fn)), a, uintptr(n), ctxt);
+}
+
+func _cgoexpwrap_39f9fa9c3e05_execDetailsCallback(p0 _Ctype_long, p1 _Ctype_int, p2 *_Ctype_struct_Contract, p3 *_Ctype_struct_Execution) {
+	execDetailsCallback(p0, p1, p2, p3)
+}
+//go:cgo_export_dynamic execDetailsEndCallback
+//go:linkname _cgoexp_39f9fa9c3e05_execDetailsEndCallback _cgoexp_39f9fa9c3e05_execDetailsEndCallback
+//go:cgo_export_static _cgoexp_39f9fa9c3e05_execDetailsEndCallback
+//go:nosplit
+//go:norace
+func _cgoexp_39f9fa9c3e05_execDetailsEndCallback(a unsafe.Pointer, n int32, ctxt uintptr) {
+	fn := _cgoexpwrap_39f9fa9c3e05_execDetailsEndCallback
+	_cgo_runtime_cgocallback(**(**unsafe.Pointer)(unsafe.Pointer(&fn)), a, uintptr(n), ctxt);
+}
+
+func _cgoexpwrap_39f9fa9c3e05_execDetailsEndCallback(p0 _Ctype_long, p1 _Ctype_int) {
+	execDetailsEndCallback(p0, p1)
+}
+
+//go:cgo_import_static _cgo_39f9fa9c3e05_Cfunc__Cmalloc
+//go:linkname __cgofn__cgo_39f9fa9c3e05_Cfunc__Cmalloc _cgo_39f9fa9c3e05_Cfunc__Cmalloc
+var __cgofn__cgo_39f9fa9c3e05_Cfunc__Cmalloc byte
+var _cgo_39f9fa9c3e05_Cfunc__Cmalloc = unsafe.Pointer(&__cgofn__cgo_39f9fa9c3e05_Cfunc__Cmalloc)
 
 //go:linkname runtime_throw runtime.throw
 func runtime_throw(string)
 
 //go:cgo_unsafe_args
 func _cgo_cmalloc(p0 uint64) (r1 unsafe.Pointer) {
-	_cgo_runtime_cgocall(_cgo_540f8fc8725b_Cfunc__Cmalloc, uintptr(unsafe.Pointer(&p0)))
+	_cgo_runtime_cgocall(_cgo_39f9fa9c3e05_Cfunc__Cmalloc, uintptr(unsafe.Pointer(&p0)))
 	if r1 == nil {
 		runtime_throw("runtime: C malloc failed")
 	}

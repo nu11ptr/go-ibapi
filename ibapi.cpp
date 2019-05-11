@@ -111,6 +111,75 @@ const char *order_tif(Order *order)
     return order->tif.c_str();
 }
 
+// *** ExecutionFilter ***
+
+ExecutionFilter *new_exec_filter(long clientId, const char *acctCode, const char *execTime,
+                                 const char *symbol, const char *secType, const char *exchange,
+                                 const char *side)
+{
+    ExecutionFilter *filter = new ExecutionFilter();
+    filter->m_clientId = clientId;
+    filter->m_acctCode = acctCode;
+    filter->m_time = execTime;
+    filter->m_symbol = symbol;
+    filter->m_secType = secType;
+    filter->m_exchange = exchange;
+    filter->m_side = side;
+    return filter;
+}
+
+void delete_exec_filter(ExecutionFilter *filter)
+{
+    delete filter;
+}
+
+// *** Execution ***
+
+const char *exec_id(Execution *exec)
+{
+    return exec->execId.c_str();
+}
+
+const char *exec_time(Execution *exec)
+{
+    return exec->time.c_str();
+}
+
+const char *exec_account_num(Execution *exec)
+{
+    return exec->acctNumber.c_str();
+}
+
+const char *exec_exchange(Execution *exec)
+{
+    return exec->exchange.c_str();
+}
+
+const char *exec_side(Execution *exec)
+{
+    return exec->side.c_str();
+}
+
+double exec_shares(Execution *exec)
+{
+    return exec->shares;
+}
+
+double exec_price(Execution *exec)
+{
+    return exec->price;
+}
+
+double exec_avg_price(Execution *exec)
+{
+    return exec->avgPrice;
+}
+
+long exec_order_id(Execution *exec)
+{
+    return exec->orderId;
+}
+
 // *** IBClient ***
 
 IBClient::IBClient(long wrapper_id, unsigned long timeout)
@@ -218,4 +287,14 @@ void client_place_order(IBClient *client, OrderId orderId, Contract *contract, O
 void client_cancel_order(IBClient *client, OrderId orderId)
 {
     client->cancelOrder(orderId);
+}
+
+void client_req_open_orders(IBClient *client)
+{
+    client->reqOpenOrders();
+}
+
+void client_req_executions(IBClient *client, int reqId, ExecutionFilter *filter)
+{
+    client->reqExecutions(reqId, *filter);
 }

@@ -15,7 +15,7 @@ extern char* _cgo_topofstack(void);
 
 #define _cgo_msan_write(addr, sz)
 
-extern void _cgoexp_540f8fc8725b_updateAccountTimeCallback(void *, int, __SIZE_TYPE__);
+extern void _cgoexp_39f9fa9c3e05_updateAccountTimeCallback(void *, int, __SIZE_TYPE__);
 
 CGO_NO_SANITIZE_THREAD
 void updateAccountTimeCallback(long int p0, char* p1)
@@ -28,11 +28,11 @@ void updateAccountTimeCallback(long int p0, char* p1)
 	a.p0 = p0;
 	a.p1 = p1;
 	_cgo_tsan_release();
-	crosscall2(_cgoexp_540f8fc8725b_updateAccountTimeCallback, &a, 16, _cgo_ctxt);
+	crosscall2(_cgoexp_39f9fa9c3e05_updateAccountTimeCallback, &a, 16, _cgo_ctxt);
 	_cgo_tsan_acquire();
 	_cgo_release_context(_cgo_ctxt);
 }
-extern void _cgoexp_540f8fc8725b_errorCallback(void *, int, __SIZE_TYPE__);
+extern void _cgoexp_39f9fa9c3e05_errorCallback(void *, int, __SIZE_TYPE__);
 
 CGO_NO_SANITIZE_THREAD
 void errorCallback(long int p0, int p1, int p2, char* p3)
@@ -49,11 +49,11 @@ void errorCallback(long int p0, int p1, int p2, char* p3)
 	a.p2 = p2;
 	a.p3 = p3;
 	_cgo_tsan_release();
-	crosscall2(_cgoexp_540f8fc8725b_errorCallback, &a, 24, _cgo_ctxt);
+	crosscall2(_cgoexp_39f9fa9c3e05_errorCallback, &a, 24, _cgo_ctxt);
 	_cgo_tsan_acquire();
 	_cgo_release_context(_cgo_ctxt);
 }
-extern void _cgoexp_540f8fc8725b_connectionClosedCallback(void *, int, __SIZE_TYPE__);
+extern void _cgoexp_39f9fa9c3e05_connectionClosedCallback(void *, int, __SIZE_TYPE__);
 
 CGO_NO_SANITIZE_THREAD
 void connectionClosedCallback(long int p0)
@@ -64,11 +64,11 @@ void connectionClosedCallback(long int p0)
 	} __attribute__((__packed__, __gcc_struct__)) a;
 	a.p0 = p0;
 	_cgo_tsan_release();
-	crosscall2(_cgoexp_540f8fc8725b_connectionClosedCallback, &a, 8, _cgo_ctxt);
+	crosscall2(_cgoexp_39f9fa9c3e05_connectionClosedCallback, &a, 8, _cgo_ctxt);
 	_cgo_tsan_acquire();
 	_cgo_release_context(_cgo_ctxt);
 }
-extern void _cgoexp_540f8fc8725b_nextValidIDCallback(void *, int, __SIZE_TYPE__);
+extern void _cgoexp_39f9fa9c3e05_nextValidIDCallback(void *, int, __SIZE_TYPE__);
 
 CGO_NO_SANITIZE_THREAD
 void nextValidIDCallback(long int p0, OrderId p1)
@@ -81,11 +81,11 @@ void nextValidIDCallback(long int p0, OrderId p1)
 	a.p0 = p0;
 	a.p1 = p1;
 	_cgo_tsan_release();
-	crosscall2(_cgoexp_540f8fc8725b_nextValidIDCallback, &a, 16, _cgo_ctxt);
+	crosscall2(_cgoexp_39f9fa9c3e05_nextValidIDCallback, &a, 16, _cgo_ctxt);
 	_cgo_tsan_acquire();
 	_cgo_release_context(_cgo_ctxt);
 }
-extern void _cgoexp_540f8fc8725b_accountSummaryCallback(void *, int, __SIZE_TYPE__);
+extern void _cgoexp_39f9fa9c3e05_accountSummaryCallback(void *, int, __SIZE_TYPE__);
 
 CGO_NO_SANITIZE_THREAD
 void accountSummaryCallback(long int p0, int p1, char* p2, char* p3, char* p4, char* p5)
@@ -107,11 +107,11 @@ void accountSummaryCallback(long int p0, int p1, char* p2, char* p3, char* p4, c
 	a.p4 = p4;
 	a.p5 = p5;
 	_cgo_tsan_release();
-	crosscall2(_cgoexp_540f8fc8725b_accountSummaryCallback, &a, 48, _cgo_ctxt);
+	crosscall2(_cgoexp_39f9fa9c3e05_accountSummaryCallback, &a, 48, _cgo_ctxt);
 	_cgo_tsan_acquire();
 	_cgo_release_context(_cgo_ctxt);
 }
-extern void _cgoexp_540f8fc8725b_accountSummaryEndCallback(void *, int, __SIZE_TYPE__);
+extern void _cgoexp_39f9fa9c3e05_accountSummaryEndCallback(void *, int, __SIZE_TYPE__);
 
 CGO_NO_SANITIZE_THREAD
 void accountSummaryEndCallback(long int p0, int p1)
@@ -125,13 +125,148 @@ void accountSummaryEndCallback(long int p0, int p1)
 	a.p0 = p0;
 	a.p1 = p1;
 	_cgo_tsan_release();
-	crosscall2(_cgoexp_540f8fc8725b_accountSummaryEndCallback, &a, 16, _cgo_ctxt);
+	crosscall2(_cgoexp_39f9fa9c3e05_accountSummaryEndCallback, &a, 16, _cgo_ctxt);
+	_cgo_tsan_acquire();
+	_cgo_release_context(_cgo_ctxt);
+}
+extern void _cgoexp_39f9fa9c3e05_openOrderCallback(void *, int, __SIZE_TYPE__);
+
+CGO_NO_SANITIZE_THREAD
+void openOrderCallback(long int p0, OrderId p1, Contract* p2, Order* p3)
+{
+	__SIZE_TYPE__ _cgo_ctxt = _cgo_wait_runtime_init_done();
+	struct {
+		long int p0;
+		OrderId p1;
+		Contract* p2;
+		Order* p3;
+	} __attribute__((__packed__, __gcc_struct__)) a;
+	a.p0 = p0;
+	a.p1 = p1;
+	a.p2 = p2;
+	a.p3 = p3;
+	_cgo_tsan_release();
+	crosscall2(_cgoexp_39f9fa9c3e05_openOrderCallback, &a, 32, _cgo_ctxt);
+	_cgo_tsan_acquire();
+	_cgo_release_context(_cgo_ctxt);
+}
+extern void _cgoexp_39f9fa9c3e05_orderStatusCallback(void *, int, __SIZE_TYPE__);
+
+CGO_NO_SANITIZE_THREAD
+void orderStatusCallback(long int p0, OrderId p1, char* p2, double p3, double p4, double p5, int p6, int p7, double p8, int p9, char* p10, double p11)
+{
+	__SIZE_TYPE__ _cgo_ctxt = _cgo_wait_runtime_init_done();
+	struct {
+		long int p0;
+		OrderId p1;
+		char* p2;
+		double p3;
+		double p4;
+		double p5;
+		int p6;
+		int p7;
+		double p8;
+		int p9;
+		char __pad0[4];
+		char* p10;
+		double p11;
+	} __attribute__((__packed__, __gcc_struct__)) a;
+	a.p0 = p0;
+	a.p1 = p1;
+	a.p2 = p2;
+	a.p3 = p3;
+	a.p4 = p4;
+	a.p5 = p5;
+	a.p6 = p6;
+	a.p7 = p7;
+	a.p8 = p8;
+	a.p9 = p9;
+	a.p10 = p10;
+	a.p11 = p11;
+	_cgo_tsan_release();
+	crosscall2(_cgoexp_39f9fa9c3e05_orderStatusCallback, &a, 88, _cgo_ctxt);
+	_cgo_tsan_acquire();
+	_cgo_release_context(_cgo_ctxt);
+}
+extern void _cgoexp_39f9fa9c3e05_orderBoundCallback(void *, int, __SIZE_TYPE__);
+
+CGO_NO_SANITIZE_THREAD
+void orderBoundCallback(long int p0, long int p1, int p2, int p3)
+{
+	__SIZE_TYPE__ _cgo_ctxt = _cgo_wait_runtime_init_done();
+	struct {
+		long int p0;
+		long int p1;
+		int p2;
+		int p3;
+	} __attribute__((__packed__, __gcc_struct__)) a;
+	a.p0 = p0;
+	a.p1 = p1;
+	a.p2 = p2;
+	a.p3 = p3;
+	_cgo_tsan_release();
+	crosscall2(_cgoexp_39f9fa9c3e05_orderBoundCallback, &a, 24, _cgo_ctxt);
+	_cgo_tsan_acquire();
+	_cgo_release_context(_cgo_ctxt);
+}
+extern void _cgoexp_39f9fa9c3e05_openOrderEndCallback(void *, int, __SIZE_TYPE__);
+
+CGO_NO_SANITIZE_THREAD
+void openOrderEndCallback(long int p0)
+{
+	__SIZE_TYPE__ _cgo_ctxt = _cgo_wait_runtime_init_done();
+	struct {
+		long int p0;
+	} __attribute__((__packed__, __gcc_struct__)) a;
+	a.p0 = p0;
+	_cgo_tsan_release();
+	crosscall2(_cgoexp_39f9fa9c3e05_openOrderEndCallback, &a, 8, _cgo_ctxt);
+	_cgo_tsan_acquire();
+	_cgo_release_context(_cgo_ctxt);
+}
+extern void _cgoexp_39f9fa9c3e05_execDetailsCallback(void *, int, __SIZE_TYPE__);
+
+CGO_NO_SANITIZE_THREAD
+void execDetailsCallback(long int p0, int p1, Contract* p2, Execution* p3)
+{
+	__SIZE_TYPE__ _cgo_ctxt = _cgo_wait_runtime_init_done();
+	struct {
+		long int p0;
+		int p1;
+		char __pad0[4];
+		Contract* p2;
+		Execution* p3;
+	} __attribute__((__packed__, __gcc_struct__)) a;
+	a.p0 = p0;
+	a.p1 = p1;
+	a.p2 = p2;
+	a.p3 = p3;
+	_cgo_tsan_release();
+	crosscall2(_cgoexp_39f9fa9c3e05_execDetailsCallback, &a, 32, _cgo_ctxt);
+	_cgo_tsan_acquire();
+	_cgo_release_context(_cgo_ctxt);
+}
+extern void _cgoexp_39f9fa9c3e05_execDetailsEndCallback(void *, int, __SIZE_TYPE__);
+
+CGO_NO_SANITIZE_THREAD
+void execDetailsEndCallback(long int p0, int p1)
+{
+	__SIZE_TYPE__ _cgo_ctxt = _cgo_wait_runtime_init_done();
+	struct {
+		long int p0;
+		int p1;
+		char __pad0[4];
+	} __attribute__((__packed__, __gcc_struct__)) a;
+	a.p0 = p0;
+	a.p1 = p1;
+	_cgo_tsan_release();
+	crosscall2(_cgoexp_39f9fa9c3e05_execDetailsEndCallback, &a, 16, _cgo_ctxt);
 	_cgo_tsan_acquire();
 	_cgo_release_context(_cgo_ctxt);
 }
 
 CGO_NO_SANITIZE_THREAD
-void _cgo_540f8fc8725b_Cfunc__Cmalloc(void *v) {
+void _cgo_39f9fa9c3e05_Cfunc__Cmalloc(void *v) {
 	struct {
 		unsigned long long p0;
 		void *r1;

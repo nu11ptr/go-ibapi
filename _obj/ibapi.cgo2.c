@@ -66,7 +66,7 @@ extern char* _cgo_topofstack(void);
 
 CGO_NO_SANITIZE_THREAD
 void
-_cgo_540f8fc8725b_Cfunc_client_cancel_account_summ(void *v)
+_cgo_39f9fa9c3e05_Cfunc_client_cancel_account_summ(void *v)
 {
 	struct {
 		IBClient* p0;
@@ -80,7 +80,7 @@ _cgo_540f8fc8725b_Cfunc_client_cancel_account_summ(void *v)
 
 CGO_NO_SANITIZE_THREAD
 void
-_cgo_540f8fc8725b_Cfunc_client_cancel_order(void *v)
+_cgo_39f9fa9c3e05_Cfunc_client_cancel_order(void *v)
 {
 	struct {
 		IBClient* p0;
@@ -93,7 +93,7 @@ _cgo_540f8fc8725b_Cfunc_client_cancel_order(void *v)
 
 CGO_NO_SANITIZE_THREAD
 void
-_cgo_540f8fc8725b_Cfunc_client_connect(void *v)
+_cgo_39f9fa9c3e05_Cfunc_client_connect(void *v)
 {
 	struct {
 		IBClient* p0;
@@ -115,7 +115,7 @@ _cgo_540f8fc8725b_Cfunc_client_connect(void *v)
 
 CGO_NO_SANITIZE_THREAD
 void
-_cgo_540f8fc8725b_Cfunc_client_disconnect(void *v)
+_cgo_39f9fa9c3e05_Cfunc_client_disconnect(void *v)
 {
 	struct {
 		IBClient* p0;
@@ -127,7 +127,7 @@ _cgo_540f8fc8725b_Cfunc_client_disconnect(void *v)
 
 CGO_NO_SANITIZE_THREAD
 void
-_cgo_540f8fc8725b_Cfunc_client_is_connected(void *v)
+_cgo_39f9fa9c3e05_Cfunc_client_is_connected(void *v)
 {
 	struct {
 		IBClient* p0;
@@ -146,7 +146,7 @@ _cgo_540f8fc8725b_Cfunc_client_is_connected(void *v)
 
 CGO_NO_SANITIZE_THREAD
 void
-_cgo_540f8fc8725b_Cfunc_client_place_order(void *v)
+_cgo_39f9fa9c3e05_Cfunc_client_place_order(void *v)
 {
 	struct {
 		IBClient* p0;
@@ -161,7 +161,7 @@ _cgo_540f8fc8725b_Cfunc_client_place_order(void *v)
 
 CGO_NO_SANITIZE_THREAD
 void
-_cgo_540f8fc8725b_Cfunc_client_process_msg(void *v)
+_cgo_39f9fa9c3e05_Cfunc_client_process_msg(void *v)
 {
 	struct {
 		IBClient* p0;
@@ -173,7 +173,7 @@ _cgo_540f8fc8725b_Cfunc_client_process_msg(void *v)
 
 CGO_NO_SANITIZE_THREAD
 void
-_cgo_540f8fc8725b_Cfunc_client_req_account_summ(void *v)
+_cgo_39f9fa9c3e05_Cfunc_client_req_account_summ(void *v)
 {
 	struct {
 		IBClient* p0;
@@ -189,7 +189,34 @@ _cgo_540f8fc8725b_Cfunc_client_req_account_summ(void *v)
 
 CGO_NO_SANITIZE_THREAD
 void
-_cgo_540f8fc8725b_Cfunc_contract_currency(void *v)
+_cgo_39f9fa9c3e05_Cfunc_client_req_executions(void *v)
+{
+	struct {
+		IBClient* p0;
+		int p1;
+		char __pad12[4];
+		ExecutionFilter* p2;
+	} __attribute__((__packed__, __gcc_struct__)) *_cgo_a = v;
+	_cgo_tsan_acquire();
+	client_req_executions(_cgo_a->p0, _cgo_a->p1, _cgo_a->p2);
+	_cgo_tsan_release();
+}
+
+CGO_NO_SANITIZE_THREAD
+void
+_cgo_39f9fa9c3e05_Cfunc_client_req_open_orders(void *v)
+{
+	struct {
+		IBClient* p0;
+	} __attribute__((__packed__, __gcc_struct__)) *_cgo_a = v;
+	_cgo_tsan_acquire();
+	client_req_open_orders(_cgo_a->p0);
+	_cgo_tsan_release();
+}
+
+CGO_NO_SANITIZE_THREAD
+void
+_cgo_39f9fa9c3e05_Cfunc_contract_currency(void *v)
 {
 	struct {
 		Contract* p0;
@@ -207,7 +234,7 @@ _cgo_540f8fc8725b_Cfunc_contract_currency(void *v)
 
 CGO_NO_SANITIZE_THREAD
 void
-_cgo_540f8fc8725b_Cfunc_contract_exchange(void *v)
+_cgo_39f9fa9c3e05_Cfunc_contract_exchange(void *v)
 {
 	struct {
 		Contract* p0;
@@ -225,7 +252,7 @@ _cgo_540f8fc8725b_Cfunc_contract_exchange(void *v)
 
 CGO_NO_SANITIZE_THREAD
 void
-_cgo_540f8fc8725b_Cfunc_contract_month(void *v)
+_cgo_39f9fa9c3e05_Cfunc_contract_month(void *v)
 {
 	struct {
 		Contract* p0;
@@ -243,7 +270,7 @@ _cgo_540f8fc8725b_Cfunc_contract_month(void *v)
 
 CGO_NO_SANITIZE_THREAD
 void
-_cgo_540f8fc8725b_Cfunc_contract_sec_type(void *v)
+_cgo_39f9fa9c3e05_Cfunc_contract_sec_type(void *v)
 {
 	struct {
 		Contract* p0;
@@ -261,7 +288,7 @@ _cgo_540f8fc8725b_Cfunc_contract_sec_type(void *v)
 
 CGO_NO_SANITIZE_THREAD
 void
-_cgo_540f8fc8725b_Cfunc_contract_symbol(void *v)
+_cgo_39f9fa9c3e05_Cfunc_contract_symbol(void *v)
 {
 	struct {
 		Contract* p0;
@@ -279,7 +306,7 @@ _cgo_540f8fc8725b_Cfunc_contract_symbol(void *v)
 
 CGO_NO_SANITIZE_THREAD
 void
-_cgo_540f8fc8725b_Cfunc_delete_client(void *v)
+_cgo_39f9fa9c3e05_Cfunc_delete_client(void *v)
 {
 	struct {
 		IBClient* p0;
@@ -291,7 +318,7 @@ _cgo_540f8fc8725b_Cfunc_delete_client(void *v)
 
 CGO_NO_SANITIZE_THREAD
 void
-_cgo_540f8fc8725b_Cfunc_delete_contract(void *v)
+_cgo_39f9fa9c3e05_Cfunc_delete_contract(void *v)
 {
 	struct {
 		Contract* p0;
@@ -303,7 +330,19 @@ _cgo_540f8fc8725b_Cfunc_delete_contract(void *v)
 
 CGO_NO_SANITIZE_THREAD
 void
-_cgo_540f8fc8725b_Cfunc_delete_order(void *v)
+_cgo_39f9fa9c3e05_Cfunc_delete_exec_filter(void *v)
+{
+	struct {
+		ExecutionFilter* p0;
+	} __attribute__((__packed__, __gcc_struct__)) *_cgo_a = v;
+	_cgo_tsan_acquire();
+	delete_exec_filter(_cgo_a->p0);
+	_cgo_tsan_release();
+}
+
+CGO_NO_SANITIZE_THREAD
+void
+_cgo_39f9fa9c3e05_Cfunc_delete_order(void *v)
 {
 	struct {
 		Order* p0;
@@ -315,7 +354,169 @@ _cgo_540f8fc8725b_Cfunc_delete_order(void *v)
 
 CGO_NO_SANITIZE_THREAD
 void
-_cgo_540f8fc8725b_Cfunc_free(void *v)
+_cgo_39f9fa9c3e05_Cfunc_exec_account_num(void *v)
+{
+	struct {
+		Execution* p0;
+		char const* r;
+	} __attribute__((__packed__, __gcc_struct__)) *_cgo_a = v;
+	char *_cgo_stktop = _cgo_topofstack();
+	__typeof__(_cgo_a->r) _cgo_r;
+	_cgo_tsan_acquire();
+	_cgo_r = (__typeof__(_cgo_a->r)) exec_account_num(_cgo_a->p0);
+	_cgo_tsan_release();
+	_cgo_a = (void*)((char*)_cgo_a + (_cgo_topofstack() - _cgo_stktop));
+	_cgo_a->r = _cgo_r;
+	_cgo_msan_write(&_cgo_a->r, sizeof(_cgo_a->r));
+}
+
+CGO_NO_SANITIZE_THREAD
+void
+_cgo_39f9fa9c3e05_Cfunc_exec_avg_price(void *v)
+{
+	struct {
+		Execution* p0;
+		double r;
+	} __attribute__((__packed__, __gcc_struct__)) *_cgo_a = v;
+	char *_cgo_stktop = _cgo_topofstack();
+	__typeof__(_cgo_a->r) _cgo_r;
+	_cgo_tsan_acquire();
+	_cgo_r = exec_avg_price(_cgo_a->p0);
+	_cgo_tsan_release();
+	_cgo_a = (void*)((char*)_cgo_a + (_cgo_topofstack() - _cgo_stktop));
+	_cgo_a->r = _cgo_r;
+	_cgo_msan_write(&_cgo_a->r, sizeof(_cgo_a->r));
+}
+
+CGO_NO_SANITIZE_THREAD
+void
+_cgo_39f9fa9c3e05_Cfunc_exec_exchange(void *v)
+{
+	struct {
+		Execution* p0;
+		char const* r;
+	} __attribute__((__packed__, __gcc_struct__)) *_cgo_a = v;
+	char *_cgo_stktop = _cgo_topofstack();
+	__typeof__(_cgo_a->r) _cgo_r;
+	_cgo_tsan_acquire();
+	_cgo_r = (__typeof__(_cgo_a->r)) exec_exchange(_cgo_a->p0);
+	_cgo_tsan_release();
+	_cgo_a = (void*)((char*)_cgo_a + (_cgo_topofstack() - _cgo_stktop));
+	_cgo_a->r = _cgo_r;
+	_cgo_msan_write(&_cgo_a->r, sizeof(_cgo_a->r));
+}
+
+CGO_NO_SANITIZE_THREAD
+void
+_cgo_39f9fa9c3e05_Cfunc_exec_id(void *v)
+{
+	struct {
+		Execution* p0;
+		char const* r;
+	} __attribute__((__packed__, __gcc_struct__)) *_cgo_a = v;
+	char *_cgo_stktop = _cgo_topofstack();
+	__typeof__(_cgo_a->r) _cgo_r;
+	_cgo_tsan_acquire();
+	_cgo_r = (__typeof__(_cgo_a->r)) exec_id(_cgo_a->p0);
+	_cgo_tsan_release();
+	_cgo_a = (void*)((char*)_cgo_a + (_cgo_topofstack() - _cgo_stktop));
+	_cgo_a->r = _cgo_r;
+	_cgo_msan_write(&_cgo_a->r, sizeof(_cgo_a->r));
+}
+
+CGO_NO_SANITIZE_THREAD
+void
+_cgo_39f9fa9c3e05_Cfunc_exec_order_id(void *v)
+{
+	struct {
+		Execution* p0;
+		long int r;
+	} __attribute__((__packed__, __gcc_struct__)) *_cgo_a = v;
+	char *_cgo_stktop = _cgo_topofstack();
+	__typeof__(_cgo_a->r) _cgo_r;
+	_cgo_tsan_acquire();
+	_cgo_r = exec_order_id(_cgo_a->p0);
+	_cgo_tsan_release();
+	_cgo_a = (void*)((char*)_cgo_a + (_cgo_topofstack() - _cgo_stktop));
+	_cgo_a->r = _cgo_r;
+	_cgo_msan_write(&_cgo_a->r, sizeof(_cgo_a->r));
+}
+
+CGO_NO_SANITIZE_THREAD
+void
+_cgo_39f9fa9c3e05_Cfunc_exec_price(void *v)
+{
+	struct {
+		Execution* p0;
+		double r;
+	} __attribute__((__packed__, __gcc_struct__)) *_cgo_a = v;
+	char *_cgo_stktop = _cgo_topofstack();
+	__typeof__(_cgo_a->r) _cgo_r;
+	_cgo_tsan_acquire();
+	_cgo_r = exec_price(_cgo_a->p0);
+	_cgo_tsan_release();
+	_cgo_a = (void*)((char*)_cgo_a + (_cgo_topofstack() - _cgo_stktop));
+	_cgo_a->r = _cgo_r;
+	_cgo_msan_write(&_cgo_a->r, sizeof(_cgo_a->r));
+}
+
+CGO_NO_SANITIZE_THREAD
+void
+_cgo_39f9fa9c3e05_Cfunc_exec_shares(void *v)
+{
+	struct {
+		Execution* p0;
+		double r;
+	} __attribute__((__packed__, __gcc_struct__)) *_cgo_a = v;
+	char *_cgo_stktop = _cgo_topofstack();
+	__typeof__(_cgo_a->r) _cgo_r;
+	_cgo_tsan_acquire();
+	_cgo_r = exec_shares(_cgo_a->p0);
+	_cgo_tsan_release();
+	_cgo_a = (void*)((char*)_cgo_a + (_cgo_topofstack() - _cgo_stktop));
+	_cgo_a->r = _cgo_r;
+	_cgo_msan_write(&_cgo_a->r, sizeof(_cgo_a->r));
+}
+
+CGO_NO_SANITIZE_THREAD
+void
+_cgo_39f9fa9c3e05_Cfunc_exec_side(void *v)
+{
+	struct {
+		Execution* p0;
+		char const* r;
+	} __attribute__((__packed__, __gcc_struct__)) *_cgo_a = v;
+	char *_cgo_stktop = _cgo_topofstack();
+	__typeof__(_cgo_a->r) _cgo_r;
+	_cgo_tsan_acquire();
+	_cgo_r = (__typeof__(_cgo_a->r)) exec_side(_cgo_a->p0);
+	_cgo_tsan_release();
+	_cgo_a = (void*)((char*)_cgo_a + (_cgo_topofstack() - _cgo_stktop));
+	_cgo_a->r = _cgo_r;
+	_cgo_msan_write(&_cgo_a->r, sizeof(_cgo_a->r));
+}
+
+CGO_NO_SANITIZE_THREAD
+void
+_cgo_39f9fa9c3e05_Cfunc_exec_time(void *v)
+{
+	struct {
+		Execution* p0;
+		char const* r;
+	} __attribute__((__packed__, __gcc_struct__)) *_cgo_a = v;
+	char *_cgo_stktop = _cgo_topofstack();
+	__typeof__(_cgo_a->r) _cgo_r;
+	_cgo_tsan_acquire();
+	_cgo_r = (__typeof__(_cgo_a->r)) exec_time(_cgo_a->p0);
+	_cgo_tsan_release();
+	_cgo_a = (void*)((char*)_cgo_a + (_cgo_topofstack() - _cgo_stktop));
+	_cgo_a->r = _cgo_r;
+	_cgo_msan_write(&_cgo_a->r, sizeof(_cgo_a->r));
+}
+
+CGO_NO_SANITIZE_THREAD
+void
+_cgo_39f9fa9c3e05_Cfunc_free(void *v)
 {
 	struct {
 		void* p0;
@@ -327,7 +528,7 @@ _cgo_540f8fc8725b_Cfunc_free(void *v)
 
 CGO_NO_SANITIZE_THREAD
 void
-_cgo_540f8fc8725b_Cfunc_new_client(void *v)
+_cgo_39f9fa9c3e05_Cfunc_new_client(void *v)
 {
 	struct {
 		long int p0;
@@ -346,7 +547,7 @@ _cgo_540f8fc8725b_Cfunc_new_client(void *v)
 
 CGO_NO_SANITIZE_THREAD
 void
-_cgo_540f8fc8725b_Cfunc_new_contract(void *v)
+_cgo_39f9fa9c3e05_Cfunc_new_contract(void *v)
 {
 	struct {
 		char const* p0;
@@ -368,7 +569,31 @@ _cgo_540f8fc8725b_Cfunc_new_contract(void *v)
 
 CGO_NO_SANITIZE_THREAD
 void
-_cgo_540f8fc8725b_Cfunc_new_order(void *v)
+_cgo_39f9fa9c3e05_Cfunc_new_exec_filter(void *v)
+{
+	struct {
+		long int p0;
+		char const* p1;
+		char const* p2;
+		char const* p3;
+		char const* p4;
+		char const* p5;
+		char const* p6;
+		ExecutionFilter* r;
+	} __attribute__((__packed__, __gcc_struct__)) *_cgo_a = v;
+	char *_cgo_stktop = _cgo_topofstack();
+	__typeof__(_cgo_a->r) _cgo_r;
+	_cgo_tsan_acquire();
+	_cgo_r = (__typeof__(_cgo_a->r)) new_exec_filter(_cgo_a->p0, _cgo_a->p1, _cgo_a->p2, _cgo_a->p3, _cgo_a->p4, _cgo_a->p5, _cgo_a->p6);
+	_cgo_tsan_release();
+	_cgo_a = (void*)((char*)_cgo_a + (_cgo_topofstack() - _cgo_stktop));
+	_cgo_a->r = _cgo_r;
+	_cgo_msan_write(&_cgo_a->r, sizeof(_cgo_a->r));
+}
+
+CGO_NO_SANITIZE_THREAD
+void
+_cgo_39f9fa9c3e05_Cfunc_new_order(void *v)
 {
 	struct {
 		int p0;
@@ -392,7 +617,7 @@ _cgo_540f8fc8725b_Cfunc_new_order(void *v)
 
 CGO_NO_SANITIZE_THREAD
 void
-_cgo_540f8fc8725b_Cfunc_order_action(void *v)
+_cgo_39f9fa9c3e05_Cfunc_order_action(void *v)
 {
 	struct {
 		Order* p0;
@@ -410,7 +635,7 @@ _cgo_540f8fc8725b_Cfunc_order_action(void *v)
 
 CGO_NO_SANITIZE_THREAD
 void
-_cgo_540f8fc8725b_Cfunc_order_id(void *v)
+_cgo_39f9fa9c3e05_Cfunc_order_id(void *v)
 {
 	struct {
 		Order* p0;
@@ -429,7 +654,7 @@ _cgo_540f8fc8725b_Cfunc_order_id(void *v)
 
 CGO_NO_SANITIZE_THREAD
 void
-_cgo_540f8fc8725b_Cfunc_order_price(void *v)
+_cgo_39f9fa9c3e05_Cfunc_order_price(void *v)
 {
 	struct {
 		Order* p0;
@@ -447,7 +672,7 @@ _cgo_540f8fc8725b_Cfunc_order_price(void *v)
 
 CGO_NO_SANITIZE_THREAD
 void
-_cgo_540f8fc8725b_Cfunc_order_qty(void *v)
+_cgo_39f9fa9c3e05_Cfunc_order_qty(void *v)
 {
 	struct {
 		Order* p0;
@@ -465,7 +690,7 @@ _cgo_540f8fc8725b_Cfunc_order_qty(void *v)
 
 CGO_NO_SANITIZE_THREAD
 void
-_cgo_540f8fc8725b_Cfunc_order_tif(void *v)
+_cgo_39f9fa9c3e05_Cfunc_order_tif(void *v)
 {
 	struct {
 		Order* p0;
@@ -483,7 +708,7 @@ _cgo_540f8fc8725b_Cfunc_order_tif(void *v)
 
 CGO_NO_SANITIZE_THREAD
 void
-_cgo_540f8fc8725b_Cfunc_order_type(void *v)
+_cgo_39f9fa9c3e05_Cfunc_order_type(void *v)
 {
 	struct {
 		Order* p0;
