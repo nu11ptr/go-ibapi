@@ -215,26 +215,6 @@ void IBClient::processMsg()
     }
 }
 
-void IBClient::reqAccountSummary(int reqId, const std::string groupName, const std::string tags)
-{
-    sock.reqAccountSummary(reqId, groupName, tags);
-}
-
-void IBClient::cancelAccountSummary(int reqId)
-{
-    sock.cancelAccountSummary(reqId);
-}
-
-void IBClient::placeOrder(OrderId orderId, Contract &contract, Order &order)
-{
-    sock.placeOrder(orderId, contract, order);
-}
-
-void IBClient::cancelOrder(OrderId orderId)
-{
-    sock.cancelOrder(orderId);
-}
-
 // *** EWrapper ***
 
 // *** C API ***

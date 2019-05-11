@@ -40,13 +40,25 @@ class IBClient : public DefaultEWrapper
 
     void processMsg();
 
-    void reqAccountSummary(int reqId, const std::string groupName, const std::string tags);
+    void reqAccountSummary(int reqId, const std::string groupName, const std::string tags)
+    {
+        sock.reqAccountSummary(reqId, groupName, tags);
+    }
 
-    void cancelAccountSummary(int reqId);
+    void cancelAccountSummary(int reqId)
+    {
+        sock.cancelAccountSummary(reqId);
+    }
 
-    void placeOrder(OrderId orderId, Contract &contract, Order &order);
+    void placeOrder(OrderId orderId, Contract &contract, Order &order)
+    {
+        sock.placeOrder(orderId, contract, order);
+    }
 
-    void cancelOrder(OrderId orderId);
+    void cancelOrder(OrderId orderId)
+    {
+        sock.cancelOrder(orderId);
+    }
 
     void reqOpenOrders()
     {
